@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef HAVE_FREETYPE
 
@@ -14,15 +14,15 @@
 #include <freetype/ftoutln.h>
 #include <freetype/ftsizes.h>
 #include <freetype/ftglyph.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "SplashMath.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/splash/SplashMath.h"
 #include "SplashGlyphBitmap.h"
 #include "SplashPath.h"
 #include "SplashFontEngine.h"
 #include "SplashFTFontEngine.h"
 #include "SplashFTFontFile.h"
-#include "SplashFTFont.h"
+#include "xpdf/splash/SplashFTFont.h"
 
 //------------------------------------------------------------------------
 

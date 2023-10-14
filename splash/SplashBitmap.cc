@@ -6,16 +6,16 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <limits.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "gfile.h"
-#include "Trace.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/gfile.h"
+#include "../goo/Trace.h"
 #include "SplashErrorCodes.h"
-#include "SplashBitmap.h"
+#include "xpdf/splash/SplashBitmap.h"
 
 //------------------------------------------------------------------------
 // SplashBitmap

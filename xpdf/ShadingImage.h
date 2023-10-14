@@ -11,9 +11,9 @@
 #ifndef SHADINGIMAGE_H
 #define SHADINGIMAGE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "SplashTypes.h"
+#include "xpdf/splash/SplashTypes.h"
 
 class GfxState;
 class GfxShading;

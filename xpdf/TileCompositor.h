@@ -9,9 +9,9 @@
 #ifndef TILECOMPOSITOR_H
 #define TILECOMPOSITOR_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "SplashTypes.h"
+#include "xpdf/splash/SplashTypes.h"
 
 class GList;
 class SplashBitmap;

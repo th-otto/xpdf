@@ -6,14 +6,14 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <stddef.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "Object.h"
-#include "Array.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Array.h"
 
 //------------------------------------------------------------------------
 // Array

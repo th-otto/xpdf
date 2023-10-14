@@ -55,7 +55,7 @@ if test "$ECHO_E" = ""; then
 fi
 AC_SUBST(ECHO_E)
 
-AC_CONFIG_HEADERS([aconf.h])
+AC_CONFIG_HEADERS([include/xpdf/aconf.h:include/aconf.h.in])
 
 AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE([enable])
@@ -246,6 +246,16 @@ AC_CHECK_LIB(m, log)
 # miscellaneous options
 ###############################################################################
 
+AC_ARG_ENABLE(shared,
+[AS_HELP_STRING([--enable-shared],[enable shared libraries])],
+[case $enableval in
+yes|no)
+     enable_shared=$enableval
+     ;;
+*)   AC_MSG_ERROR([must be yes or no: --enable-shared=$enableval]) ;;
+esac
+], [enable_shared=no])
+
 AH_TEMPLATE([A4_PAPER], [use A4 (instead of Letter) paper size by default for PostScript output])
 AC_OPTION(a4-paper, [use A4 (instead of Letter) paper size by default for PostScript output], no)
 AH_TEMPLATE([NO_TEXT_SELECT], [do not allow text selection])
@@ -361,8 +371,13 @@ AM_CONDITIONAL(HAVE_FREETYPE, test "$have_freetype" = yes)
 AM_CONDITIONAL(HAVE_SPLASH, test "$have_freetype" = yes)
 dnl this can get wrong if PKG_CONFIG_PATH is not set
 if test "$TARGET_OS" = tos; then
-   FREETYPE2_LIBS="-lfreetype.slb -lpng.slb -lbz2.slb -lz.slb"
-   FREETYPE2_CFLAGS="-DUSE_PRIVATE_FONTDIR -DFREETYPE_SLB -DPNGLIB_SLB -DZLIB_SLB -DBZIP2_SLB -I$(dirname $(dirname $($CC --print-file-name=libc.a)))/include/freetype2"
+   FREETYPE2_CFLAGS="-DUSE_PRIVATE_FONTDIR -I$(dirname $(dirname $($CC --print-file-name=libc.a)))/include/freetype2"
+   if test $enable_shared = yes; then
+      FREETYPE2_LIBS="-lfreetype.slb -lpng.slb -lbz2.slb -lz.slb"
+      FREETYPE2_CFLAGS="$FREETYPE2_CFLAGS -DFREETYPE_SLB -DPNGLIB_SLB -DZLIB_SLB -DBZIP2_SLB"
+   else
+      FREETYPE2_LIBS="-lfreetype -lpng -lbz2 -lz"
+   fi
 fi
 
 ###############################################################################
@@ -594,5 +609,11 @@ AC_CONFIG_FILES([
 	splash/Makefile
 	xpdf/Makefile
 	xpdf-qt/Makefile
+	include/Makefile
+	include/xpdf/Makefile
+	include/xpdf/goo/Makefile
+	include/xpdf/fofi/Makefile
+	include/xpdf/splash/Makefile
+	include/xpdf/xpdf/Makefile
 ])
 AC_OUTPUT

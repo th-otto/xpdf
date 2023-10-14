@@ -11,7 +11,7 @@
 
 #ifdef XPDFWIDGET_PRINTING
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 class XpdfWidget;
 

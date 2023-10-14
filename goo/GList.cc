@@ -6,13 +6,13 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <string.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GList.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GList.h"
 
 //------------------------------------------------------------------------
 // GList

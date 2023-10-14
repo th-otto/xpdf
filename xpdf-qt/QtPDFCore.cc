@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <math.h>
 #include <string.h>
@@ -23,22 +23,22 @@
 #include <QStyle>
 #include <QUrl>
 #include <QWidget>
-#include "gmem.h"
-#include "gmempp.h"
-#include "gfile.h"
-#include "GString.h"
-#include "GList.h"
-#include "Error.h"
-#include "GlobalParams.h"
-#include "PDFDoc.h"
-#include "Link.h"
-#include "ErrorCodes.h"
-#include "GfxState.h"
-#include "PSOutputDev.h"
-#include "TextOutputDev.h"
-#include "SplashBitmap.h"
-#include "DisplayState.h"
-#include "TileMap.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/Link.h"
+#include "../xpdf/ErrorCodes.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "../xpdf/PSOutputDev.h"
+#include "xpdf/xpdf/TextOutputDev.h"
+#include "xpdf/splash/SplashBitmap.h"
+#include "../xpdf/DisplayState.h"
+#include "../xpdf/TileMap.h"
 #include "QtPDFCore.h"
 
 //------------------------------------------------------------------------

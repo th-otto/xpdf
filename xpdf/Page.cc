@@ -6,28 +6,28 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stddef.h>
-#include "gmempp.h"
-#include "Trace.h"
-#include "GlobalParams.h"
-#include "Object.h"
-#include "Array.h"
-#include "Dict.h"
-#include "PDFDoc.h"
-#include "XRef.h"
-#include "Link.h"
-#include "OutputDev.h"
+#include "../goo/gmempp.h"
+#include "../goo/Trace.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Array.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/XRef.h"
+#include "xpdf/xpdf/Link.h"
+#include "xpdf/xpdf/OutputDev.h"
 #ifndef PDF_PARSER_ONLY
-#include "Gfx.h"
-#include "GfxState.h"
-#include "Annot.h"
-#include "AcroForm.h"
+#include "xpdf/xpdf/Gfx.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "xpdf/xpdf/Annot.h"
+#include "xpdf/xpdf/AcroForm.h"
 #endif
-#include "Error.h"
-#include "Catalog.h"
-#include "Page.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Catalog.h"
+#include "xpdf/xpdf/Page.h"
 
 //------------------------------------------------------------------------
 // PDFRectangle

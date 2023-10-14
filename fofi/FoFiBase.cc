@@ -6,13 +6,13 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <limits.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "FoFiBase.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/fofi/FoFiBase.h"
 
 //------------------------------------------------------------------------
 // FoFiBase

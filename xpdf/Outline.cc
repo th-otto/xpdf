@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "Error.h"
-#include "Link.h"
-#include "TextString.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Link.h"
+#include "xpdf/xpdf/TextString.h"
 #include "Outline.h"
 
 //------------------------------------------------------------------------

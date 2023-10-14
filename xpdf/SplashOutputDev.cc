@@ -6,46 +6,40 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <string.h>
 #include <math.h>
 #include <limits.h>
-#include "gmempp.h"
-#include "gfile.h"
-#include "Trace.h"
-#include "GlobalParams.h"
-#include "Error.h"
-#include "Object.h"
-#include "Gfx.h"
-#include "GfxFont.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/gfile.h"
+#include "../goo/Trace.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Gfx.h"
+#include "xpdf/xpdf/GfxFont.h"
 #include "ShadingImage.h"
-#include "Link.h"
+#include "xpdf/xpdf/Link.h"
 #include "CharCodeToUnicode.h"
 #include "FontEncodingTables.h"
 #include "BuiltinFont.h"
 #include "BuiltinFontTables.h"
-#include "FoFiTrueType.h"
-#include "FoFiType1C.h"
+#include "xpdf/fofi/FoFiTrueType.h"
+#include "../fofi/FoFiType1C.h"
 #include "JPXStream.h"
-#include "SplashBitmap.h"
-#include "SplashGlyphBitmap.h"
-#include "SplashPattern.h"
-#include "SplashPath.h"
-#include "SplashState.h"
-#include "SplashErrorCodes.h"
-#include "SplashFontEngine.h"
-#include "SplashFont.h"
-#include "SplashFontFile.h"
-#include "SplashFontFileID.h"
-#include "Splash.h"
-#include "SplashOutputDev.h"
-
-#ifdef VMS
-#if (__VMS_VER < 70000000)
-extern "C" int unlink(char *filename);
-#endif
-#endif
+#include "xpdf/splash/SplashBitmap.h"
+#include "../splash/SplashGlyphBitmap.h"
+#include "../splash/SplashPattern.h"
+#include "../splash/SplashPath.h"
+#include "../splash/SplashState.h"
+#include "../splash/SplashErrorCodes.h"
+#include "../splash/SplashFontEngine.h"
+#include "xpdf/splash/SplashFont.h"
+#include "../splash/SplashFontFile.h"
+#include "../splash/SplashFontFileID.h"
+#include "xpdf/splash/Splash.h"
+#include "xpdf/xpdf/SplashOutputDev.h"
 
 //------------------------------------------------------------------------
 

@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -14,27 +14,27 @@
 #include <time.h>
 #include <math.h>
 #include <ctype.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "parseargs.h"
-#include "GString.h"
-#include "gfile.h"
-#include "GlobalParams.h"
-#include "Object.h"
-#include "Stream.h"
-#include "Array.h"
-#include "Dict.h"
-#include "XRef.h"
-#include "Catalog.h"
-#include "Page.h"
-#include "PDFDoc.h"
-#include "CharTypes.h"
-#include "UnicodeMap.h"
-#include "TextString.h"
-#include "UTF8.h"
-#include "Zoox.h"
-#include "Error.h"
-#include "config.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "../goo/parseargs.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Stream.h"
+#include "xpdf/xpdf/Array.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/XRef.h"
+#include "xpdf/xpdf/Catalog.h"
+#include "xpdf/xpdf/Page.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/CharTypes.h"
+#include "xpdf/xpdf/UnicodeMap.h"
+#include "xpdf/xpdf/TextString.h"
+#include "../xpdf/UTF8.h"
+#include "../xpdf/Zoox.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/config.h"
 
 static void printInfoString(Object *infoDict, const char *infoKey,
 			    ZxDoc *xmp, const char *xmpKey1,

@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <stddef.h>
 #include <stdarg.h>
-#include "gmempp.h"
-#include "GString.h"
-#include "GlobalParams.h"
-#include "Error.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/Error.h"
 
 const char *const errorCategoryNames[] = {
   "Syntax Warning",

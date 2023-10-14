@@ -11,12 +11,12 @@
 #ifndef CHARCODETOUNICODE_H
 #define CHARCODETOUNICODE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "CharTypes.h"
+#include "xpdf/xpdf/CharTypes.h"
 
 #ifdef MULTITHREADED
-#include "GMutex.h"
+#include "xpdf/goo/GMutex.h"
 #endif
 
 struct CharCodeToUnicodeString;

@@ -6,27 +6,27 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <string.h>
 #include <limits.h>
 #include <math.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
 #include "SplashErrorCodes.h"
-#include "SplashMath.h"
-#include "SplashBitmap.h"
+#include "xpdf/splash/SplashMath.h"
+#include "xpdf/splash/SplashBitmap.h"
 #include "SplashState.h"
 #include "SplashPath.h"
 #include "SplashXPath.h"
 #include "SplashXPathScanner.h"
 #include "SplashPattern.h"
 #include "SplashScreen.h"
-#include "SplashFont.h"
+#include "xpdf/splash/SplashFont.h"
 #include "SplashGlyphBitmap.h"
-#include "Splash.h"
+#include "xpdf/splash/Splash.h"
 
 // the MSVC math.h doesn't define this
 #ifndef M_PI

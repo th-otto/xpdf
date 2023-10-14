@@ -18,7 +18,7 @@ endif
 endif
 endif
 
-AM_CPPFLAGS = -I$(top_builddir) -I$(srcdir) -I$(top_srcdir)/goo -I$(top_srcdir)/fofi -I$(top_srcdir)/splash -I$(top_srcdir)/xpdf
+AM_CPPFLAGS = -I$(top_srcdir)/include
 AM_CPPFLAGS += $(PNG_CFLAGS)
 AM_CPPFLAGS += $(LCMS_CFLAGS)
 AM_CPPFLAGS += $(FREETYPE2_CFLAGS)
@@ -33,9 +33,9 @@ xpdf_SOURCES = \
 	XpdfApp.cc XpdfApp.h \
 	XpdfViewer.cc XpdfViewer.h \
 	XpdfWidget.cc XpdfWidget.h \
-	$(MOC_SOURCES) \
-	qrc_icons.cc \
 	$(empty)
+
+nodist_xpdf_SOURCES = qrc_icons.cc $(MOC_SOURCES)
 
 QRC_ICONS = \
 	back.svg \
@@ -65,6 +65,7 @@ QRC_ICONS = \
 	indicator-icon-err7.svg \
 	selectModeLinear.svg \
 	selectModeBlock.svg \
+	toggleSidebar.svg \
 	xpdf-icon.svg \
 	zoomIn.svg \
 	zoomOut.svg \

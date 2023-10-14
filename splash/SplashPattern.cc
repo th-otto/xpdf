@@ -6,10 +6,10 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gmempp.h"
-#include "SplashMath.h"
+#include "../goo/gmempp.h"
+#include "xpdf/splash/SplashMath.h"
 #include "SplashScreen.h"
 #include "SplashPattern.h"
 

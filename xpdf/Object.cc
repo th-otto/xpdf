@@ -6,16 +6,16 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stddef.h>
-#include "gmempp.h"
-#include "Object.h"
-#include "Array.h"
-#include "Dict.h"
-#include "Error.h"
-#include "Stream.h"
-#include "XRef.h"
+#include "../goo/gmempp.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Array.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Stream.h"
+#include "xpdf/xpdf/XRef.h"
 
 //------------------------------------------------------------------------
 // Object

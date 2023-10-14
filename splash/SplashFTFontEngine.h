@@ -9,13 +9,13 @@
 #ifndef SPLASHFTFONTENGINE_H
 #define SPLASHFTFONTENGINE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef HAVE_FREETYPE
 
 #include <ft2build.h>
 #include <freetype/freetype.h>
-#include "gtypes.h"
+#include "xpdf/goo/gtypes.h"
 class GString;
 
 class SplashFontFile;

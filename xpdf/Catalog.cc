@@ -6,27 +6,27 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <string.h>
 #include <stddef.h>
 #include <limits.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "gfile.h"
-#include "GList.h"
-#include "Object.h"
-#include "CharTypes.h"
-#include "PDFDoc.h"
-#include "XRef.h"
-#include "Array.h"
-#include "Dict.h"
-#include "Page.h"
-#include "Error.h"
-#include "Link.h"
-#include "AcroForm.h"
-#include "TextString.h"
-#include "Catalog.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/CharTypes.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/XRef.h"
+#include "xpdf/xpdf/Array.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/Page.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Link.h"
+#include "xpdf/xpdf/AcroForm.h"
+#include "xpdf/xpdf/TextString.h"
+#include "xpdf/xpdf/Catalog.h"
 
 //------------------------------------------------------------------------
 // PageTreeNode

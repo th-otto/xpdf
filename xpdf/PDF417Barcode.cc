@@ -6,13 +6,12 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <math.h>
-#include "gtypes.h"
-#include "GString.h"
-#include "GList.h"
-#include "Error.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/Error.h"
 #include "PDF417Barcode.h"
 
 //------------------------------------------------------------------------

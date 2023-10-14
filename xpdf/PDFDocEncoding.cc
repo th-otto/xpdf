@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#include <aconf.h>
-#include "gmempp.h"
+#include <xpdf/aconf.h>
+#include "../goo/gmempp.h"
 #include "PDFDocEncoding.h"
 
 Unicode const pdfDocEncoding[256] = {

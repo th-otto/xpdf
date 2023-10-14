@@ -4,16 +4,16 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "GHash.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "../goo/GHash.h"
 #include "Zoox.h"
 
 //~ all of this code assumes the encoding is UTF-8 or ASCII or something

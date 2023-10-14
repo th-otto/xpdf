@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,18 +15,18 @@
 #ifdef _WIN32
 #  include <windows.h>
 #endif
-#include "gmempp.h"
-#include "GString.h"
-#include "gfile.h"
-#include "config.h"
-#include "GlobalParams.h"
-#include "Page.h"
-#include "Catalog.h"
-#include "Stream.h"
-#include "XRef.h"
-#include "Link.h"
-#include "OutputDev.h"
-#include "Error.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/xpdf/config.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/Page.h"
+#include "xpdf/xpdf/Catalog.h"
+#include "xpdf/xpdf/Stream.h"
+#include "xpdf/xpdf/XRef.h"
+#include "xpdf/xpdf/Link.h"
+#include "xpdf/xpdf/OutputDev.h"
+#include "xpdf/xpdf/Error.h"
 #include "ErrorCodes.h"
 #include "Lexer.h"
 #include "Parser.h"
@@ -36,7 +36,7 @@
 #include "Outline.h"
 #endif
 #include "OptionalContent.h"
-#include "PDFDoc.h"
+#include "xpdf/xpdf/PDFDoc.h"
 
 //------------------------------------------------------------------------
 

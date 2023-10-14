@@ -6,24 +6,24 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
 #include <ctype.h>
 #include <limits.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "gfile.h"
-#include "Object.h"
-#include "Stream.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Stream.h"
 #include "Lexer.h"
 #include "Parser.h"
-#include "Dict.h"
-#include "Error.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/Error.h"
 #include "ErrorCodes.h"
-#include "XRef.h"
+#include "xpdf/xpdf/XRef.h"
 
 //------------------------------------------------------------------------
 

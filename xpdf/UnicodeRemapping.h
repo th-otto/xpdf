@@ -11,9 +11,9 @@
 #ifndef UNICODEREMAPPING_H
 #define UNICODEREMAPPING_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "CharTypes.h"
+#include "xpdf/xpdf/CharTypes.h"
 
 struct UnicodeRemappingString;
 

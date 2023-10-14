@@ -6,14 +6,14 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gmempp.h"
-#include "GString.h"
-#include "PDFDoc.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/xpdf/PDFDoc.h"
 #include "Decrypt.h"
-#include "Error.h"
-#include "GlobalParams.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/GlobalParams.h"
 #include "PDFCore.h"
 #include "SecurityHandler.h"
 

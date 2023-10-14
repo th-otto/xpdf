@@ -6,17 +6,17 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <string.h>
-#include "gmem.h"
-#include "gmempp.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
 #include "SplashErrorCodes.h"
 #include "SplashPath.h"
 #include "SplashXPath.h"
 #include "SplashXPathScanner.h"
-#include "SplashClip.h"
+#include "xpdf/splash/SplashClip.h"
 
 //------------------------------------------------------------------------
 

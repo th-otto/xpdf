@@ -1,7 +1,7 @@
 AUTOMAKE_OPTIONS = foreign
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = doc fofi goo splash xpdf xpdf-qt
+SUBDIRS = include doc fofi goo splash xpdf xpdf-qt
 
 EXTRA_DIST = \
 	COPYING \
@@ -10,7 +10,6 @@ EXTRA_DIST = \
 	CHANGES \
 	INSTALL \
 	README \
-	aconf2.h \
 	$(empty)
 
 DISTCLEANFILES = intltool-merge intltool-extract intltool-update

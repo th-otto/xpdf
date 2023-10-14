@@ -9,9 +9,9 @@
 #ifndef BUILTINFONT_H
 #define BUILTINFONT_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
+#include "xpdf/goo/gtypes.h"
 
 struct BuiltinFont;
 

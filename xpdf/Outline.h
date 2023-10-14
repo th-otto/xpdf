@@ -9,10 +9,10 @@
 #ifndef OUTLINE_H
 #define OUTLINE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "Object.h"
-#include "CharTypes.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/CharTypes.h"
 
 class GString;
 class GList;

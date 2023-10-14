@@ -6,23 +6,23 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <math.h>
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "GlobalParams.h"
-#include "Splash.h"
-#include "SplashBitmap.h"
-#include "SplashPattern.h"
-#include "SplashPath.h"
-#include "Error.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/splash/Splash.h"
+#include "xpdf/splash/SplashBitmap.h"
+#include "../splash/SplashPattern.h"
+#include "../splash/SplashPath.h"
+#include "xpdf/xpdf/Error.h"
 #include "ErrorCodes.h"
-#include "PDFDoc.h"
-#include "Link.h"
-#include "Annot.h"
-#include "AcroForm.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/Link.h"
+#include "xpdf/xpdf/Annot.h"
+#include "xpdf/xpdf/AcroForm.h"
 #include "OptionalContent.h"
 #include "TileMap.h"
 #include "TileCache.h"

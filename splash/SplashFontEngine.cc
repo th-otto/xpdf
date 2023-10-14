@@ -6,22 +6,22 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <stdio.h>
 #ifndef _WIN32
 #  include <unistd.h>
 #endif
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "SplashMath.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/splash/SplashMath.h"
 #include "SplashFTFontEngine.h"
 #include "SplashFontFile.h"
 #include "SplashFontFileID.h"
-#include "SplashFont.h"
+#include "xpdf/splash/SplashFont.h"
 #include "SplashFontEngine.h"
 
 #ifdef VMS

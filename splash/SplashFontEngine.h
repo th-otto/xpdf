@@ -9,9 +9,9 @@
 #ifndef SPLASHFONTENGINE_H
 #define SPLASHFONTENGINE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
+#include "xpdf/goo/gtypes.h"
 class GString;
 class GList;
 

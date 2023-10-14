@@ -11,11 +11,11 @@
 #ifndef WEBFONT_H
 #define WEBFONT_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "FoFiBase.h"
-#include "GfxFont.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/fofi/FoFiBase.h"
+#include "xpdf/xpdf/GfxFont.h"
 
 class FoFiTrueType;
 class FoFiType1C;

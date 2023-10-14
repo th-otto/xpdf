@@ -6,25 +6,25 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <math.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GList.h"
-#include "Error.h"
-#include "Object.h"
-#include "Catalog.h"
-#include "Gfx.h"
-#include "GfxFont.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Catalog.h"
+#include "xpdf/xpdf/Gfx.h"
+#include "xpdf/xpdf/GfxFont.h"
 #include "Lexer.h"
-#include "PDFDoc.h"
+#include "xpdf/xpdf/PDFDoc.h"
 #include "OptionalContent.h"
-#include "AcroForm.h"
+#include "xpdf/xpdf/AcroForm.h"
 #include "BuiltinFontTables.h"
 #include "FontEncodingTables.h"
-#include "Annot.h"
+#include "xpdf/xpdf/Annot.h"
 
 // the MSVC math.h doesn't define this
 #ifndef M_PI

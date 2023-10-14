@@ -6,26 +6,26 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
 #include <math.h>
 #include <limits.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "parseargs.h"
-#include "GString.h"
-#include "GlobalParams.h"
-#include "Error.h"
-#include "Object.h"
-#include "Dict.h"
-#include "GfxFont.h"
-#include "Annot.h"
-#include "AcroForm.h"
-#include "PDFDoc.h"
-#include "config.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "../goo/parseargs.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/GfxFont.h"
+#include "xpdf/xpdf/Annot.h"
+#include "xpdf/xpdf/AcroForm.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/config.h"
 
 // NB: this must match the definition of GfxFontType in GfxFont.h.
 static const char *const fontTypeNames[] = {

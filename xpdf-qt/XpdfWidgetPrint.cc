@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef XPDFWIDGET_PRINTING
 
 #include <stdlib.h>
 #include <QPrinter>
-#include "gfile.h"
-#include "PDFDoc.h"
-#include "ErrorCodes.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "../xpdf/ErrorCodes.h"
 #include "XpdfWidget.h"
 
 #if defined(_WIN32)
@@ -22,12 +22,12 @@
 #  include <CoreFoundation/CoreFoundation.h>
 #  include <ApplicationServices/ApplicationServices.h>
 #elif defined(__linux__)
-#  include "PSOutputDev.h"
+#  include "../xpdf/PSOutputDev.h"
 #  include <cups/cups.h>
 #endif
 #include "XpdfWidgetPrint.h"
 
-#include "gmempp.h"
+#include "../goo/gmempp.h"
 
 //------------------------------------------------------------------------
 // Windows

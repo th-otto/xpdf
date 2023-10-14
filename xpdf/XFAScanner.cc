@@ -6,12 +6,12 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "GString.h"
-#include "GHash.h"
-#include "Object.h"
-#include "Error.h"
+#include "xpdf/goo/GString.h"
+#include "../goo/GHash.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Error.h"
 #include "Zoox.h"
 #include "XFAScanner.h"
 

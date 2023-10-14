@@ -8,7 +8,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef _WIN32
 #  undef WIN32_LEAN_AND_MEAN
@@ -33,10 +33,10 @@
 #    include <unixlib.h>
 #  endif
 #endif // _WIN32
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "gfile.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/gfile.h"
 
 // Some systems don't define this, so just make it something reasonably
 // large.

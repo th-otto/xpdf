@@ -9,11 +9,11 @@
 #ifndef UTF8_H
 #define UTF8_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "GString.h"
-#include "CharTypes.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/xpdf/CharTypes.h"
 
 // Convert [u] to UTF-8 in [buf].  Returns the number of bytes written
 // to [buf].  If [u] requires more then [bufSize] bytes in UTF-8,

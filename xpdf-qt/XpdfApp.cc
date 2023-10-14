@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -15,15 +15,15 @@
 #ifdef _WIN32
 #  include <shlobj.h>
 #endif
-#include "config.h"
-#include "parseargs.h"
-#include "GString.h"
-#include "GList.h"
-#include "gfile.h"
-#include "GlobalParams.h"
+#include "xpdf/xpdf/config.h"
+#include "../goo/parseargs.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/xpdf/GlobalParams.h"
 #include "XpdfViewer.h"
 #include "XpdfApp.h"
-#include "gmempp.h"
+#include "../goo/gmempp.h"
 
 //------------------------------------------------------------------------
 // command line options

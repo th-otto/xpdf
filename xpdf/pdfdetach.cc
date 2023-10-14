@@ -6,19 +6,18 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 #include <stdio.h>
-#include "gtypes.h"
-#include "gmem.h"
-#include "gmempp.h"
-#include "parseargs.h"
-#include "GlobalParams.h"
-#include "PDFDoc.h"
-#include "CharTypes.h"
-#include "UnicodeMap.h"
-#include "UTF8.h"
-#include "Error.h"
-#include "config.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "../goo/parseargs.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/CharTypes.h"
+#include "xpdf/xpdf/UnicodeMap.h"
+#include "../xpdf/UTF8.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/config.h"
 
 static GBool doList;
 static int saveNum;

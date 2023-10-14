@@ -6,20 +6,20 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 #include <math.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GList.h"
-#include "Object.h"
-#include "Dict.h"
-#include "Stream.h"
-#include "Error.h"
-#include "Function.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/Stream.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Function.h"
 
 //------------------------------------------------------------------------
 

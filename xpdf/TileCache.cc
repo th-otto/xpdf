@@ -6,19 +6,19 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gmem.h"
-#include "gmempp.h"
-#include "GList.h"
-#include "GMutex.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/goo/GMutex.h"
 #include <unistd.h>
-#include "Object.h"
-#include "PDFDoc.h"
-#include "SplashBitmap.h"
-#include "SplashOutputDev.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/splash/SplashBitmap.h"
+#include "xpdf/xpdf/SplashOutputDev.h"
 #include "DisplayState.h"
-#include "GfxState.h"
+#include "xpdf/xpdf/GfxState.h"
 #include "TileMap.h"
 #include "TileCache.h"
 

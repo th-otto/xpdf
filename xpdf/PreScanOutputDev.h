@@ -9,11 +9,11 @@
 #ifndef PRESCANOUTPUTDEV_H
 #define PRESCANOUTPUTDEV_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "GfxState.h"
-#include "OutputDev.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "xpdf/xpdf/OutputDev.h"
 
 //------------------------------------------------------------------------
 // PreScanOutputDev

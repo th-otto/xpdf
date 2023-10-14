@@ -9,13 +9,13 @@
 #ifndef SPLASHFONTFILE_H
 #define SPLASHFONTFILE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "SplashTypes.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/splash/SplashTypes.h"
 
 #ifdef MULTITHREADED
-#include "GMutex.h"
+#include "xpdf/goo/GMutex.h"
 #endif
 
 class GString;

@@ -6,14 +6,14 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stddef.h>
-#include "gmempp.h"
-#include "Object.h"
-#include "Stream.h"
-#include "GfxState.h"
-#include "OutputDev.h"
+#include "../goo/gmempp.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Stream.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "xpdf/xpdf/OutputDev.h"
 
 //------------------------------------------------------------------------
 // OutputDev

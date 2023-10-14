@@ -6,28 +6,28 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <math.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "GlobalParams.h"
-#include "Error.h"
-#include "Object.h"
-#include "PDFDoc.h"
-#include "TextString.h"
-#include "Gfx.h"
-#include "GfxFont.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/TextString.h"
+#include "xpdf/xpdf/Gfx.h"
+#include "xpdf/xpdf/GfxFont.h"
 #include "OptionalContent.h"
-#include "Annot.h"
+#include "xpdf/xpdf/Annot.h"
 #include "Lexer.h"
 #include "XFAScanner.h"
 #include "UTF8.h"
 #include "PDF417Barcode.h"
-#include "AcroForm.h"
+#include "xpdf/xpdf/AcroForm.h"
 
 //------------------------------------------------------------------------
 

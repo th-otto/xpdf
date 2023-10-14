@@ -11,7 +11,7 @@
 #ifndef TRACING_H
 #define TRACING_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef ENABLE_TRACING
 

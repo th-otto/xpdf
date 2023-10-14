@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -23,23 +23,23 @@
 #  include <QPrinter>
 #  include <QPrintDialog>
 #endif
-#include "gmem.h"
-#include "gmempp.h"
-#include "gfile.h"
-#include "GString.h"
-#include "GList.h"
-#include "SplashBitmap.h"
-#include "config.h"
-#include "GlobalParams.h"
-#include "PDFDoc.h"
-#include "Object.h"
-#include "SplashOutputDev.h"
-#include "Outline.h"
-#include "OptionalContent.h"
-#include "Link.h"
-#include "Annot.h"
-#include "AcroForm.h"
-#include "TextString.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/splash/SplashBitmap.h"
+#include "xpdf/xpdf/config.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/SplashOutputDev.h"
+#include "../xpdf/Outline.h"
+#include "../xpdf/OptionalContent.h"
+#include "xpdf/xpdf/Link.h"
+#include "xpdf/xpdf/Annot.h"
+#include "xpdf/xpdf/AcroForm.h"
+#include "xpdf/xpdf/TextString.h"
 #include "QtPDFCore.h"
 #include "XpdfWidget.h"
 #ifdef XPDFWIDGET_PRINTING

@@ -6,18 +6,18 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stddef.h>
 #include <string.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "Error.h"
-#include "Object.h"
-#include "Array.h"
-#include "Dict.h"
-#include "Link.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Array.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/Link.h"
 
 //------------------------------------------------------------------------
 // LinkAction

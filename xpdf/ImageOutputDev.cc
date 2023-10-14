@@ -6,20 +6,20 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <ctype.h>
 #include <math.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "config.h"
-#include "Error.h"
-#include "GfxState.h"
-#include "Object.h"
-#include "Stream.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/xpdf/config.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Stream.h"
 #include "ImageOutputDev.h"
 
 ImageOutputDev::ImageOutputDev(char *fileRootA, GBool dumpJPEGA,

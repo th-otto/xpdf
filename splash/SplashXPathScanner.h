@@ -9,9 +9,9 @@
 #ifndef SPLASHXPATHSCANNER_H
 #define SPLASHXPATHSCANNER_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "SplashTypes.h"
+#include "xpdf/splash/SplashTypes.h"
 #include "SplashXPath.h"
 
 class GList;

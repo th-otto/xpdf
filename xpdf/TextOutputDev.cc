@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,23 +15,23 @@
 #include <limits.h>
 #include <ctype.h>
 #ifdef _WIN32
-#include <fcntl.h> // for O_BINARY
-#include <io.h>    // for setmode
+#include <fcntl.h> /* for O_BINARY */
+#include <io.h>    /* for setmode */
 #endif
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "gfile.h"
-#include "config.h"
-#include "Error.h"
-#include "GlobalParams.h"
-#include "UnicodeMap.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/xpdf/config.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/UnicodeMap.h"
 #include "UnicodeRemapping.h"
 #include "UnicodeTypeTable.h"
-#include "GfxState.h"
-#include "Link.h"
-#include "TextOutputDev.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "xpdf/xpdf/Link.h"
+#include "xpdf/xpdf/TextOutputDev.h"
 
 //------------------------------------------------------------------------
 // parameters

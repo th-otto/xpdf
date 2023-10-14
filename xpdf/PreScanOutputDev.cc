@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <math.h>
-#include "gmempp.h"
-#include "GlobalParams.h"
-#include "Page.h"
-#include "Gfx.h"
-#include "GfxFont.h"
-#include "Link.h"
+#include "../goo/gmempp.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/Page.h"
+#include "xpdf/xpdf/Gfx.h"
+#include "xpdf/xpdf/GfxFont.h"
+#include "xpdf/xpdf/Link.h"
 #include "PreScanOutputDev.h"
 
 //------------------------------------------------------------------------

@@ -6,14 +6,14 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #ifndef _WIN32
 #  include <unistd.h>
 #endif
-#include "gmempp.h"
-#include "GString.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
 #include "SplashFontFile.h"
 #include "SplashFontFileID.h"
 

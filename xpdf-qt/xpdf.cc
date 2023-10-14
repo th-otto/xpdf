@@ -6,10 +6,10 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gmem.h"
-#include "Object.h"
+#include "xpdf/goo/gmem.h"
+#include "xpdf/xpdf/Object.h"
 #include "XpdfApp.h"
 
 int main(int argc, char *argv[]) {

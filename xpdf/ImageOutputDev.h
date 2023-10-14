@@ -9,11 +9,11 @@
 #ifndef IMAGEOUTPUTDEV_H
 #define IMAGEOUTPUTDEV_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
-#include "gtypes.h"
-#include "OutputDev.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/xpdf/OutputDev.h"
 
 class GfxImageColorMap;
 class GfxState;

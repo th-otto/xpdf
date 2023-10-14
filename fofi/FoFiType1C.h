@@ -9,10 +9,10 @@
 #ifndef FOFITYPE1C_H
 #define FOFITYPE1C_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "FoFiBase.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/fofi/FoFiBase.h"
 
 class GHash;
 class GString;

@@ -6,18 +6,18 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stddef.h>
 #include <string.h>
-#include "gmempp.h"
-#include "Object.h"
-#include "Array.h"
-#include "Dict.h"
+#include "../goo/gmempp.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Array.h"
+#include "xpdf/xpdf/Dict.h"
 #include "Decrypt.h"
 #include "Parser.h"
-#include "XRef.h"
-#include "Error.h"
+#include "xpdf/xpdf/XRef.h"
+#include "xpdf/xpdf/Error.h"
 
 // Max number of nested objects.  This is used to catch infinite loops
 // in the object structure.

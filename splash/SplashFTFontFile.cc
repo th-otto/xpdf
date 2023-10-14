@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef HAVE_FREETYPE
 
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
 #include "SplashFTFontEngine.h"
-#include "SplashFTFont.h"
+#include "xpdf/splash/SplashFTFont.h"
 #include "SplashFTFontFile.h"
 
 //------------------------------------------------------------------------

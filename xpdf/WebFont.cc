@@ -6,14 +6,14 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gmem.h"
-#include "gmempp.h"
-#include "GHash.h"
-#include "FoFiTrueType.h"
-#include "FoFiType1C.h"
-#include "CharCodeToUnicode.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "../goo/GHash.h"
+#include "xpdf/fofi/FoFiTrueType.h"
+#include "../fofi/FoFiType1C.h"
+#include "../xpdf/CharCodeToUnicode.h"
 #include "WebFont.h"
 
 WebFont::WebFont(GfxFont *gfxFontA, XRef *xref) {

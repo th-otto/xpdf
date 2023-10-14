@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GHash.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "../goo/GHash.h"
 #include "FoFiEncodings.h"
 #include "FoFiType1C.h"
 

@@ -6,11 +6,11 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gmempp.h"
-#include "Object.h"
-#include "Stream.h"
+#include "../goo/gmempp.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Stream.h"
 #include "JArithmeticDecoder.h"
 
 //------------------------------------------------------------------------

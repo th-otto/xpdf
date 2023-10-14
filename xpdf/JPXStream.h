@@ -9,11 +9,11 @@
 #ifndef JPXSTREAM_H
 #define JPXSTREAM_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "Object.h"
-#include "Stream.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Stream.h"
 
 class JArithmeticDecoder;
 class JArithmeticDecoderStats;

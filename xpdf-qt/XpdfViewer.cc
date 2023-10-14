@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <math.h>
 #include <QAbstractItemModel>
@@ -49,18 +49,18 @@
 #include <QToolBar>
 #include <QTreeView>
 #include <QVBoxLayout>
-#include "GString.h"
-#include "GList.h"
-#include "GlobalParams.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/GlobalParams.h"
 #include "QtPDFCore.h"
-#include "PDFDoc.h"
-#include "AcroForm.h"
-#include "Annot.h"
-#include "TextString.h"
-#include "Zoox.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/AcroForm.h"
+#include "xpdf/xpdf/Annot.h"
+#include "xpdf/xpdf/TextString.h"
+#include "../xpdf/Zoox.h"
 #include "XpdfApp.h"
 #include "XpdfViewer.h"
-#include "gmempp.h"
+#include "../goo/gmempp.h"
 
 //------------------------------------------------------------------------
 

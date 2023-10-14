@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -14,23 +14,23 @@
 #include <ctype.h>
 #include <math.h>
 #include <limits.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GList.h"
-#include "GHash.h"
-#include "Error.h"
-#include "Object.h"
-#include "Dict.h"
-#include "GlobalParams.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GList.h"
+#include "../goo/GHash.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/GlobalParams.h"
 #include "CMap.h"
 #include "CharCodeToUnicode.h"
 #include "FontEncodingTables.h"
 #include "BuiltinFontTables.h"
-#include "FoFiIdentifier.h"
-#include "FoFiType1.h"
-#include "FoFiType1C.h"
-#include "FoFiTrueType.h"
-#include "GfxFont.h"
+#include "../fofi/FoFiIdentifier.h"
+#include "../fofi/FoFiType1.h"
+#include "../fofi/FoFiType1C.h"
+#include "xpdf/fofi/FoFiTrueType.h"
+#include "xpdf/xpdf/GfxFont.h"
 
 //------------------------------------------------------------------------
 

@@ -9,11 +9,11 @@
 #ifndef OPTIONALCONTENT_H
 #define OPTIONALCONTENT_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "Object.h"
-#include "CharTypes.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/CharTypes.h"
 
 class GString;
 class GList;

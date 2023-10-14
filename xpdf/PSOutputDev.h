@@ -9,13 +9,13 @@
 #ifndef PSOUTPUTDEV_H
 #define PSOUTPUTDEV_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stddef.h>
-#include "config.h"
-#include "Object.h"
-#include "GlobalParams.h"
-#include "OutputDev.h"
+#include "xpdf/xpdf/config.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/OutputDev.h"
 
 class GHash;
 class PDFDoc;

@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <string.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
 #include "PDFDocEncoding.h"
 #include "UTF8.h"
-#include "TextString.h"
+#include "xpdf/xpdf/TextString.h"
 
 //------------------------------------------------------------------------
 

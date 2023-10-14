@@ -1,17 +1,15 @@
 noinst_LIBRARIES = libgoo.a
 
-AM_CPPFLAGS = -I$(top_builddir) -I$(srcdir)
+AM_CPPFLAGS = -I$(top_srcdir)/include
 
 libgoo_a_SOURCES = \
-	FixedPoint.cc FixedPoint.h \
+	FixedPoint.cc \
 	GHash.cc GHash.h \
-	GList.cc GList.h \
-	GMutex.h \
-	GString.cc GString.h \
-	gfile.cc gfile.h \
-	gmem.cc gmem.h \
+	GList.cc \
+	GString.cc \
+	gfile.cc \
+	gmem.cc \
 	gmempp.cc gmempp.h \
-	gtypes.h \
 	parseargs.c parseargs.h \
 	Trace.cc Trace.h \
 	$(empty)

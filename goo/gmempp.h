@@ -26,6 +26,8 @@
 #ifndef GMEMPP_H
 #define GMEMPP_H
 
+#include <xpdf/aconf.h>
+
 #ifdef DEBUG_MEM
 
 #include <stdlib.h>

@@ -9,13 +9,13 @@
 #ifndef CMAP_H
 #define CMAP_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "CharTypes.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/xpdf/CharTypes.h"
 
 #ifdef MULTITHREADED
-#include "GMutex.h"
+#include "xpdf/goo/GMutex.h"
 #endif
 
 class GString;

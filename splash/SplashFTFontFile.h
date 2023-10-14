@@ -9,7 +9,7 @@
 #ifndef SPLASHFTFONTFILE_H
 #define SPLASHFTFONTFILE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef HAVE_FREETYPE
 

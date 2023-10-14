@@ -9,15 +9,15 @@
 #ifndef XPDFVIEWER_H
 #define XPDFVIEWER_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <QDialog>
 #include <QIcon>
 #include <QLocalServer>
 #include <QMainWindow>
 #include <QToolButton>
-#include "gtypes.h"
-#include "Error.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/xpdf/Error.h"
 #include "XpdfWidget.h"
 
 class GString;

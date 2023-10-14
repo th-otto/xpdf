@@ -9,7 +9,7 @@
 #ifndef XFASCANNER_H
 #define XFASCANNER_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 class GHash;
 class ZxElement;

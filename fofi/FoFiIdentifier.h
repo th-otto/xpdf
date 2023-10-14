@@ -9,7 +9,7 @@
 #ifndef FOFIIDENTIFIER_H
 #define FOFIIDENTIFIER_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 class GList;
 

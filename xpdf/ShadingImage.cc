@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <math.h>
-#include "Trace.h"
-#include "GfxState.h"
-#include "SplashBitmap.h"
-#include "SplashPattern.h"
-#include "SplashPath.h"
-#include "Splash.h"
+#include "../goo/Trace.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "xpdf/splash/SplashBitmap.h"
+#include "../splash/SplashPattern.h"
+#include "../splash/SplashPath.h"
+#include "xpdf/splash/Splash.h"
 #include "ShadingImage.h"
 
 // Max recursive depth for a patch mesh shading fill.

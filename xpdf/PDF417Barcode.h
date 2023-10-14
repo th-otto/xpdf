@@ -9,7 +9,7 @@
 #ifndef PDF417BARCODE_H
 #define PDF417BARCODE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 class GString;
 

@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <string.h>
 #include <stdio.h>
@@ -22,22 +22,22 @@
 #ifdef HAVE_FONTCONFIG
 #  include <fontconfig/fontconfig.h>
 #endif
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "GHash.h"
-#include "gfile.h"
-#include "FoFiIdentifier.h"
-#include "Error.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "../goo/GHash.h"
+#include "xpdf/goo/gfile.h"
+#include "../fofi/FoFiIdentifier.h"
+#include "xpdf/xpdf/Error.h"
 #include "NameToCharCode.h"
 #include "CharCodeToUnicode.h"
 #include "UnicodeRemapping.h"
-#include "UnicodeMap.h"
+#include "xpdf/xpdf/UnicodeMap.h"
 #include "CMap.h"
 #include "BuiltinFontTables.h"
 #include "FontEncodingTables.h"
-#include "GlobalParams.h"
+#include "xpdf/xpdf/GlobalParams.h"
 
 #ifdef _WIN32
 #  define strcasecmp stricmp

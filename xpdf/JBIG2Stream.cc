@@ -6,13 +6,13 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <limits.h>
-#include "gmempp.h"
-#include "GList.h"
-#include "Error.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/Error.h"
 #include "JArithmeticDecoder.h"
 #include "JBIG2Stream.h"
 

@@ -9,7 +9,7 @@
 #ifndef PDFDOCENCODING_H
 #define PDFDOCENCODING_H
 
-#include "CharTypes.h"
+#include "xpdf/xpdf/CharTypes.h"
 
 extern Unicode const pdfDocEncoding[256];
 

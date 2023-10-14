@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,18 +19,18 @@
 #endif
 #include <string.h>
 #include <ctype.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "gfile.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/gfile.h"
 #ifdef MULTITHREADED
-#include "GMutex.h"
+#include "xpdf/goo/GMutex.h"
 #endif
-#include "config.h"
-#include "Error.h"
-#include "Object.h"
+#include "xpdf/xpdf/config.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Object.h"
 #include "Lexer.h"
-#include "GfxState.h"
-#include "Stream.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "xpdf/xpdf/Stream.h"
 #include "JBIG2Stream.h"
 #include "JPXStream.h"
 #include "Stream-CCITT.h"

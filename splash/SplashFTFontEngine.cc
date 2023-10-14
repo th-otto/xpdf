@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef HAVE_FREETYPE
 
@@ -14,12 +14,12 @@
 #ifndef _WIN32
 #  include <unistd.h>
 #endif
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "gfile.h"
-#include "FoFiTrueType.h"
-#include "FoFiType1C.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/fofi/FoFiTrueType.h"
+#include "../fofi/FoFiType1C.h"
 #include "SplashFTFontFile.h"
 #include "SplashFTFontEngine.h"
 #include <freetype/ftmodapi.h>

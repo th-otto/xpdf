@@ -9,12 +9,12 @@
 #ifndef QTPDFCORE_H
 #define QTPDFCORE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <QDateTime>
-#include "gtypes.h"
-#include "SplashTypes.h"
-#include "PDFCore.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/splash/SplashTypes.h"
+#include "../xpdf/PDFCore.h"
 
 class GString;
 class BaseStream;

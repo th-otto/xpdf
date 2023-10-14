@@ -6,16 +6,16 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <string.h>
 #ifdef HAVE_STD_SORT
 #include <algorithm>
 #endif
-#include "gmem.h"
-#include "gmempp.h"
-#include "SplashMath.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/splash/SplashMath.h"
 #include "SplashPath.h"
 #include "SplashXPath.h"
 

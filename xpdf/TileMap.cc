@@ -6,12 +6,12 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gmem.h"
-#include "gmempp.h"
-#include "GList.h"
-#include "PDFDoc.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/xpdf/PDFDoc.h"
 #include "DisplayState.h"
 #include "TileMap.h"
 

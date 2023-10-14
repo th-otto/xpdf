@@ -6,10 +6,9 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 #include <stdlib.h>
-#include "gmempp.h"
-#include "CharTypes.h"
+#include "xpdf/xpdf/CharTypes.h"
 #include "UnicodeTypeTable.h"
 
 struct UnicodeMapTableEntry {

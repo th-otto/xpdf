@@ -6,9 +6,9 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gmempp.h"
+#include "../goo/gmempp.h"
 #include "SplashFontFileID.h"
 
 //------------------------------------------------------------------------

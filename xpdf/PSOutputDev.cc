@@ -6,42 +6,42 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <stddef.h>
 #include <stdarg.h>
 #include <signal.h>
 #include <math.h>
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "GHash.h"
-#include "config.h"
-#include "GlobalParams.h"
-#include "Object.h"
-#include "Error.h"
-#include "Function.h"
-#include "Gfx.h"
-#include "GfxState.h"
-#include "GfxFont.h"
-#include "UnicodeMap.h"
-#include "FoFiType1C.h"
-#include "FoFiTrueType.h"
-#include "Catalog.h"
-#include "Page.h"
-#include "Stream.h"
-#include "Annot.h"
-#include "PDFDoc.h"
-#include "XRef.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "../goo/GHash.h"
+#include "xpdf/xpdf/config.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/Function.h"
+#include "xpdf/xpdf/Gfx.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "xpdf/xpdf/GfxFont.h"
+#include "xpdf/xpdf/UnicodeMap.h"
+#include "../fofi/FoFiType1C.h"
+#include "xpdf/fofi/FoFiTrueType.h"
+#include "xpdf/xpdf/Catalog.h"
+#include "xpdf/xpdf/Page.h"
+#include "xpdf/xpdf/Stream.h"
+#include "xpdf/xpdf/Annot.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/XRef.h"
 #include "PreScanOutputDev.h"
 #include "CharCodeToUnicode.h"
-#include "AcroForm.h"
-#include "TextString.h"
+#include "xpdf/xpdf/AcroForm.h"
+#include "xpdf/xpdf/TextString.h"
 #ifdef HAVE_SPLASH
-#  include "Splash.h"
-#  include "SplashBitmap.h"
-#  include "SplashOutputDev.h"
+#  include "xpdf/splash/Splash.h"
+#  include "xpdf/splash/SplashBitmap.h"
+#  include "xpdf/xpdf/SplashOutputDev.h"
 #endif
 #include "PSOutputDev.h"
 

@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <string.h>
 #include <math.h>
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "SplashBitmap.h"
-#include "GlobalParams.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/splash/SplashBitmap.h"
+#include "xpdf/xpdf/GlobalParams.h"
 #include "DisplayState.h"
 #include "TileMap.h"
 #include "TileCache.h"

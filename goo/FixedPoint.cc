@@ -8,12 +8,12 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef USE_FIXEDPOINT
 
-#include "gmempp.h"
-#include "FixedPoint.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/FixedPoint.h"
 
 #define ln2 ((FixedPoint)0.69314718)
 

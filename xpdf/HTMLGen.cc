@@ -19,20 +19,20 @@
 //~ - metadata
 //~ - PDF outline
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <png.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "SplashBitmap.h"
-#include "PDFDoc.h"
-#include "GfxFont.h"
-#include "AcroForm.h"
-#include "TextOutputDev.h"
-#include "SplashOutputDev.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "xpdf/splash/SplashBitmap.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/GfxFont.h"
+#include "xpdf/xpdf/AcroForm.h"
+#include "xpdf/xpdf/TextOutputDev.h"
+#include "xpdf/xpdf/SplashOutputDev.h"
 #include "ErrorCodes.h"
 #include "WebFont.h"
 #include "HTMLGen.h"

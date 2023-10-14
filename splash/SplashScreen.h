@@ -9,9 +9,9 @@
 #ifndef SPLASHSCREEN_H
 #define SPLASHSCREEN_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "SplashTypes.h"
+#include "xpdf/splash/SplashTypes.h"
 
 //------------------------------------------------------------------------
 // SplashScreen

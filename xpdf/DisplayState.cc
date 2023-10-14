@@ -6,12 +6,12 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
 #include "TileMap.h"
 #include "TileCache.h"
 #include "TileCompositor.h"

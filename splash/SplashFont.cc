@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <string.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "SplashMath.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/splash/SplashMath.h"
 #include "SplashGlyphBitmap.h"
 #include "SplashFontFile.h"
-#include "SplashFont.h"
+#include "xpdf/splash/SplashFont.h"
 
 //------------------------------------------------------------------------
 

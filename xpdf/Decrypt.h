@@ -9,12 +9,12 @@
 #ifndef DECRYPT_H
 #define DECRYPT_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "GString.h"
-#include "Object.h"
-#include "Stream.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Stream.h"
 
 //------------------------------------------------------------------------
 // Decrypt

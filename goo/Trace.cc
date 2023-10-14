@@ -8,7 +8,7 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #ifdef ENABLE_TRACING
 
@@ -17,7 +17,7 @@
 #include <sys/types.h>
 #include <sys/time.h>
 #include <unistd.h>
-#include "GString.h"
+#include "xpdf/goo/GString.h"
 #include "Trace.h"
 
 // NB: This module is NOT thread-safe.

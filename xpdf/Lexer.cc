@@ -6,15 +6,15 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
 #include <ctype.h>
-#include "gmempp.h"
+#include "../goo/gmempp.h"
 #include "Lexer.h"
-#include "Error.h"
+#include "xpdf/xpdf/Error.h"
 
 //------------------------------------------------------------------------
 

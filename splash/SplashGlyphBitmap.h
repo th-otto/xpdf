@@ -9,9 +9,9 @@
 #ifndef SPLASHGLYPHBITMAP_H
 #define SPLASHGLYPHBITMAP_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
+#include "xpdf/goo/gtypes.h"
 
 //------------------------------------------------------------------------
 // SplashGlyphBitmap

@@ -6,12 +6,12 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <limits.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "Error.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/xpdf/Error.h"
 #include "JArithmeticDecoder.h"
 #include "JPXStream.h"
 

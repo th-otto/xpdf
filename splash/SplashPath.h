@@ -9,9 +9,9 @@
 #ifndef SPLASHPATH_H
 #define SPLASHPATH_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "SplashTypes.h"
+#include "xpdf/splash/SplashTypes.h"
 
 //------------------------------------------------------------------------
 // SplashPathPoint

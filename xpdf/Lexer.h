@@ -9,10 +9,10 @@
 #ifndef LEXER_H
 #define LEXER_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "Object.h"
-#include "Stream.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/Stream.h"
 
 class XRef;
 

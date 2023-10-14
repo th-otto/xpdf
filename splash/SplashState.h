@@ -9,9 +9,9 @@
 #ifndef SPLASHSTATE_H
 #define SPLASHSTATE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "SplashTypes.h"
+#include "xpdf/splash/SplashTypes.h"
 
 class SplashPattern;
 class SplashScreen;

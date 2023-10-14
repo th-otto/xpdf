@@ -9,10 +9,10 @@
 #ifndef DISPLAYSTATE_H
 #define DISPLAYSTATE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "SplashTypes.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/splash/SplashTypes.h"
 
 class GString;
 class GList;

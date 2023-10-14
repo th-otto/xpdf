@@ -6,16 +6,16 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <string.h>
 #include <limits.h>
-#include "gtypes.h"
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
 #include "FoFiIdentifier.h"
 
 //------------------------------------------------------------------------

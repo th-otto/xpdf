@@ -9,9 +9,9 @@
 #ifndef TILEMAP_H
 #define TILEMAP_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
+#include "xpdf/goo/gtypes.h"
 
 class GList;
 class DisplayState;

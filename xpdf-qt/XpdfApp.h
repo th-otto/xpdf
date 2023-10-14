@@ -9,12 +9,12 @@
 #ifndef XPDFAPP_H
 #define XPDFAPP_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <QApplication>
 #include <QColor>
 #include <QDateTime>
-#include "gtypes.h"
+#include "xpdf/goo/gtypes.h"
 
 class GList;
 class XpdfViewer;

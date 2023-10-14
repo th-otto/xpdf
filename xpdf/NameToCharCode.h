@@ -9,9 +9,9 @@
 #ifndef NAMETOCHARCODE_H
 #define NAMETOCHARCODE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "CharTypes.h"
+#include "xpdf/xpdf/CharTypes.h"
 
 struct NameToCharCodeEntry;
 

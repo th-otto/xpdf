@@ -19,7 +19,7 @@
 #ifndef XPDFWIDGET_H
 #define XPDFWIDGET_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <QAbstractScrollArea>
 

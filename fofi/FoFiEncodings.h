@@ -9,9 +9,9 @@
 #ifndef FOFIENCODINGS_H
 #define FOFIENCODINGS_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
+#include "xpdf/goo/gtypes.h"
 
 //------------------------------------------------------------------------
 // Type 1 and 1C font data

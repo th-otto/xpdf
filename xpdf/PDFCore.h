@@ -9,13 +9,13 @@
 #ifndef PDFCORE_H
 #define PDFCORE_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
-#include "SplashTypes.h"
-#include "CharTypes.h"
+#include "xpdf/splash/SplashTypes.h"
+#include "xpdf/xpdf/CharTypes.h"
 #include "DisplayState.h"
-#include "TextOutputDev.h"
+#include "xpdf/xpdf/TextOutputDev.h"
 
 class GString;
 class GList;

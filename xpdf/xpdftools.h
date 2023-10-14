@@ -49,13 +49,13 @@ void fixCommandLine(int *argc, char **argv[]) {
 extern "C" {
 #endif
 
-long zvpdf_freetype_open(void)
+long xpdf_freetype_open(void)
 {
 	return slb_freetype_open(NULL);
 }
 
 
-void zvpdf_freetype_close(void)
+void xpdf_freetype_close(void)
 {
 	slb_freetype_close();
 }

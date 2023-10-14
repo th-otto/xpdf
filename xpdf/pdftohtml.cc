@@ -6,20 +6,20 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "parseargs.h"
-#include "gfile.h"
-#include "GString.h"
-#include "GlobalParams.h"
-#include "PDFDoc.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "../goo/parseargs.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/PDFDoc.h"
 #include "HTMLGen.h"
-#include "Error.h"
+#include "xpdf/xpdf/Error.h"
 #include "ErrorCodes.h"
-#include "config.h"
+#include "xpdf/xpdf/config.h"
 
 //------------------------------------------------------------------------
 

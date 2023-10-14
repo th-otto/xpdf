@@ -9,10 +9,10 @@
 #ifndef SECURITYHANDLER_H
 #define SECURITYHANDLER_H
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
-#include "gtypes.h"
-#include "Object.h"
+#include "xpdf/goo/gtypes.h"
+#include "xpdf/xpdf/Object.h"
 
 class GString;
 class PDFDoc;

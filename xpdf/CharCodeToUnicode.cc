@@ -6,16 +6,16 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdio.h>
 #include <string.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "gfile.h"
-#include "GString.h"
-#include "Error.h"
-#include "GlobalParams.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/gfile.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/GlobalParams.h"
 #include "PSTokenizer.h"
 #include "CharCodeToUnicode.h"
 

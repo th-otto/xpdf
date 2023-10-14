@@ -6,11 +6,11 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <string.h>
-#include "gmem.h"
-#include "gmempp.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
 #include "Decrypt.h"
 
 static void aes256KeyExpansion(DecryptAES256State *s,

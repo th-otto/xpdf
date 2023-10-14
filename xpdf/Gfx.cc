@@ -6,36 +6,36 @@
 //
 //========================================================================
 
-#include <aconf.h>
+#include <xpdf/aconf.h>
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <stddef.h>
 #include <string.h>
 #include <math.h>
-#include "gmem.h"
-#include "gmempp.h"
-#include "GString.h"
-#include "GList.h"
-#include "Trace.h"
-#include "GlobalParams.h"
-#include "CharTypes.h"
-#include "Object.h"
-#include "PDFDoc.h"
-#include "Array.h"
-#include "Dict.h"
-#include "Stream.h"
+#include "xpdf/goo/gmem.h"
+#include "../goo/gmempp.h"
+#include "xpdf/goo/GString.h"
+#include "xpdf/goo/GList.h"
+#include "../goo/Trace.h"
+#include "xpdf/xpdf/GlobalParams.h"
+#include "xpdf/xpdf/CharTypes.h"
+#include "xpdf/xpdf/Object.h"
+#include "xpdf/xpdf/PDFDoc.h"
+#include "xpdf/xpdf/Array.h"
+#include "xpdf/xpdf/Dict.h"
+#include "xpdf/xpdf/Stream.h"
 #include "Lexer.h"
 #include "Parser.h"
-#include "GfxFont.h"
-#include "GfxState.h"
-#include "OutputDev.h"
-#include "Page.h"
-#include "Annot.h"
+#include "xpdf/xpdf/GfxFont.h"
+#include "xpdf/xpdf/GfxState.h"
+#include "xpdf/xpdf/OutputDev.h"
+#include "xpdf/xpdf/Page.h"
+#include "xpdf/xpdf/Annot.h"
 #include "OptionalContent.h"
-#include "Error.h"
-#include "TextString.h"
-#include "Gfx.h"
+#include "xpdf/xpdf/Error.h"
+#include "xpdf/xpdf/TextString.h"
+#include "xpdf/xpdf/Gfx.h"
 
 // the MSVC math.h doesn't define this
 #ifndef M_PI
