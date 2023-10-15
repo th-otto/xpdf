@@ -1,7 +1,7 @@
 AUTOMAKE_OPTIONS = foreign
 ACLOCAL_AMFLAGS = -I m4
 
-SUBDIRS = include doc fofi goo splash xpdf xpdf-qt
+SUBDIRS = include doc fofi goo splash xpdf tools xpdf-qt
 
 EXTRA_DIST = \
 	COPYING \

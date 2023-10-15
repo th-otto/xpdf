@@ -35,7 +35,7 @@
 #include "xpdf/xpdf/PDFDoc.h"
 #include "xpdf/xpdf/XRef.h"
 #include "PreScanOutputDev.h"
-#include "CharCodeToUnicode.h"
+#include "../xpdf/CharCodeToUnicode.h"
 #include "xpdf/xpdf/AcroForm.h"
 #include "xpdf/xpdf/TextString.h"
 #ifdef XPDF_HAVE_SPLASH

@@ -609,6 +609,7 @@ AC_CONFIG_FILES([
 	splash/Makefile
 	xpdf/Makefile
 	xpdf/xpdf.pc
+	tools/Makefile
 	xpdf-qt/Makefile
 	include/Makefile
 	include/xpdf/Makefile

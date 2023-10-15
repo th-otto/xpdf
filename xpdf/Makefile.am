@@ -8,15 +8,6 @@ endif
 endif
 endif
 
-bin_PROGRAMS = pdftops pdftotext pdfinfo pdffonts pdfdetach pdfimages
-if XPDF_HAVE_LIBPNG
-if XPDF_HAVE_FREETYPE
-bin_PROGRAMS += pdftohtml pdftopng
-endif
-endif
-if XPDF_HAVE_FREETYPE
-bin_PROGRAMS += pdftoppm
-endif
 pkgconfig_DATA = xpdf.pc
 
 AM_CPPFLAGS = -I$(top_srcdir)/include
@@ -150,68 +141,3 @@ endif
 endif
 endif
 endif
-
-pdftops_SOURCES = pdftops.cc \
-	PreScanOutputDev.cc PreScanOutputDev.h \
-	PSOutputDev.cc PSOutputDev.h \
-	SplashOutputDev.cc \
-	ShadingImage.cc ShadingImage.h \
-	xpdftools.h \
-	$(empty)
-pdftops_LDADD = -L. -lxpdf
-pdftops_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a
-if XPDF_HAVE_FREETYPE
-pdftops_LDADD += -L../splash -lsplash
-pdftops_DEPENDENCIES += ../splash/libsplash.a
-endif
-pdftops_LDADD += $(LCMS_LIBS) $(FREETYPE2_LIBS) $(PNG_LIBS)
-
-pdffonts_SOURCES = pdffonts.cc xpdftools.h
-pdffonts_LDADD = -L. -lxpdf
-pdffonts_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a
-pdffonts_LDADD += $(LCMS_LIBS) $(FREETYPE2_LIBS)
-
-pdfdetach_SOURCES = pdfdetach.cc xpdftools.h
-pdfdetach_LDADD = -L. -lxpdf
-pdfdetach_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a
-pdfdetach_LDADD += $(LCMS_LIBS) $(FREETYPE2_LIBS)
-
-pdftoppm_SOURCES = pdftoppm.cc \
-	SplashOutputDev.cc \
-	ShadingImage.cc ShadingImage.h \
-	xpdftools.h
-pdftoppm_LDADD = -L. -lxpdf
-pdftoppm_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a ../splash/libsplash.a
-pdftoppm_LDADD += $(LCMS_LIBS) $(FREETYPE2_LIBS)
-
-pdftopng_SOURCES = pdftopng.cc \
-	SplashOutputDev.cc \
-	ShadingImage.cc ShadingImage.h \
-	xpdftools.h
-pdftopng_LDADD = -L. -lxpdf -L../goo -lgoo -L../fofi -lfofi -L../splash -lsplash
-pdftopng_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a ../splash/libsplash.a
-pdftopng_LDADD += $(LCMS_LIBS) $(FREETYPE2_LIBS) $(PNG_LIBS)
-
-pdfinfo_SOURCES = pdfinfo.cc xpdftools.h
-pdfinfo_LDADD = -L. -lxpdf -L../goo -lgoo -L../fofi -lfofi
-pdfinfo_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a
-pdfinfo_LDADD += $(LCMS_LIBS) $(FREETYPE2_LIBS)
-
-pdftohtml_SOURCES = pdftohtml.cc HTMLGen.cc HTMLGen.h \
-	SplashOutputDev.cc \
-	ShadingImage.cc ShadingImage.h \
-	WebFont.cc WebFont.h \
-	xpdftools.h
-pdftohtml_LDADD = -L. -lxpdf -L../goo -lgoo -L../fofi -lfofi -L../splash -lsplash
-pdftohtml_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a ../splash/libsplash.a
-pdftohtml_LDADD += $(LCMS_LIBS) $(FREETYPE2_LIBS) $(PNG_LIBS)
-
-pdftotext_SOURCES = pdftotext.cc xpdftools.h
-pdftotext_LDADD = -L. -lxpdf -L../goo -lgoo -L../fofi -lfofi -L../splash -lsplash
-pdftotext_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a ../splash/libsplash.a
-pdftotext_LDADD += $(LCMS_LIBS) $(FREETYPE2_LIBS)
-
-pdfimages_SOURCES = pdfimages.cc ImageOutputDev.cc ImageOutputDev.h xpdftools.h
-pdfimages_LDADD = -L. -lxpdf -L../goo -lgoo -L../fofi -lfofi
-pdfimages_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a
-pdfimages_LDADD += $(LCMS_LIBS) $(FREETYPE2_LIBS)

@@ -18,7 +18,7 @@
 #include "xpdf/xpdf/PDFDoc.h"
 #include "HTMLGen.h"
 #include "xpdf/xpdf/Error.h"
-#include "ErrorCodes.h"
+#include "../xpdf/ErrorCodes.h"
 #include "xpdf/xpdf/config.h"
 
 //------------------------------------------------------------------------

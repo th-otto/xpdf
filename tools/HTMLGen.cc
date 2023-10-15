@@ -33,7 +33,7 @@
 #include "xpdf/xpdf/AcroForm.h"
 #include "xpdf/xpdf/TextOutputDev.h"
 #include "xpdf/xpdf/SplashOutputDev.h"
-#include "ErrorCodes.h"
+#include "../xpdf/ErrorCodes.h"
 #include "WebFont.h"
 #include "HTMLGen.h"
 
