@@ -32,7 +32,7 @@ AH_BOTTOM([
  * Copyright 2002-2003 Glyph & Cog, LLC
  */
 
-#if defined(__cplusplus) && defined(USE_EXCEPTIONS)
+#if defined(__cplusplus) && defined(XPDF_USE_EXCEPTIONS)
 # if __cplusplus >= 201103L
 #  define NO_THROWS noexcept(true)
 #  define THROWS(a, ...) noexcept(false)
@@ -239,9 +239,24 @@ dnl ##### bit stricter (requiring function prototypes in include files).
 dnl ##### (99% of xpdf is written in C++.)
 AC_LANG([C++])
 
-AC_CHECK_HEADERS([argz.h limits.h locale.h nl_types.h malloc.h string.h strings.h unistd.h process.h sys/param.h endian.h io.h fcntl.h dlfcn.h pwd.h wchar.h])
+AC_CHECK_HEADERS([limits.h locale.h nl_types.h malloc.h string.h strings.h unistd.h process.h sys/param.h io.h pwd.h wchar.h])
 
 AC_CHECK_FUNCS([popen mktemp mkstemp mkstemps fseeko fseek64 _fseeki64])
+if test "$ac_cv_func_fseeko" = yes; then
+  GFILEOFFSET="off_t"
+  GFILEOFFSET_MAX="(sizeof(off_t) > 4 ? LLONG_MAX : LONG_MAX)"
+elif test "x$ac_cv_func_fseek64" = yes; then
+  GFILEOFFSET="long long"
+  GFILEOFFSET_MAX="LLONG_MAX"
+elif test "x$ac_cv_func__fseeki64" = yes; then
+  GFILEOFFSET="__int64"
+  GFILEOFFSET_MAX="LLONG_MAX"
+else
+  GFILEOFFSET="long"
+  GFILEOFFSET_MAX="LONG_MAX"
+fi
+AC_DEFINE_UNQUOTED(GFILEOFFSET, $GFILEOFFSET, [Type used by gfseek/gftell for file offsets.  This will be 64 bits on systems that support it.])
+AC_DEFINE_UNQUOTED(GFILEOFFSET_MAX, $GFILEOFFSET_MAX, [maximum fileoffset])
 
 AC_CHECK_LIB(m, log)
 
@@ -271,8 +286,8 @@ if test "$enable_multithreaded" = yes; then
 	AX_PTHREAD([AC_DEFINE([XPDF_HAVE_PTHREAD],[1],[Define if you have POSIX threads libraries and header files.])])
 fi
 AM_CONDITIONAL(MULTITHREADED, test "$enable_multithreaded" = yes)
-AH_TEMPLATE([USE_EXCEPTIONS], [use C++ exceptions])
-AC_OPTION(exceptions, [use C++ exceptions], yes, [USE_EXCEPTIONS])
+AH_TEMPLATE([XPDF_USE_EXCEPTIONS], [use C++ exceptions])
+AC_OPTION(exceptions, [use C++ exceptions], yes, [XPDF_USE_EXCEPTIONS])
 AM_CONDITIONAL(USE_EXCEPTIONS, test "$enable_exceptions" = yes)
 if test "$enable_exceptions" = no; then
 	AC_ADD_CFLAG(CXXFLAGS, "-fno-exceptions")
@@ -320,7 +335,12 @@ if test "$sysconfdir" = '${prefix}/etc'; then
 else
   system_xpdfrc="$sysconfdir/xpdfrc"
 fi
-AC_DEFINE_UNQUOTED(SYSTEM_XPDFRC, "$system_xpdfrc", [directory for system wide xpdfrc])
+# under Windows, we get the directory with the executable and then
+# append this file name
+if test "$TARGET_OS" = "win32"; then
+  system_xpdfrc="xpdfrc"
+fi
+AC_DEFINE_UNQUOTED(xpdfSysConfigFile, "$system_xpdfrc", [directory for system wide xpdfrc])
 
 AH_TEMPLATE([XPDFRC_DATADIR], [directory to use for the DATADIR xpdfrc variable])
 AC_ARG_WITH([xpdfrc-datadir],

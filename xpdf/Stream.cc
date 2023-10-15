@@ -2960,14 +2960,14 @@ void DCTStream::prepare() {
       prepared = gTrue;
       return;
     }
-#ifdef USE_EXCEPTIONS
+#ifdef XPDF_USE_EXCEPTIONS
     try {
 #endif
       for (i = 0; i < numComps; ++i) {
 	frameBuf[i] = (int *)gmallocn(bufWidth * bufHeight, sizeof(int));
 	memset(frameBuf[i], 0, bufWidth * bufHeight * sizeof(int));
       }
-#ifdef USE_EXCEPTIONS
+#ifdef XPDF_USE_EXCEPTIONS
     } catch (GMemException) {
       error(errSyntaxError, getPos(), "Out of memory in DCT stream");
       y = height;

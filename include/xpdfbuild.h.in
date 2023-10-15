@@ -15,6 +15,13 @@
 /* Defined for evaluation mode. */
 #undef EVAL_MODE
 
+/* Type used by gfseek/gftell for file offsets. This will be 64 bits on
+   systems that support it. */
+#undef GFILEOFFSET
+
+/* maximum fileoffset */
+#undef GFILEOFFSET_MAX
+
 /* Define to 1 if you have the <argz.h> header file. */
 #undef HAVE_ARGZ_H
 
@@ -174,12 +181,6 @@
    backward compatibility; new code need not use it. */
 #undef STDC_HEADERS
 
-/* directory for system wide xpdfrc */
-#undef SYSTEM_XPDFRC
-
-/* use C++ exceptions */
-#undef USE_EXCEPTIONS
-
 /* Version number of package */
 #undef VERSION
 
@@ -212,11 +213,17 @@
 /* include support for CMYK rasterization */
 #undef XPDF_SPLASH_CMYK
 
+/* use C++ exceptions */
+#undef XPDF_USE_EXCEPTIONS
+
 /* use fixed point (instead of floating point) arithmetic */
 #undef XPDF_USE_FIXEDPOINT
 
 /* Define to empty if `const' does not conform to ANSI C. */
 #undef const
+
+/* directory for system wide xpdfrc */
+#undef xpdfSysConfigFile
 
 
 /*
@@ -228,7 +235,7 @@
  * Copyright 2002-2003 Glyph & Cog, LLC
  */
 
-#if defined(__cplusplus) && defined(USE_EXCEPTIONS)
+#if defined(__cplusplus) && defined(XPDF_USE_EXCEPTIONS)
 # if __cplusplus >= 201103L
 #  define NO_THROWS noexcept(true)
 #  define THROWS(a, ...) noexcept(false)

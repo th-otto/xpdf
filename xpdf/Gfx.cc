@@ -4156,7 +4156,7 @@ void Gfx::opXObject(Object args[], int numArgs) {
   }
   obj2.free();
 
-#ifdef USE_EXCEPTIONS
+#ifdef XPDF_USE_EXCEPTIONS
   try {
 #endif
 #ifdef XPDF_OPI_SUPPORT
@@ -4198,7 +4198,7 @@ void Gfx::opXObject(Object args[], int numArgs) {
     }
     opiDict.free();
 #endif
-#ifdef USE_EXCEPTIONS
+#ifdef XPDF_USE_EXCEPTIONS
   } catch (GMemException e) {
     xObj.free();
     refObj.free();

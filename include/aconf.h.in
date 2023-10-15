@@ -22,7 +22,29 @@
 /* include printing support in XpdfWidget */
 #undef XPDFWIDGET_PRINTING
 
-#if defined(__cplusplus) && defined(USE_EXCEPTIONS)
+/* use C++ exceptions */
+#undef XPDF_USE_EXCEPTIONS
+
+/* Type used by gfseek/gftell for file offsets. This will be 64 bits on
+   systems that support it. */
+#undef GFILEOFFSET
+#undef GFILEOFFSET_MAX
+
+//------------------------------------------------------------------------
+// config file (xpdfrc) path
+//------------------------------------------------------------------------
+
+// user config file name, relative to the user's home directory
+#if defined(VMS) || defined(_WIN32)
+#define xpdfUserConfigFile "xpdfrc"
+#else
+#define xpdfUserConfigFile ".xpdfrc"
+#endif
+
+// system config file name (set via the configure script)
+#undef xpdfSysConfigFile
+
+#if defined(__cplusplus) && defined(XPDF_USE_EXCEPTIONS)
 # if __cplusplus >= 201103L
 #  define NO_THROWS noexcept(true)
 #  define THROWS(a, ...) noexcept(false)

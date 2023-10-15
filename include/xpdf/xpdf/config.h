@@ -48,28 +48,6 @@
 #endif
 
 //------------------------------------------------------------------------
-// config file (xpdfrc) path
-//------------------------------------------------------------------------
-
-// user config file name, relative to the user's home directory
-#if defined(VMS) || defined(_WIN32)
-#define xpdfUserConfigFile "xpdfrc"
-#else
-#define xpdfUserConfigFile ".xpdfrc"
-#endif
-
-// system config file name (set via the configure script)
-#if defined(_WIN32)
-// under Windows, we get the directory with the executable and then
-// append this file name
-#define xpdfSysConfigFile "xpdfrc"
-#elif defined(SYSTEM_XPDFRC)
-#define xpdfSysConfigFile SYSTEM_XPDFRC
-#else
-#define xpdfSysConfigFile "/etc/xpdfrc"
-#endif
-
-//------------------------------------------------------------------------
 // X-related constants
 //------------------------------------------------------------------------
 

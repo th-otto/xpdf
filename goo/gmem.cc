@@ -355,7 +355,7 @@ void gfree(void *p) {
 }
 
 void gMemError(const char *msg) GMEM_EXCEP {
-#ifdef USE_EXCEPTIONS
+#ifdef XPDF_USE_EXCEPTIONS
   (void)msg;
   throw GMemException();
 #else

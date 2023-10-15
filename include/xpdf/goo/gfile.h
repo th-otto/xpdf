@@ -119,21 +119,9 @@ extern int makeDir(const char *path, int mode);
 // conventions.
 extern char *getLine(char *buf, int size, FILE *f);
 
-// Type used by gfseek/gftell for file offsets.  This will be 64 bits
-// on systems that support it.
-#if defined(HAVE_FSEEKO)
-typedef off_t GFileOffset;
-#define GFILEOFFSET_MAX (sizeof(off_t) > 4 ? 0x7fffffffffffffffLL : LONG_MAX)
-#elif defined(HAVE_FSEEK64)
-typedef long long GFileOffset;
-#define GFILEOFFSET_MAX 0x7fffffffffffffffLL
-#elif defined(HAVE__FSEEKI64)
-typedef __int64 GFileOffset;
-#define GFILEOFFSET_MAX 0x7fffffffffffffffLL
-#else
-typedef long GFileOffset;
-#define GFILEOFFSET_MAX LONG_MAX
-#endif
+/* Type used by gfseek/gftell for file offsets. This will be 64 bits on
+   systems that support it. */
+typedef GFILEOFFSET GFileOffset;
 
 // Like fseek, but uses a 64-bit file offset if available.
 extern int gfseek(FILE *f, GFileOffset offset, int whence);
