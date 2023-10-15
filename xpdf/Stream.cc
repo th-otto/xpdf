@@ -22,7 +22,7 @@
 #include "xpdf/goo/gmem.h"
 #include "../goo/gmempp.h"
 #include "xpdf/goo/gfile.h"
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 #include "xpdf/xpdf/config.h"
@@ -685,7 +685,7 @@ private:
 
   FILE *f;
   int refCnt;
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GMutex mutex;
 #endif
 };
@@ -693,23 +693,23 @@ private:
 SharedFile::SharedFile(FILE *fA) {
   f = fA;
   refCnt = 1;
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gInitMutex(&mutex);
 #endif
 }
 
 SharedFile::~SharedFile() {
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gDestroyMutex(&mutex);
 #endif
 }
 
 SharedFile *SharedFile::copy() {
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&mutex);
 #endif
   ++refCnt;
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&mutex);
 #endif
   return this;
@@ -718,11 +718,11 @@ SharedFile *SharedFile::copy() {
 void SharedFile::free() {
   int newCount;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&mutex);
 #endif
   newCount = --refCnt;
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&mutex);
 #endif
   if (newCount == 0) {
@@ -733,12 +733,12 @@ void SharedFile::free() {
 int SharedFile::readBlock(char *buf, GFileOffset pos, int size) {
   int n;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&mutex);
 #endif
   gfseek(f, pos, SEEK_SET);
   n = (int)fread(buf, 1, size, f);
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&mutex);
 #endif
   return n;
@@ -747,12 +747,12 @@ int SharedFile::readBlock(char *buf, GFileOffset pos, int size) {
 GFileOffset SharedFile::getSize() {
   GFileOffset size;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&mutex);
 #endif
   gfseek(f, 0, SEEK_END);
   size = gftell(f);
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&mutex);
 #endif
   return size;

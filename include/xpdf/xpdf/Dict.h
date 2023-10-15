@@ -11,7 +11,7 @@
 
 #include <xpdf/aconf.h>
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 #include "xpdf/xpdf/Object.h"
@@ -32,7 +32,7 @@ public:
   ~Dict();
 
   // Reference counting.
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   long incRef() { return gAtomicIncrement(&ref); }
   long decRef() { return gAtomicDecrement(&ref); }
 #else
@@ -71,7 +71,7 @@ private:
   DictEntry **hashTab;		// hash table pointers
   int size;			// size of <entries> array
   int length;			// number of entries in dictionary
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GAtomicCounter ref;		// reference count
 #else
   long ref;			// reference count

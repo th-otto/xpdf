@@ -17,7 +17,7 @@
 #include <stdint.h>
 #include <string.h>
 #include <limits.h>
-#if defined(MULTITHREADED) && defined(_WIN32)
+#if defined(XPDF_MULTITHREADED) && defined(_WIN32)
 #  include <windows.h>
 #endif
 #include "xpdf/goo/gmem.h"
@@ -60,7 +60,7 @@ static int gMemAlloc = 0;
 static size_t gMemInUse = 0;
 static size_t gMaxMemInUse = 0;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #  ifdef _WIN32
      static CRITICAL_SECTION gMemMutex;
      static INIT_ONCE gMemMutexInitStruct = INIT_ONCE_STATIC_INIT;

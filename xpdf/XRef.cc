@@ -319,7 +319,7 @@ XRef::XRef(BaseStream *strA, GBool repair) {
     cache[i].num = -1;
   }
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gInitMutex(&objStrsMutex);
   gInitMutex(&cacheMutex);
 #endif
@@ -402,7 +402,7 @@ XRef::~XRef() {
       delete objStrs[i];
     }
   }
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gDestroyMutex(&objStrsMutex);
   gDestroyMutex(&cacheMutex);
 #endif
@@ -1188,12 +1188,12 @@ Object *XRef::fetch(int num, int gen, Object *obj, int recursion) {
   }
 
   // check the cache
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&cacheMutex);
 #endif
   if (cache[0].num == num && cache[0].gen == gen) {
     cache[0].obj.copy(obj);
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
     gUnlockMutex(&cacheMutex);
 #endif
     return obj;
@@ -1206,13 +1206,13 @@ Object *XRef::fetch(int num, int gen, Object *obj, int recursion) {
       }
       cache[0] = tmp;
       cache[0].obj.copy(obj);
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
       gUnlockMutex(&cacheMutex);
 #endif
       return obj;
     }
   }
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&cacheMutex);
 #endif
 
@@ -1270,7 +1270,7 @@ Object *XRef::fetch(int num, int gen, Object *obj, int recursion) {
 
   // put the new object in the cache, throwing away the oldest object
   // currently in the cache
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&cacheMutex);
 #endif
   if (cache[xrefCacheSize - 1].num >= 0) {
@@ -1282,7 +1282,7 @@ Object *XRef::fetch(int num, int gen, Object *obj, int recursion) {
   cache[0].num = num;
   cache[0].gen = gen;
   obj->copy(&cache[0].obj);
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&cacheMutex);
 #endif
 
@@ -1296,18 +1296,18 @@ GBool XRef::getObjectStreamObject(int objStrNum, int objIdx,
 				  int objNum, Object *obj) {
   ObjectStream *objStr;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&objStrsMutex);
 #endif
   if (!(objStr = getObjectStream(objStrNum))) {
-#if MULTITHREADED
+#if XPDF_MULTITHREADED
     gUnlockMutex(&objStrsMutex);
 #endif
     return gFalse;
   }
   cleanObjectStreamCache();
   objStr->getObject(objIdx, objNum, obj);
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&objStrsMutex);
 #endif
   return gTrue;

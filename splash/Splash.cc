@@ -4938,7 +4938,7 @@ SplashError Splash::stroke(SplashPath *path) {
   SplashCoord t0, t1, t2, t3, w, w2, lineDashMax, lineDashTotal;
   int lineCap, lineJoin, i;
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   if (debugMode) {
     printf("stroke [dash:%d] [width:%.2f]:\n",
 	   state->lineDashLength, (double)state->lineWidth);
@@ -5483,7 +5483,7 @@ SplashPath *Splash::makeDashedPath(SplashPath *path) {
 }
 
 SplashError Splash::fill(SplashPath *path, GBool eo) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   if (debugMode) {
     printf("fill [eo:%d]:\n", eo);
     dumpPath(path);
@@ -5769,7 +5769,7 @@ SplashError Splash::fillChar(SplashCoord x, SplashCoord y,
   int x0, y0, xFrac, yFrac;
   SplashError err;
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   if (debugMode) {
     printf("fillChar: x=%.2f y=%.2f c=%3d=0x%02x='%c'\n",
 	   (double)x, (double)y, c, c, c);
@@ -5942,7 +5942,7 @@ SplashError Splash::fillImageMask(GString *imageTag,
 				  int w, int h, SplashCoord *mat,
 				  GBool glyphMode, GBool interpolate,
 				  GBool antialias) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   if (debugMode) {
     printf("fillImageMask: w=%d h=%d mat=[%.2f %.2f %.2f %.2f %.2f %.2f]\n",
 	   w, h, (double)mat[0], (double)mat[1], (double)mat[2],
@@ -6463,7 +6463,7 @@ SplashError Splash::drawImage(GString *imageTag,
 			      SplashColorMode srcMode, GBool srcAlpha,
 			      int w, int h, SplashCoord *mat,
 			      GBool interpolate) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   if (debugMode) {
     printf("drawImage: srcMode=%d srcAlpha=%d w=%d h=%d mat=[%.2f %.2f %.2f %.2f %.2f %.2f]\n",
 	   srcMode, srcAlpha, w, h, (double)mat[0], (double)mat[1], (double)mat[2],
@@ -8504,7 +8504,7 @@ SplashClipResult Splash::limitRectToClipRect(int *xMin, int *yMin,
 			       state->strokeAdjust);
 }
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 void Splash::dumpPath(SplashPath *path) {
   int i;
 

@@ -280,8 +280,8 @@ AH_TEMPLATE([NO_TEXT_SELECT], [do not allow text selection])
 AC_OPTION(no-text-select, [do not allow text selection], no)
 AH_TEMPLATE([XPDF_OPI_SUPPORT], [include support for OPI comments])
 AC_OPTION(opi, [include support for OPI comments], no, [XPDF_OPI_SUPPORT])
-AH_TEMPLATE([MULTITHREADED], [include support for multithreading])
-AC_OPTION(multithreaded, [include support for multithreading], yes)
+AH_TEMPLATE([XPDF_MULTITHREADED], [include support for multithreading])
+AC_OPTION(multithreaded, [include support for multithreading], yes, [XPDF_MULTITHREADED])
 if test "$enable_multithreaded" = yes; then
 	AX_PTHREAD([AC_DEFINE([XPDF_HAVE_PTHREAD],[1],[Define if you have POSIX threads libraries and header files.])])
 fi

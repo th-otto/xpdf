@@ -51,7 +51,6 @@
 
 //------------------------------------------------------------------------
 
-#ifndef ZVPDF_SLB
 GString *getHomeDir() {
 #ifdef VMS
   //---------- VMS ----------
@@ -86,12 +85,14 @@ GString *getHomeDir() {
 #else
   //---------- Unix ----------
   char *s;
-  struct passwd *pw;
   GString *ret;
 
   if ((s = getenv("HOME"))) {
     ret = new GString(s);
   } else {
+#ifndef XPDF_SLB /* avoid references to getpwnam() */
+    struct passwd *pw;
+
     if ((s = getenv("USER")))
       pw = getpwnam(s);
     else
@@ -99,12 +100,12 @@ GString *getHomeDir() {
     if (pw)
       ret = new GString(pw->pw_dir);
     else
+#endif
       ret = new GString(".");
   }
   return ret;
 #endif
 }
-#endif
 
 GString *getCurrentDir() {
   char buf[PATH_MAX+1];
@@ -367,7 +368,7 @@ GString *makePathAbsolute(GString *path) {
   //---------- Unix and OS/2+EMX ----------
   char buf[PATH_MAX+1];
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   if (path->getChar(0) == '~') {
     struct passwd *pw;
     GString *s;
@@ -413,7 +414,7 @@ GString *makePathAbsolute(GString *path) {
 #endif
 }
 
-#ifndef ZVPDF_SLB /* only needed in tools, but not in library */
+#ifndef XPDF_SLB /* only needed in tools, but not in library */
 GBool pathIsFile(const char *path) {
 #ifdef _WIN32
   wchar_t wPath[winMaxLongPath + 1];
@@ -567,7 +568,7 @@ GBool openTempFile(GString **name, FILE **f,
 #endif
 }
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 GBool createDir(char *path, int mode) {
 #ifdef _WIN32
   return !_mkdir(path);
@@ -717,7 +718,7 @@ void readWindowsShortcut(wchar_t *wPath, size_t wPathSize) {
 }
 #endif
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 int makeDir(const char *path, int mode) {
 #ifdef _WIN32
   wchar_t wPath[winMaxLongPath + 1];
@@ -781,7 +782,7 @@ GFileOffset gftell(FILE *f) {
 #endif
 }
 
-#ifndef ZVPDF_SLB /* only needed in tools, but not in library */
+#ifndef XPDF_SLB /* only needed in tools, but not in library */
 void fixCommandLine(int *argc, char **argv[]) {
 #ifdef _WIN32
   int argcw;

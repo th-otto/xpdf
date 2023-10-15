@@ -733,7 +733,7 @@ void Gfx::go(GBool topLevel) {
     // got a command - execute it
     if (obj.isCmd()) {
       if (printCommands) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 	obj.print(stdout);
 	for (i = 0; i < numArgs; ++i) {
 	  printf(" ");
@@ -766,7 +766,7 @@ void Gfx::go(GBool topLevel) {
     } else {
       error(errSyntaxError, getPos(), "Too many args in content stream");
       if (printCommands) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 	printf("throwing away arg: ");
 	obj.print(stdout);
 	printf("\n");
@@ -786,7 +786,7 @@ void Gfx::go(GBool topLevel) {
     if (!aborted) {
       error(errSyntaxError, getPos(), "Leftover args in content stream");
       if (printCommands) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 	printf("%d leftovers:", numArgs);
 	for (i = 0; i < numArgs; ++i) {
 	  printf(" ");
@@ -1021,7 +1021,7 @@ void Gfx::opSetExtGState(Object args[], int numArgs) {
     return;
   }
   if (printCommands) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
     printf("  gfx state dict: ");
     obj1.print();
     printf("\n");
@@ -3632,7 +3632,7 @@ void Gfx::doSetFont(GfxFont *font, double size) {
     font = defaultFont;
   }
   if (printCommands) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
     printf("  font: tag=%s name='%s' %g\n",
 	   font->getTag()->getCString(),
 	   font->getName() ? font->getName()->getCString() : "???",
@@ -5155,7 +5155,7 @@ void Gfx::opBeginMarkedContent(Object args[], int numArgs) {
   GfxMarkedContentKind mcKind;
 
   if (printCommands) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
     printf("  marked content: %s ", args[0].getName());
     if (numArgs == 2) {
       args[1].print(stdout);
@@ -5214,7 +5214,7 @@ void Gfx::opEndMarkedContent(Object args[], int numArgs) {
 
 void Gfx::opMarkPoint(Object args[], int numArgs) {
   if (printCommands) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
     printf("  mark point: %s ", args[0].getName());
     if (numArgs == 2)
       args[1].print(stdout);

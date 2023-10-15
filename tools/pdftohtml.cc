@@ -99,7 +99,7 @@ static ArgDesc const argDesc[] = {
 
 #include "xpdftools.h"
 
-#ifdef ZVPDF_SLB
+#ifdef XPDF_SLB
 int makeDir(const char *path, int mode) {
 #ifdef _WIN32
   wchar_t wPath[winMaxLongPath + 1];

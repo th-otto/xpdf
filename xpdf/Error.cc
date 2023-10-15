@@ -72,7 +72,7 @@ void error(ErrorCategory category, GFileOffset pos,
   if (errorCbk) {
     (*errorCbk)(errorCbkData, category, (int)pos, sanitized->getCString());
   } else {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
     fflush(stdout);
 #endif
     if (pos >= 0) {

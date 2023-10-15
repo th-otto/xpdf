@@ -156,7 +156,7 @@ Catalog::Catalog(PDFDoc *docA) {
   form = NULL;
   embeddedFiles = NULL;
   pageLabels = NULL;
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gInitMutex(&pageMutex);
 #endif
 
@@ -268,7 +268,7 @@ Catalog::~Catalog() {
     gfree(pages);
     gfree(pageRefs);
   }
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gDestroyMutex(&pageMutex);
 #endif
   dests.free();
@@ -296,14 +296,14 @@ Catalog::~Catalog() {
 Page *Catalog::getPage(int i) {
   Page *page;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&pageMutex);
 #endif
   if (!pages[i-1]) {
     loadPage(i);
   }
   page = pages[i-1];
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&pageMutex);
 #endif
   return page;
@@ -312,28 +312,28 @@ Page *Catalog::getPage(int i) {
 Ref *Catalog::getPageRef(int i) {
   Ref *pageRef;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&pageMutex);
 #endif
   if (!pages[i-1]) {
     loadPage(i);
   }
   pageRef = &pageRefs[i-1];
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&pageMutex);
 #endif
   return pageRef;
 }
 
 void Catalog::doneWithPage(int i) {
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&pageMutex);
 #endif
   if (pages[i-1]) {
     delete pages[i-1];
     pages[i-1] = NULL;
   }
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&pageMutex);
 #endif
 }
@@ -366,7 +366,7 @@ GString *Catalog::readMetadata() {
 int Catalog::findPage(int num, int gen) {
   int i;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gLockMutex(&pageMutex);
 #endif
   for (i = 0; i < numPages; ++i) {
@@ -374,13 +374,13 @@ int Catalog::findPage(int num, int gen) {
       loadPage(i+1);
     }
     if (pageRefs[i].num == num && pageRefs[i].gen == gen) {
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
       gUnlockMutex(&pageMutex);
 #endif
       return i + 1;
     }
   }
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gUnlockMutex(&pageMutex);
 #endif
   return 0;

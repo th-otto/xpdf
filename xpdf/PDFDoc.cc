@@ -496,7 +496,7 @@ void PDFDoc::displayPage(OutputDev *out, int page,
 			 GBool useMediaBox, GBool crop, GBool printing,
 			 GBool (*abortCheckCbk)(void *data),
 			 void *abortCheckCbkData) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   if (globalParams->getPrintCommands()) {
     printf("***** page %d *****\n", page);
   }
@@ -514,7 +514,7 @@ void PDFDoc::displayPages(OutputDev *out, int firstPage, int lastPage,
   int page;
 
   for (page = firstPage; page <= lastPage; ++page) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
     if (globalParams->getPrintStatusInfo()) {
       fflush(stderr);
       printf("[processing page %d]\n", page);

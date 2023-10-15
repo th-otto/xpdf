@@ -17,7 +17,7 @@
 #include "xpdf/goo/gmem.h"
 #include "xpdf/goo/gfile.h"
 #include "xpdf/goo/GString.h"
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 
@@ -68,7 +68,7 @@ enum ObjType {
 //------------------------------------------------------------------------
 
 #ifdef DEBUG_MEM
-#  ifdef MULTITHREADED
+#  ifdef XPDF_MULTITHREADED
 #    define initObj(t) gAtomicIncrement(&numAlloc[type = t])
 #  else
 #    define initObj(t) ++numAlloc[type = t]
@@ -213,7 +213,7 @@ private:
   };
 
 #ifdef DEBUG_MEM
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   static GAtomicCounter		// number of each type of object
     numAlloc[numObjTypes];	//   currently allocated
 #else

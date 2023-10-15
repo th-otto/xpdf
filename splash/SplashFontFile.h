@@ -14,7 +14,7 @@
 #include "xpdf/goo/gtypes.h"
 #include "xpdf/splash/SplashTypes.h"
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 
@@ -79,7 +79,7 @@ protected:
   GString *fileName;
   GBool deleteFile;
 #endif
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GAtomicCounter refCnt;
 #else
   int refCnt;

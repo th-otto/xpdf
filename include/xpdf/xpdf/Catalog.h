@@ -11,7 +11,7 @@
 
 #include <xpdf/aconf.h>
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 #include "CharTypes.h"
@@ -121,7 +121,7 @@ private:
   PageTreeNode *pageTree;	// the page tree
   Page **pages;			// array of pages
   Ref *pageRefs;		// object ID for each page
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GMutex pageMutex;
 #endif
   int numPages;			// number of pages

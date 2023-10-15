@@ -16,7 +16,7 @@
 #include "xpdf/goo/gtypes.h"
 #include "xpdf/xpdf/CharTypes.h"
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 
@@ -90,7 +90,7 @@ private:
   int len;			// (user, resident)
   UnicodeMapExt *eMaps;		// (user)
   int eMapsLen;			// (user)
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GAtomicCounter refCnt;
 #else
   int refCnt;

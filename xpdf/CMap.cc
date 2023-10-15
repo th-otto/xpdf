@@ -330,7 +330,7 @@ void CMap::freeCMapVector(CMapVectorEntry *vec) {
 }
 
 void CMap::incRefCnt() {
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gAtomicIncrement(&refCnt);
 #else
   ++refCnt;
@@ -340,7 +340,7 @@ void CMap::incRefCnt() {
 void CMap::decRefCnt() {
   GBool done;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   done = gAtomicDecrement(&refCnt) == 0;
 #else
   done = --refCnt == 0;

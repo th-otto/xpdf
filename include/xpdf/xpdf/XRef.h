@@ -14,7 +14,7 @@
 #include "xpdf/goo/gtypes.h"
 #include "xpdf/goo/gfile.h"
 #include "xpdf/xpdf/Object.h"
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 
@@ -150,7 +150,7 @@ private:
   Guint				// time of last use for each obj stream
     objStrLastUse[objStrCacheSize];
   Guint objStrTime;		// current time for the obj stream cache
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GMutex objStrsMutex;
 #endif
   GBool encrypted;		// true if file is encrypted
@@ -162,7 +162,7 @@ private:
   CryptAlgorithm encAlgorithm;	// encryption algorithm
   XRefCacheEntry		// cache of recently accessed objects
     cache[xrefCacheSize];
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GMutex cacheMutex;
 #endif
 

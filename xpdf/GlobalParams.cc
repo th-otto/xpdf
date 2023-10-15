@@ -44,7 +44,7 @@
 #  define strncasecmp strnicmp
 #endif
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #  define lockGlobalParams            gLockMutex(&mutex)
 #  define lockUnicodeMapCache         gLockMutex(&unicodeMapCacheMutex)
 #  define lockCMapCache               gLockMutex(&cMapCacheMutex)
@@ -614,7 +614,7 @@ GlobalParams::GlobalParams(const char *cfgFileName) {
   UnicodeMap *map;
   int i;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gInitMutex(&mutex);
   gInitMutex(&unicodeMapCacheMutex);
   gInitMutex(&cMapCacheMutex);
@@ -637,7 +637,7 @@ GlobalParams::GlobalParams(const char *cfgFileName) {
     }
   }
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 #ifdef _WIN32
   // baseDir will be set by a call to setBaseDir
   baseDir = new GString();
@@ -761,7 +761,7 @@ GlobalParams::GlobalParams(const char *cfgFileName) {
   droppedFonts = new GHash(gTrue);
   createDefaultKeyBindings();
   popupMenuCmds = new GList();
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   tabStateFile = appendToPath(getHomeDir(), ".xpdf.tab-state");
   debugLogFile = NULL;
 #endif
@@ -799,7 +799,7 @@ GlobalParams::GlobalParams(const char *cfgFileName) {
   map = new UnicodeMap("UCS-2", gTrue, &mapUCS2);
   residentUnicodeMaps->add(map->getEncodingName(), map);
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   GString *fileName;
   FILE *f;
 
@@ -844,7 +844,7 @@ GlobalParams::GlobalParams(const char *cfgFileName) {
 }
 
 void GlobalParams::setDataDirVar() {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   GString *dir;
 
 #if defined(XPDFRC_DATADIR)
@@ -1027,7 +1027,7 @@ void GlobalParams::createDefaultKeyBindings() {
 				     xpdfKeyContextAny, "zoomFitWidth"));
 }
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 void GlobalParams::parseFile(GString *fileName, FILE *f) {
   int line;
   char buf[512];
@@ -1283,7 +1283,7 @@ void GlobalParams::parseLine(char *buf, GString *fileName, int line) {
       parseUnbind(tokens, fileName, line);
     } else if (!cmd->cmp("popupMenuCmd")) {
       parsePopupMenuCmd(tokens, fileName, line);
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
     } else if (!cmd->cmp("tabStateFile")) {
       parseString("tabStateFile", &tabStateFile, tokens, fileName, line);
     } else if (!cmd->cmp("debugLogFile")) {
@@ -1986,7 +1986,7 @@ void GlobalParams::parsePopupMenuCmd(GList *tokens,
   popupMenuCmds->append(new PopupMenuCmd(((GString *)tokens->get(1))->copy(),
 					 cmds));
 }
-#endif /* ZVPDF_SLB */
+#endif /* XPDF_SLB */
 
 void GlobalParams::parseYesNo(const char *cmdName, GBool *flag,
 			      GList *tokens, GString *fileName, int line) {
@@ -2015,7 +2015,7 @@ GBool GlobalParams::parseYesNo2(const char *token, GBool *flag) {
   return gTrue;
 }
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 void GlobalParams::parseString(const char *cmdName, GString **s,
 			       GList *tokens, GString *fileName, int line) {
   if (tokens->getLength() != 2) {
@@ -2091,7 +2091,7 @@ void GlobalParams::parseFloat(const char *cmdName, double *val,
   }
   *val = atof(tok->getCString());
 }
-#endif /* ZVPDF_SLB */
+#endif /* XPDF_SLB */
 
 GlobalParams::~GlobalParams() {
   GHashIter *iter;
@@ -2104,7 +2104,7 @@ GlobalParams::~GlobalParams() {
 
   delete macRomanReverseMap;
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   delete baseDir;
   deleteGHash(configFileVars, GString);
 #endif
@@ -2151,7 +2151,7 @@ GlobalParams::~GlobalParams() {
   delete droppedFonts;
   deleteGList(keyBindings, KeyBinding);
   deleteGList(popupMenuCmds, PopupMenuCmd);
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   delete tabStateFile;
   delete debugLogFile;
 #endif
@@ -2167,7 +2167,7 @@ GlobalParams::~GlobalParams() {
   delete unicodeMapCache;
   delete cMapCache;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gDestroyMutex(&mutex);
   gDestroyMutex(&unicodeMapCacheMutex);
   gDestroyMutex(&cMapCacheMutex);
@@ -2176,7 +2176,7 @@ GlobalParams::~GlobalParams() {
 
 //------------------------------------------------------------------------
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 void GlobalParams::setBaseDir(const char *dir) {
   delete baseDir;
   baseDir = new GString(dir);
@@ -2433,7 +2433,7 @@ CharCode GlobalParams::getMacRomanCharCode(char *charName) {
   return macRomanReverseMap->lookup(charName);
 }
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 GString *GlobalParams::getBaseDir() {
   GString *s;
 
@@ -3380,7 +3380,7 @@ PopupMenuCmd *GlobalParams::getPopupMenuCmd(int idx) {
   return cmd;
 }
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 GString *GlobalParams::getTabStateFile() {
   GString *s;
 
@@ -3424,7 +3424,7 @@ GBool GlobalParams::getErrQuiet() {
   return errQuiet;
 }
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 GString *GlobalParams::getDebugLogFile() {
   return debugLogFile;
 }
@@ -3836,7 +3836,7 @@ void GlobalParams::setMapExtTrueTypeFontsViaUnicode(GBool map) {
   unlockGlobalParams;
 }
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 void GlobalParams::setTabStateFile(char *tabStateFileA) {
   lockGlobalParams;
   delete tabStateFile;

@@ -152,7 +152,7 @@ UnicodeMap::~UnicodeMap() {
 }
 
 void UnicodeMap::incRefCnt() {
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gAtomicIncrement(&refCnt);
 #else
   ++refCnt;
@@ -162,7 +162,7 @@ void UnicodeMap::incRefCnt() {
 void UnicodeMap::decRefCnt() {
   GBool done;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   done = gAtomicDecrement(&refCnt) == 0;
 #else
   done = --refCnt == 0;

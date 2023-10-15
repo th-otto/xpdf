@@ -14,7 +14,7 @@
 #include "xpdf/goo/gtypes.h"
 #include "xpdf/xpdf/CharTypes.h"
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 
@@ -80,7 +80,7 @@ private:
   int wMode;			// writing mode (0=horizontal, 1=vertical)
   CMapVectorEntry *vector;	// vector for first byte (NULL for
 				//   identity CMap)
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GAtomicCounter refCnt;
 #else
   int refCnt;

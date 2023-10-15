@@ -124,9 +124,6 @@
 /* Enable support for highlighted regions. */
 #undef HIGHLIGHTED_REGIONS
 
-/* include support for multithreading */
-#undef MULTITHREADED
-
 /* disable support for libfontconfig */
 #undef NO_FONTCONFIG
 
@@ -194,6 +191,9 @@
 
 /* Defined if the Splash library is available. */
 #undef XPDF_HAVE_SPLASH
+
+/* include support for multithreading */
+#undef XPDF_MULTITHREADED
 
 /* include support for OPI comments */
 #undef XPDF_OPI_SUPPORT

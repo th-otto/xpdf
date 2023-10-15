@@ -11,7 +11,7 @@
 
 #include <xpdf/aconf.h>
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 #include "xpdf/xpdf/Object.h"
@@ -32,7 +32,7 @@ public:
   ~Array();
 
   // Reference counting.
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   long incRef() { return gAtomicIncrement(&ref); }
   long decRef() { return gAtomicDecrement(&ref); }
 #else
@@ -56,7 +56,7 @@ private:
   Object *elems;		// array of elements
   int size;			// size of <elems> array
   int length;			// number of elements in array
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GAtomicCounter ref;		// reference count
 #else
   long ref;			// reference count

@@ -39,7 +39,7 @@ static const char *const objTypeNames[numObjTypes] = {
 };
 
 #ifdef DEBUG_MEM
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 GAtomicCounter Object::numAlloc[numObjTypes] =
   {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 #else
@@ -98,7 +98,7 @@ Object *Object::copy(Object *obj) {
     break;
   }
 #ifdef DEBUG_MEM
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gAtomicIncrement(&numAlloc[type]);
 #else
   ++numAlloc[type];
@@ -140,7 +140,7 @@ void Object::free() {
     break;
   }
 #ifdef DEBUG_MEM
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gAtomicDecrement(&numAlloc[type]);
 #else
   --numAlloc[type];

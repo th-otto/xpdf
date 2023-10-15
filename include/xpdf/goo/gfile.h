@@ -37,7 +37,7 @@ class GString;
 //------------------------------------------------------------------------
 
 // Get home directory path.
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 extern GString *getHomeDir();
 #endif
 
@@ -77,7 +77,7 @@ extern time_t getModTime(const char *fileName);
 extern GBool openTempFile(GString **name, FILE **f,
 			  const char *mode, const char *ext);
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 // Create a directory.  Returns true on success.
 extern GBool createDir(char *path, int mode);
 #endif

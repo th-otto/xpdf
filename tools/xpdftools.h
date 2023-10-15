@@ -1,4 +1,4 @@
-#ifdef ZVPDF_SLB
+#ifdef XPDF_SLB
 
 #include <sys/stat.h>
 #include <slb/freetype.h>

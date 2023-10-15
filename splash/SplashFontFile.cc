@@ -59,7 +59,7 @@ SplashFontFile::~SplashFontFile() {
 }
 
 void SplashFontFile::incRefCnt() {
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   gAtomicIncrement(&refCnt);
 #else
   ++refCnt;
@@ -69,7 +69,7 @@ void SplashFontFile::incRefCnt() {
 void SplashFontFile::decRefCnt() {
   GBool done;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   done = gAtomicDecrement(&refCnt) == 0;
 #else
   done = --refCnt == 0;

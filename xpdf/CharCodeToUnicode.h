@@ -15,7 +15,7 @@
 
 #include "xpdf/xpdf/CharTypes.h"
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 
@@ -95,7 +95,7 @@ private:
   CharCode mapLen;
   CharCodeToUnicodeString *sMap;
   int sMapLen, sMapSize;
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GAtomicCounter refCnt;
 #else
   int refCnt;

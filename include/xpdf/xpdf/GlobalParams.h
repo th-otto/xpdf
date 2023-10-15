@@ -18,7 +18,7 @@
 #include "xpdf/goo/gtypes.h"
 #include "CharTypes.h"
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
 #include "xpdf/goo/GMutex.h"
 #endif
 
@@ -237,7 +237,7 @@ public:
 
   ~GlobalParams();
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   void setBaseDir(const char *dir);
 #endif
   void setupBaseFonts(const char *dir);
@@ -248,7 +248,7 @@ public:
 
   CharCode getMacRomanCharCode(char *charName);
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   GString *getBaseDir();
 #endif
   Unicode mapNameToUnicode(const char *charName);
@@ -345,14 +345,14 @@ public:
   GList *getAllKeyBindings();
   int getNumPopupMenuCmds();
   PopupMenuCmd *getPopupMenuCmd(int idx);
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   GString *getTabStateFile();
 #endif
   GBool getSavePageNumbers();
   GBool getPrintCommands();
   GBool getPrintStatusInfo();
   GBool getErrQuiet();
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   GString *getDebugLogFile();
   void debugLogPrintf(const char *fmt, ...);
 #endif
@@ -405,7 +405,7 @@ public:
   void setMapNumericCharNames(GBool map);
   void setMapUnknownCharNames(GBool map);
   void setMapExtTrueTypeFontsViaUnicode(GBool map);
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   void setTabStateFile(char *tabStateFileA);
 #endif
   void setPrintCommands(GBool printCommandsA);
@@ -423,7 +423,7 @@ private:
 
   void setDataDirVar();
   void createDefaultKeyBindings();
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   void parseFile(GString *fileName, FILE *f);
   GList *parseLineTokens(char *buf, GString *fileName, int line);
   void parseNameToUnicode(GList *tokens, GString *fileName, int line);
@@ -458,7 +458,7 @@ private:
   void parseYesNo(const char *cmdName, GBool *flag,
 		  GList *tokens, GString *fileName, int line);
   GBool parseYesNo2(const char *token, GBool *flag);
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   void parseString(const char *cmdName, GString **s,
 		   GList *tokens, GString *fileName, int line);
   void parseInteger(const char *cmdName, int *val,
@@ -475,7 +475,7 @@ private:
 
   //----- meta settings
 
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   GString *baseDir;		// base directory - for plugins, etc.
   GHash *configFileVars;	// variables for use in the config file
 				//   [GString]
@@ -608,7 +608,7 @@ private:
   GHash *droppedFonts;		// dropped fonts [int]
   GList *keyBindings;		// key & mouse button bindings [KeyBinding]
   GList *popupMenuCmds;		// popup menu commands [PopupMenuCmd]
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   GString *tabStateFile;	// path for the tab state save file
 #endif
   GBool savePageNumbers;	// save page number when file is closed
@@ -616,7 +616,7 @@ private:
   GBool printCommands;		// print the drawing commands
   GBool printStatusInfo;	// print status info for each page
   GBool errQuiet;		// suppress error messages?
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   GString *debugLogFile;	// path for debug log file
 #endif
 
@@ -625,7 +625,7 @@ private:
   UnicodeMapCache *unicodeMapCache;
   CMapCache *cMapCache;
 
-#ifdef MULTITHREADED
+#ifdef XPDF_MULTITHREADED
   GMutex mutex;
   GMutex unicodeMapCacheMutex;
   GMutex cMapCacheMutex;

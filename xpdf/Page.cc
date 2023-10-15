@@ -401,7 +401,7 @@ void Page::displaySlice(OutputDev *out, double hDPI, double vDPI,
   cropBox = getCropBox();
 
   if (globalParams->getPrintCommands()) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
     PDFRectangle *mediaBox = getMediaBox();
     printf("***** MediaBox = ll:%g,%g ur:%g,%g\n",
 	   mediaBox->x1, mediaBox->y1, mediaBox->x2, mediaBox->y2);
@@ -429,7 +429,7 @@ void Page::displaySlice(OutputDev *out, double hDPI, double vDPI,
     annotList->generateAnnotAppearances();
     if (annotList->getNumAnnots() > 0) {
       if (globalParams->getPrintCommands()) {
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
 	printf("***** Annotations\n");
 #endif
       }

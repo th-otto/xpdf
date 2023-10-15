@@ -500,7 +500,7 @@ private:
 			       Guchar *colorData,
 			       Guchar *alphaData,
 			       int x, int y, int width);
-#ifndef ZVPDF_SLB
+#ifndef XPDF_SLB
   void dumpPath(SplashPath *path);
   void dumpXPath(SplashXPath *path);
 #endif

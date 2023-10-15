@@ -28,7 +28,7 @@
 #else
 #  include <freetype/ftcffdrv.h>
 #endif
-#if defined(ZVPDF_SLB)
+#if defined(XPDF_SLB)
 #include "xpdf/pdflib.h"
 #elif defined(FREETYPE_SLB)
 #include <slb/freetype.h>
@@ -73,7 +73,7 @@ SplashFTFontEngine::SplashFTFontEngine(GBool aaA, Guint flagsA,
 SplashFTFontEngine *SplashFTFontEngine::init(GBool aaA, Guint flagsA) {
   FT_Library libA;
 
-#if defined(ZVPDF_SLB)
+#if defined(XPDF_SLB)
   if (xpdf_freetype_open() < 0)
   	 return NULL;
 #elif defined(FREETYPE_SLB)
@@ -88,7 +88,7 @@ SplashFTFontEngine *SplashFTFontEngine::init(GBool aaA, Guint flagsA) {
 
 SplashFTFontEngine::~SplashFTFontEngine() {
   FT_Done_FreeType(lib);
-#if defined(ZVPDF_SLB)
+#if defined(XPDF_SLB)
   xpdf_freetype_close();
 #elif defined(FREETYPE_SLB)
   slb_freetype_close();
