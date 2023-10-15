@@ -1,6 +1,6 @@
 noinst_LIBRARIES = libfofi.a
 
-AM_CPPFLAGS = -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_builddir)/include -I$(top_srcdir)/include
 
 libfofi_a_SOURCES = \
 	FoFiBase.cc \

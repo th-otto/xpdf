@@ -1,6 +1,6 @@
 noinst_LIBRARIES = libsplash.a
 
-AM_CPPFLAGS = -I$(top_srcdir)/include $(FREETYPE2_CFLAGS)
+AM_CPPFLAGS = -I$(top_builddir)/include -I$(top_srcdir)/include $(FREETYPE2_CFLAGS)
 
 libsplash_a_SOURCES = \
 	Splash.cc \

@@ -10,7 +10,7 @@ endif
 
 pkgconfig_DATA = xpdf.pc
 
-AM_CPPFLAGS = -I$(top_srcdir)/include
+AM_CPPFLAGS = -I$(top_builddir)/include -I$(top_srcdir)/include
 AM_CPPFLAGS += $(PNG_CFLAGS)
 AM_CPPFLAGS += $(LCMS_CFLAGS)
 AM_CPPFLAGS += $(FREETYPE2_CFLAGS)
