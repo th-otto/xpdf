@@ -17,6 +17,7 @@ endif
 if XPDF_HAVE_FREETYPE
 bin_PROGRAMS += pdftoppm
 endif
+pkgconfig_DATA = xpdf.pc
 
 AM_CPPFLAGS = -I$(top_srcdir)/include
 AM_CPPFLAGS += $(PNG_CFLAGS)

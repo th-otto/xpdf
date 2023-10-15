@@ -330,6 +330,11 @@ if test "$with_xpdfrc_datadir" != "no" -a "$with_xpdfrc_datadir" != "yes" -a "$w
       AC_DEFINE_UNQUOTED(XPDFRC_DATADIR, "$with_xpdfrc_datadir")
 fi
 
+AC_ARG_WITH([pkgconfigdir], AS_HELP_STRING([--with-pkgconfigdir=DIR],
+            [Path to the pkgconfig directory @<:@LIBDIR/pkgconfig@:>@]),
+            [pkgconfigdir="$withval"], [pkgconfigdir='${libdir}/pkgconfig'])
+AC_SUBST([pkgconfigdir])
+
 ###############################################################################
 #
 # check for libpng
@@ -603,6 +608,7 @@ AC_CONFIG_FILES([
 	goo/Makefile
 	splash/Makefile
 	xpdf/Makefile
+	xpdf/xpdf.pc
 	xpdf-qt/Makefile
 	include/Makefile
 	include/xpdf/Makefile

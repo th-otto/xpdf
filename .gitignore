@@ -34,6 +34,7 @@ configure
 a.out
 core
 aconf.h
+xpdf.pc
 xpdfbuild.h
 Makefile
 Makefile.in

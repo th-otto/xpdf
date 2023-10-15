@@ -1,0 +1,12 @@
+prefix=@prefix@
+exec_prefix=@exec_prefix@
+libdir=@libdir@
+includedir=@includedir@
+
+Name: xpdf
+Description: A PDF file viewer
+Version: @PACKAGE_VERSION@
+Requires.private:
+Cflags: -I${includedir}
+Libs: -L${libdir} -lxpdf -lm
+Libs.private:
