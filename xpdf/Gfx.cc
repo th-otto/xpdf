@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -4117,7 +4117,7 @@ void Gfx::opXObject(Object args[], int numArgs) {
   char *name;
   Object xObj, refObj, obj2, obj3;
   GBool ocSaved, oc;
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
   Object opiDict;
 #endif
 
@@ -4159,7 +4159,7 @@ void Gfx::opXObject(Object args[], int numArgs) {
 #ifdef USE_EXCEPTIONS
   try {
 #endif
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
     xObj.streamGetDict()->lookup("OPI", &opiDict);
     if (opiDict.isDict()) {
       out->opiBegin(state, opiDict.getDict());
@@ -4192,7 +4192,7 @@ void Gfx::opXObject(Object args[], int numArgs) {
 	    "XObject subtype is missing or wrong type");
     }
     obj2.free();
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
     if (opiDict.isDict()) {
       out->opiEnd(state, opiDict.getDict());
     }

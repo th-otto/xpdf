@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 #include <stdio.h>
 #ifdef _WIN32
 #  include <io.h>
@@ -34,7 +34,7 @@ static int lastPage;
 static double resolution;
 static GBool mono = gFalse;
 static GBool gray = gFalse;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 static GBool cmyk = gFalse;
 #endif
 static int rotate;
@@ -60,13 +60,13 @@ static ArgDesc const argDesc[] = {
    "generate a monochrome PBM file"},
   {"-gray",   argFlag,     &gray,          0,
    "generate a grayscale PGM file"},
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   {"-cmyk",   argFlag,     &cmyk,          0,
    "generate a CMYK PAM file"},
 #endif
   {"-rot",    argInt,      &rotate,        0,
    "set page rotation: 0, 90, 180, or 270"},
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   {"-freetype",   argString,      enableFreeTypeStr, sizeof(enableFreeTypeStr),
    "enable FreeType font rasterizer: yes, no"},
 #endif
@@ -134,7 +134,7 @@ int main(int argc, char *argv[]) {
   resolution = 150;
   mono = gFalse;
   gray = gFalse;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   cmyk = gFalse;
 #endif
   rotate = 0;
@@ -155,7 +155,7 @@ int main(int argc, char *argv[]) {
   n = 0;
   n += mono ? 1 : 0;
   n += gray ? 1 : 0;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   n += cmyk ? 1 : 0;
 #endif
   if (n > 1) {
@@ -235,7 +235,7 @@ int main(int argc, char *argv[]) {
     ext = "pbm";
   } else if (gray) {
     ext = "pgm";
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   } else if (cmyk) {
     ext = "pam";
 #endif
@@ -255,11 +255,11 @@ int main(int argc, char *argv[]) {
   } else if (gray) {
     paperColor[0] = 0xff;
     splashOut = new SplashOutputDev(splashModeMono8, 1, gFalse, paperColor);
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   } else if (cmyk) {
     paperColor[0] = paperColor[1] = paperColor[2] = paperColor[3] = 0;
     splashOut = new SplashOutputDev(splashModeCMYK8, 1, gFalse, paperColor);
-#endif /* SPLASH_CMYK */
+#endif /* XPDF_SPLASH_CMYK */
   } else {
     paperColor[0] = paperColor[1] = paperColor[2] = 0xff;
     splashOut = new SplashOutputDev(splashModeRGB8, 1, gFalse, paperColor);

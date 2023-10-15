@@ -6,7 +6,7 @@
  * Copyright 1996-2003 Glyph & Cog, LLC
  */
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>

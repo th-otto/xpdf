@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef OBJECT_H
-#define OBJECT_H
+#ifndef XPDF_OBJECT_H
+#define XPDF_OBJECT_H
 
 #include <xpdf/aconf.h>
 

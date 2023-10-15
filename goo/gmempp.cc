@@ -8,7 +8,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 #include "xpdf/goo/gmem.h"
 // NB: do not include gmempp.h here.
 

@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef SPLASH_H
-#define SPLASH_H
+#ifndef XPDF_SPLASH_H
+#define XPDF_SPLASH_H
 
 #include <xpdf/aconf.h>
 
@@ -56,17 +56,17 @@ typedef GBool (*SplashImageSource)(void *data, SplashColorPtr colorLine,
 enum SplashPipeResultColorCtrl {
   splashPipeResultColorNoAlphaBlendMono,
   splashPipeResultColorNoAlphaBlendRGB,
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   splashPipeResultColorNoAlphaBlendCMYK,
 #endif
   splashPipeResultColorAlphaNoBlendMono,
   splashPipeResultColorAlphaNoBlendRGB,
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   splashPipeResultColorAlphaNoBlendCMYK,
 #endif
   splashPipeResultColorAlphaBlendMono,
   splashPipeResultColorAlphaBlendRGB
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   ,
   splashPipeResultColorAlphaBlendCMYK
 #endif
@@ -349,7 +349,7 @@ private:
 			 Guchar *shapePtr, SplashColorPtr cSrcPtr);
   void pipeRunSimpleBGR8(SplashPipe *pipe, int x0, int x1, int y,
 			 Guchar *shapePtr, SplashColorPtr cSrcPtr);
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   void pipeRunSimpleCMYK8(SplashPipe *pipe, int x0, int x1, int y,
 			  Guchar *shapePtr, SplashColorPtr cSrcPtr);
 #endif
@@ -361,7 +361,7 @@ private:
 			Guchar *shapePtr, SplashColorPtr cSrcPtr);
   void pipeRunShapeBGR8(SplashPipe *pipe, int x0, int x1, int y,
 			Guchar *shapePtr, SplashColorPtr cSrcPtr);
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   void pipeRunShapeCMYK8(SplashPipe *pipe, int x0, int x1, int y,
 			 Guchar *shapePtr, SplashColorPtr cSrcPtr);
 #endif
@@ -375,7 +375,7 @@ private:
 		     Guchar *shapePtr, SplashColorPtr cSrcPtr);
   void pipeRunAABGR8(SplashPipe *pipe, int x0, int x1, int y,
 		     Guchar *shapePtr, SplashColorPtr cSrcPtr);
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   void pipeRunAACMYK8(SplashPipe *pipe, int x0, int x1, int y,
 		      Guchar *shapePtr, SplashColorPtr cSrcPtr);
 #endif
@@ -385,7 +385,7 @@ private:
                            Guchar *shapePtr, SplashColorPtr cSrcPtr);
   void pipeRunSoftMaskBGR8(SplashPipe *pipe, int x0, int x1, int y,
                            Guchar *shapePtr, SplashColorPtr cSrcPtr);
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   void pipeRunSoftMaskCMYK8(SplashPipe *pipe, int x0, int x1, int y,
 			    Guchar *shapePtr, SplashColorPtr cSrcPtr);
 #endif
@@ -395,7 +395,7 @@ private:
 			 Guchar *shapePtr, SplashColorPtr cSrcPtr);
   void pipeRunNonIsoBGR8(SplashPipe *pipe, int x0, int x1, int y,
 			 Guchar *shapePtr, SplashColorPtr cSrcPtr);
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   void pipeRunNonIsoCMYK8(SplashPipe *pipe, int x0, int x1, int y,
 			  Guchar *shapePtr, SplashColorPtr cSrcPtr);
 #endif

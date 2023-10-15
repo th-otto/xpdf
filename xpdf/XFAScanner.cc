@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include "xpdf/goo/GString.h"
 #include "../goo/GHash.h"

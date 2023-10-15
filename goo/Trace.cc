@@ -8,7 +8,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #ifdef ENABLE_TRACING
 

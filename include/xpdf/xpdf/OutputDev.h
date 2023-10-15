@@ -217,7 +217,7 @@ public:
 				   GfxImageColorMap *maskColorMap,
 				   double *matte, GBool interpolate);
 
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
   //----- OPI functions
   virtual void opiBegin(GfxState *state, Dict *opiDict);
   virtual void opiEnd(GfxState *state, Dict *opiDict);

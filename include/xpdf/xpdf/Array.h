@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef ARRAY_H
-#define ARRAY_H
+#ifndef XPDF_ARRAY_H
+#define XPDF_ARRAY_H
 
 #include <xpdf/aconf.h>
 

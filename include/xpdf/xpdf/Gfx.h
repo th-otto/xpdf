@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef GFX_H
-#define GFX_H
+#ifndef XPDF_GFX_H
+#define XPDF_GFX_H
 
 #include <xpdf/aconf.h>
 

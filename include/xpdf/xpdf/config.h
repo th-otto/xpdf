@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef CONFIG_H
-#define CONFIG_H
+#ifndef XPDF_CONFIG_H
+#define XPDF_CONFIG_H
 
 //------------------------------------------------------------------------
 // version
@@ -39,7 +39,7 @@
 //------------------------------------------------------------------------
 
 // default paper size (in points) for PostScript output
-#ifdef A4_PAPER
+#ifdef XPDF_A4_PAPER
 #define defPaperWidth  595    // ISO A4 (210x297 mm)
 #define defPaperHeight 842
 #else
@@ -89,20 +89,6 @@
 #define POPEN_READ_MODE "rb"
 #else
 #define POPEN_READ_MODE "r"
-#endif
-
-//------------------------------------------------------------------------
-// Win32 stuff
-//------------------------------------------------------------------------
-
-#ifdef CDECL
-#undef CDECL
-#endif
-
-#if defined(_MSC_VER) || defined(__BORLANDC__)
-#define CDECL __cdecl
-#else
-#define CDECL
 #endif
 
 #endif

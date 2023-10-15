@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdlib.h>
 #include <stddef.h>

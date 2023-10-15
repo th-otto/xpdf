@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef LINK_H
-#define LINK_H
+#ifndef XPDF_LINK_H
+#define XPDF_LINK_H
 
 #include <xpdf/aconf.h>
 

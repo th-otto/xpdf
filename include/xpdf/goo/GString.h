@@ -8,8 +8,8 @@
 //
 //========================================================================
 
-#ifndef GSTRING_H
-#define GSTRING_H
+#ifndef XPDF_GSTRING_H
+#define XPDF_GSTRING_H
 
 #include <xpdf/aconf.h>
 

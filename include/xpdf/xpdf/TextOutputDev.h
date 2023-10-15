@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef TEXTOUTPUTDEV_H
-#define TEXTOUTPUTDEV_H
+#ifndef XPDF_TEXTOUTPUTDEV_H
+#define XPDF_TEXTOUTPUTDEV_H
 
 #include <xpdf/aconf.h>
 

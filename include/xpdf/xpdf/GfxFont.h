@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef GFXFONT_H
-#define GFXFONT_H
+#ifndef XPDF_GFXFONT_H
+#define XPDF_GFXFONT_H
 
 #include <xpdf/aconf.h>
 

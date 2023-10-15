@@ -6,12 +6,12 @@
 //
 //========================================================================
 
-#ifndef SPLASHFTFONT_H
-#define SPLASHFTFONT_H
+#ifndef XPDF_SPLASHFTFONT_H
+#define XPDF_SPLASHFTFONT_H
 
 #include <xpdf/aconf.h>
 
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
 
 #include <ft2build.h>
 #include <freetype/freetype.h>
@@ -51,6 +51,6 @@ private:
   SplashCoord textScale;
 };
 
-#endif /* HAVE_FREETYPE */
+#endif /* XPDF_HAVE_FREETYPE */
 
 #endif

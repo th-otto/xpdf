@@ -17,8 +17,8 @@ AC_CONFIG_AUX_DIR(build-aux)
 ###############################################################################
 
 AH_TOP([
-#ifndef ACONF_H
-#define ACONF_H
+#ifndef XPDF_BUILD_H
+#define XPDF_BUILD_H
 
 ])
 
@@ -45,7 +45,9 @@ AH_BOTTOM([
 # define THROWS(a, ...)
 #endif
 
-#endif /* ACONF_H */
+#include "xpdf/aconf.h"
+
+#endif /* XPDF_BUILD_H */
 ])
 
 AC_CANONICAL_HOST
@@ -55,6 +57,7 @@ if test "$ECHO_E" = ""; then
 fi
 AC_SUBST(ECHO_E)
 
+AC_CONFIG_HEADERS([include/xpdf/xpdfbuild.h:include/xpdfbuild.h.in])
 AC_CONFIG_HEADERS([include/xpdf/aconf.h:include/aconf.h.in])
 
 AM_INIT_AUTOMAKE
@@ -256,16 +259,16 @@ yes|no)
 esac
 ], [enable_shared=no])
 
-AH_TEMPLATE([A4_PAPER], [use A4 (instead of Letter) paper size by default for PostScript output])
-AC_OPTION(a4-paper, [use A4 (instead of Letter) paper size by default for PostScript output], no)
+AH_TEMPLATE([XPDF_A4_PAPER], [use A4 (instead of Letter) paper size by default for PostScript output])
+AC_OPTION(a4-paper, [use A4 (instead of Letter) paper size by default for PostScript output], no, [XPDF_A4_PAPER])
 AH_TEMPLATE([NO_TEXT_SELECT], [do not allow text selection])
 AC_OPTION(no-text-select, [do not allow text selection], no)
-AH_TEMPLATE([OPI_SUPPORT], [include support for OPI comments])
-AC_OPTION(opi, [include support for OPI comments], no, [OPI_SUPPORT])
+AH_TEMPLATE([XPDF_OPI_SUPPORT], [include support for OPI comments])
+AC_OPTION(opi, [include support for OPI comments], no, [XPDF_OPI_SUPPORT])
 AH_TEMPLATE([MULTITHREADED], [include support for multithreading])
 AC_OPTION(multithreaded, [include support for multithreading], yes)
 if test "$enable_multithreaded" = yes; then
-	AX_PTHREAD
+	AX_PTHREAD([AC_DEFINE([XPDF_HAVE_PTHREAD],[1],[Define if you have POSIX threads libraries and header files.])])
 fi
 AM_CONDITIONAL(MULTITHREADED, test "$enable_multithreaded" = yes)
 AH_TEMPLATE([USE_EXCEPTIONS], [use C++ exceptions])
@@ -274,10 +277,10 @@ AM_CONDITIONAL(USE_EXCEPTIONS, test "$enable_exceptions" = yes)
 if test "$enable_exceptions" = no; then
 	AC_ADD_CFLAG(CXXFLAGS, "-fno-exceptions")
 fi
-AH_TEMPLATE([USE_FIXEDPOINT], [use fixed point (instead of floating point) arithmetic])
-AC_OPTION(fixedpoint, [use fixed point (instead of floating point) arithmetic], yes, [USE_FIXEDPOINT])
-AH_TEMPLATE([SPLASH_CMYK], [include support for CMYK rasterization])
-AC_OPTION(cmyk, [include support for CMYK rasterization], yes, [SPLASH_CMYK])
+AH_TEMPLATE([XPDF_USE_FIXEDPOINT], [use fixed point (instead of floating point) arithmetic])
+AC_OPTION(fixedpoint, [use fixed point (instead of floating point) arithmetic], yes, [XPDF_USE_FIXEDPOINT])
+AH_TEMPLATE([XPDF_SPLASH_CMYK], [include support for CMYK rasterization])
+AC_OPTION(cmyk, [include support for CMYK rasterization], yes, [XPDF_SPLASH_CMYK])
 AH_TEMPLATE([NO_FONTCONFIG], [disable support for libfontconfig])
 AC_OPTION(no-fontconfig, [disable support for libfontconfig], no, [NO_FONTCONFIG])
 AH_TEMPLATE([SPLASH_DEVICEN], [Enable support for DeviceN output.])
@@ -327,30 +330,22 @@ if test "$with_xpdfrc_datadir" != "no" -a "$with_xpdfrc_datadir" != "yes" -a "$w
       AC_DEFINE_UNQUOTED(XPDFRC_DATADIR, "$with_xpdfrc_datadir")
 fi
 
-AH_TEMPLATE([USE_FORMS], [Support Forms])
-case $TARGET_OS in
-  tos)
-    ;;
-  *) AC_DEFINE([USE_FORMS], 1)
-    ;;
-esac
-
 ###############################################################################
 #
 # check for libpng
 #
 ###############################################################################
 
-AH_TEMPLATE([HAVE_LIBPNG],
+AH_TEMPLATE([XPDF_HAVE_LIBPNG],
 	    [Define this if the Portable Network Graphics library is installed.
 	    It is basically required, but many things will more-or-less limp
 	    along without it.])
 
 PKG_CHECK_MODULES(PNG, libpng, have_libpng=yes, have_libpng=no)
 if test "$have_libpng" = yes; then
-  AC_DEFINE([HAVE_LIBPNG])
+  AC_DEFINE([XPDF_HAVE_LIBPNG])
 fi
-AM_CONDITIONAL(HAVE_LIBPNG, test "$have_libpng" = yes)
+AM_CONDITIONAL(XPDF_HAVE_LIBPNG, test "$have_libpng" = yes)
 
 ###############################################################################
 #
@@ -358,17 +353,17 @@ AM_CONDITIONAL(HAVE_LIBPNG, test "$have_libpng" = yes)
 #
 ###############################################################################
 
-AH_TEMPLATE([HAVE_FREETYPE], [This is defined if using FreeType 2.])
+AH_TEMPLATE([XPDF_HAVE_FREETYPE], [This is defined if using FreeType 2.])
 
 PKG_CHECK_MODULES(FREETYPE2, freetype2, have_freetype=yes, have_freetype=no)
 if test "$have_freetype" = yes; then
-  AC_DEFINE([HAVE_FREETYPE])
-  AC_DEFINE([HAVE_SPLASH], 1, [Defined if the Splash library is available.])
+  AC_DEFINE([XPDF_HAVE_FREETYPE])
+  AC_DEFINE([XPDF_HAVE_SPLASH], 1, [Defined if the Splash library is available.])
 else
   AC_MSG_ERROR([freetype libraries not available])
 fi
-AM_CONDITIONAL(HAVE_FREETYPE, test "$have_freetype" = yes)
-AM_CONDITIONAL(HAVE_SPLASH, test "$have_freetype" = yes)
+AM_CONDITIONAL(XPDF_HAVE_FREETYPE, test "$have_freetype" = yes)
+AM_CONDITIONAL(XPDF_HAVE_SPLASH, test "$have_freetype" = yes)
 dnl this can get wrong if PKG_CONFIG_PATH is not set
 if test "$TARGET_OS" = tos; then
    FREETYPE2_CFLAGS="-DUSE_PRIVATE_FONTDIR -I$(dirname $(dirname $($CC --print-file-name=libc.a)))/include/freetype2"

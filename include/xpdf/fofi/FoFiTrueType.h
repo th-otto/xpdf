@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef FOFITRUETYPE_H
-#define FOFITRUETYPE_H
+#ifndef XPDF_FOFITRUETYPE_H
+#define XPDF_FOFITRUETYPE_H
 
 #include <xpdf/aconf.h>
 

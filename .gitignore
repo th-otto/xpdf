@@ -34,6 +34,7 @@ configure
 a.out
 core
 aconf.h
+xpdfbuild.h
 Makefile
 Makefile.in
 amversion.m4

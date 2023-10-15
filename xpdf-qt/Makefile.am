@@ -9,7 +9,7 @@
 #========================================================================
 
 if HAVE_QT
-if HAVE_FREETYPE
+if XPDF_HAVE_FREETYPE
 if MULTITHREADED
 if USE_EXCEPTIONS
 bin_PROGRAMS = xpdf

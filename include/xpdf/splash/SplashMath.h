@@ -6,12 +6,12 @@
 //
 //========================================================================
 
-#ifndef SPLASHMATH_H
-#define SPLASHMATH_H
+#ifndef XPDF_SPLASHMATH_H
+#define XPDF_SPLASHMATH_H
 
 #include <xpdf/aconf.h>
 
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
 #  include "xpdf/goo/FixedPoint.h"
 #else
 #  include <math.h>
@@ -23,7 +23,7 @@
 #include "xpdf/splash/SplashTypes.h"
 
 static inline SplashCoord splashAbs(SplashCoord x) {
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   return FixedPoint::abs(x);
 #else
   return fabs(x);
@@ -34,7 +34,7 @@ static inline SplashCoord splashAbs(SplashCoord x) {
 // in changing the FPCW multiple times - so we optimize it with
 // some inline assembly or SSE intrinsics.
 static inline int splashFloor(SplashCoord x) {
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
 
   //--- fixed point
 
@@ -106,7 +106,7 @@ static inline int splashFloor(SplashCoord x) {
 // in changing the FPCW multiple times - so we optimize it with
 // some inline assembly or SSE intrinsics.
 static inline int splashCeil(SplashCoord x) {
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
 
   //--- fixed point
 
@@ -178,7 +178,7 @@ static inline int splashCeil(SplashCoord x) {
 }
 
 static inline int splashRound(SplashCoord x) {
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
 
   //--- fixed point
 
@@ -194,7 +194,7 @@ static inline int splashRound(SplashCoord x) {
 }
 
 static inline SplashCoord splashAvg(SplashCoord x, SplashCoord y) {
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   return FixedPoint::avg(x, y);
 #else
   return 0.5 * (x + y);
@@ -202,7 +202,7 @@ static inline SplashCoord splashAvg(SplashCoord x, SplashCoord y) {
 }
 
 static inline SplashCoord splashSqrt(SplashCoord x) {
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   return FixedPoint::sqrt(x);
 #else
   return sqrt(x);
@@ -210,7 +210,7 @@ static inline SplashCoord splashSqrt(SplashCoord x) {
 }
 
 static inline SplashCoord splashPow(SplashCoord x, SplashCoord y) {
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   return FixedPoint::pow(x, y);
 #else
   return pow(x, y);
@@ -222,7 +222,7 @@ static inline SplashCoord splashDist(SplashCoord x0, SplashCoord y0,
   SplashCoord dx, dy;
   dx = x1 - x0;
   dy = y1 - y0;
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   // this handles the situation where dx*dx or dy*dy is too large to
   // fit in the 16.16 fixed point format
   SplashCoord dxa, dya, d;
@@ -245,7 +245,7 @@ static inline SplashCoord splashDist(SplashCoord x0, SplashCoord y0,
 static inline GBool splashCheckDet(SplashCoord m11, SplashCoord m12,
 				   SplashCoord m21, SplashCoord m22,
 				   SplashCoord epsilon) {
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   return FixedPoint::checkDet(m11, m12, m21, m22, epsilon);
 #else
   return fabs(m11 * m22 - m12 * m21) >= epsilon;
@@ -308,7 +308,7 @@ static inline void splashStrokeAdjust(SplashCoord xMin, SplashCoord xMax,
   int x0, x1;
 
   // make sure the coords fit in 32-bit ints
-#if USE_FIXEDPOINT
+#if XPDF_USE_FIXEDPOINT
   if (xMin < -32767) {
     xMin = -32767;
   } else if (xMin > 32767) {

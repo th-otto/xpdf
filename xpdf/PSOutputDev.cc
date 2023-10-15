@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdio.h>
 #include <stddef.h>
@@ -38,7 +38,7 @@
 #include "CharCodeToUnicode.h"
 #include "xpdf/xpdf/AcroForm.h"
 #include "xpdf/xpdf/TextString.h"
-#ifdef HAVE_SPLASH
+#ifdef XPDF_HAVE_SPLASH
 #  include "xpdf/splash/Splash.h"
 #  include "xpdf/splash/SplashBitmap.h"
 #  include "xpdf/xpdf/SplashOutputDev.h"
@@ -1462,7 +1462,7 @@ void PSOutputDev::init(PSOutputFunc outputFuncA, void *outputStreamA,
   processColors = 0;
   inType3Char = gFalse;
 
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
   // initialize OPI nesting levels
   opi13Nest = 0;
   opi20Nest = 0;
@@ -1823,7 +1823,7 @@ void PSOutputDev::writeDocSetup(Catalog *catalog) {
 	writePSFmt("{0:d} {1:d} pdfSetupPaper\n", paperWidth, paperHeight);
       }
     }
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
     if (globalParams->getPSOPI()) {
       writePS("/opiMatrix matrix currentmatrix def\n");
     }
@@ -4117,7 +4117,7 @@ GBool PSOutputDev::checkPageSlice(Page *page, double hDPI, double vDPI,
 				  GBool (*abortCheckCbk)(void *data),
 				  void *abortCheckCbkData) {
   int pg;
-#ifdef HAVE_SPLASH
+#ifdef XPDF_HAVE_SPLASH
   GBool mono;
   GBool useLZW;
   double dpi;
@@ -4145,7 +4145,7 @@ GBool PSOutputDev::checkPageSlice(Page *page, double hDPI, double vDPI,
     return gTrue;
   }
 
-#ifdef HAVE_SPLASH
+#ifdef XPDF_HAVE_SPLASH
   // get the rasterization parameters
   dpi = globalParams->getPSRasterResolution();
   mono = globalParams->getPSRasterMono() ||
@@ -4180,7 +4180,7 @@ GBool PSOutputDev::checkPageSlice(Page *page, double hDPI, double vDPI,
     splashOut = new SplashOutputDev(splashModeMono8, 1, gFalse,
 				    paperColor, gFalse,
 				    globalParams->getAntialiasPrinting());
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   } else if (level == psLevel1Sep) {
     paperColor[0] = paperColor[1] = paperColor[2] = paperColor[3] = 0;
     splashOut = new SplashOutputDev(splashModeCMYK8, 1, gFalse,
@@ -4263,7 +4263,7 @@ GBool PSOutputDev::checkPageSlice(Page *page, double hDPI, double vDPI,
       }
       break;
     case psLevel1Sep:
-#if SPLASH_CMYK
+#if XPDF_SPLASH_CMYK
       writePSFmt("{0:d} {1:d} 8 [{2:d} 0 0 {3:d} 0 {4:d}] pdfIm1Sep\n",
 		 w, h, w, -h, h);
       p = bitmap->getDataPtr() + (h - 1) * bitmap->getRowSize();
@@ -4298,7 +4298,7 @@ GBool PSOutputDev::checkPageSlice(Page *page, double hDPI, double vDPI,
 	processColors |= psProcessBlack;
       }
       break;
-      // if !SPLASH_CMYK: fall through
+      // if !XPDF_SPLASH_CMYK: fall through
 #endif
     case psLevel2:
     case psLevel2Gray:
@@ -4368,13 +4368,13 @@ GBool PSOutputDev::checkPageSlice(Page *page, double hDPI, double vDPI,
 
   return gFalse;
 
-#else /* HAVE_SPLASH */
+#else /* XPDF_HAVE_SPLASH */
 
   error(errSyntaxWarning, -1,
 	"PDF page uses transparency and PSOutputDev was built without"
 	" the Splash rasterizer - output may not be correct");
   return gTrue;
-#endif /* HAVE_SPLASH */
+#endif /* XPDF_HAVE_SPLASH */
 }
 
 void PSOutputDev::startPage(int pageNum, GfxState *state) {
@@ -6468,7 +6468,7 @@ void PSOutputDev::doImageL2(Object *ref, GfxState *state,
 
     // end of image dictionary
     writePS(">>\n");
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
     if (opi13Nest) {
       if (inlineImg) {
 	// this can't happen -- OPI dictionaries are in XObjects
@@ -6515,7 +6515,7 @@ void PSOutputDev::doImageL2(Object *ref, GfxState *state,
     // add newline and trailer to the end
     writePSChar('\n');
     writePS("%-EOD-\n");
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
     if (opi13Nest) {
       writePS("%%EndData\n");
     }
@@ -7684,7 +7684,7 @@ GString *PSOutputDev::createDeviceNTintFunc(GfxDeviceNColorSpace *cs) {
   return tint;
 }
 
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
 void PSOutputDev::opiBegin(GfxState *state, Dict *opiDict) {
   Object dict;
 
@@ -8111,7 +8111,7 @@ GBool PSOutputDev::getFileSpec(Object *fileSpec, Object *fileName) {
   }
   return gFalse;
 }
-#endif /* OPI_SUPPORT */
+#endif /* XPDF_OPI_SUPPORT */
 
 void PSOutputDev::type3D0(GfxState *state, double wx, double wy) {
   (void) state;

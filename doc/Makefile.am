@@ -9,16 +9,16 @@ man1_FILES = \
 	pdftops.1 \
 	pdftotext.1 \
 	$(empty)
-if HAVE_LIBPNG
-if HAVE_FREETYPE
+if XPDF_HAVE_LIBPNG
+if XPDF_HAVE_FREETYPE
 man1_FILES += pdftohtml.1 pdftopng.1
 endif
 endif
-if HAVE_FREETYPE
+if XPDF_HAVE_FREETYPE
 man1_FILES += pdftoppm.1
 endif
 if HAVE_QT
-if HAVE_FREETYPE
+if XPDF_HAVE_FREETYPE
 if MULTITHREADED
 if USE_EXCEPTIONS
 man1_FILES += xpdf.1

@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef FUNCTION_H
-#define FUNCTION_H
+#ifndef XPDF_FUNCTION_H
+#define XPDF_FUNCTION_H
 
 #include <xpdf/aconf.h>
 

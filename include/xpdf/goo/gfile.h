@@ -8,8 +8,8 @@
 //
 //========================================================================
 
-#ifndef GFILE_H
-#define GFILE_H
+#ifndef XPDF_GFILE_H
+#define XPDF_GFILE_H
 
 #include <xpdf/aconf.h>
 #include <stdio.h>
@@ -17,11 +17,7 @@
 #include <stddef.h>
 #if defined(_WIN32)
 #  include <sys/stat.h>
-#  ifdef FPTEX
-#    include <win32lib.h>
-#  else
-#    include <windows.h>
-#  endif
+#  include <windows.h>
 #elif defined(ACORN)
 #elif defined(ANDROID)
 #else

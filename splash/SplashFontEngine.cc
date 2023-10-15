@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -35,7 +35,7 @@ extern "C" int unlink(char *filename);
 //------------------------------------------------------------------------
 
 SplashFontEngine::SplashFontEngine(
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
 				   GBool enableFreeType,
 				   Guint freeTypeFlags,
 #endif
@@ -47,7 +47,7 @@ SplashFontEngine::SplashFontEngine(
   }
   badFontFiles = new GList();
 
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   if (enableFreeType) {
     ftEngine = SplashFTFontEngine::init(aa, freeTypeFlags);
   } else {
@@ -66,7 +66,7 @@ SplashFontEngine::~SplashFontEngine() {
   }
   deleteGList(badFontFiles, SplashFontFileID);
 
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   if (ftEngine) {
     delete ftEngine;
   }
@@ -108,7 +108,7 @@ SplashFontFile *SplashFontEngine::loadType1Font(SplashFontFileID *idA,
   SplashFontFile *fontFile;
 
   fontFile = NULL;
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   if (!fontFile && ftEngine) {
     fontFile = ftEngine->loadType1Font(idA,
 #ifdef LOAD_FONTS_FROM_MEM
@@ -152,7 +152,7 @@ SplashFontFile *SplashFontEngine::loadType1CFont(SplashFontFileID *idA,
   if (!fontFile) {
     gfree(codeToGID);
   }
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   if (!fontFile && ftEngine) {
     fontFile = ftEngine->loadType1CFont(idA,
 #ifdef LOAD_FONTS_FROM_MEM
@@ -196,7 +196,7 @@ SplashFontFile *SplashFontEngine::loadOpenTypeT1CFont(SplashFontFileID *idA,
   if (!fontFile) {
     gfree(codeToGID);
   }
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   if (!fontFile && ftEngine) {
     fontFile = ftEngine->loadOpenTypeT1CFont(idA,
 #ifdef LOAD_FONTS_FROM_MEM
@@ -237,7 +237,7 @@ SplashFontFile *SplashFontEngine::loadCIDFont(SplashFontFileID *idA,
   SplashFontFile *fontFile;
 
   fontFile = NULL;
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   if (!fontFile && ftEngine) {
     fontFile = ftEngine->loadCIDFont(idA,
 #ifdef LOAD_FONTS_FROM_MEM
@@ -282,7 +282,7 @@ SplashFontFile *SplashFontEngine::loadOpenTypeCFFFont(SplashFontFileID *idA,
   SplashFontFile *fontFile;
 
   fontFile = NULL;
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   if (!fontFile && ftEngine) {
     fontFile = ftEngine->loadOpenTypeCFFFont(idA,
 #ifdef LOAD_FONTS_FROM_MEM
@@ -329,7 +329,7 @@ SplashFontFile *SplashFontEngine::loadTrueTypeFont(SplashFontFileID *idA,
   SplashFontFile *fontFile;
 
   fontFile = NULL;
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   if (!fontFile && ftEngine) {
     fontFile = ftEngine->loadTrueTypeFont(idA,
 #ifdef LOAD_FONTS_FROM_MEM

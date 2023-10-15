@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef GLOBALPARAMS_H
-#define GLOBALPARAMS_H
+#ifndef XPDF_GLOBALPARAMS_H
+#define XPDF_GLOBALPARAMS_H
 
 #include <xpdf/aconf.h>
 

@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef SPLASHTYPES_H
-#define SPLASHTYPES_H
+#ifndef XPDF_SPLASHTYPES_H
+#define XPDF_SPLASHTYPES_H
 
 #include <xpdf/aconf.h>
 #include "xpdf/goo/gtypes.h"
@@ -16,7 +16,7 @@
 // coordinates
 //------------------------------------------------------------------------
 
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
 #include "xpdf/goo/FixedPoint.h"
 typedef FixedPoint SplashCoord;
 #else
@@ -42,7 +42,7 @@ enum SplashColorMode {
   splashModeBGR8		// 1 byte per component, 3 bytes per pixel:
 				//   BGRBGR...
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   ,
   splashModeCMYK8		// 1 byte per component, 4 bytes per pixel:
 				//   CMYKCMYK...
@@ -55,7 +55,7 @@ extern int const splashColorModeNComps[];
 
 // max number of components in any SplashColor
 #define splashMaxColorComps 3
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 #  undef splashMaxColorComps
 #  define splashMaxColorComps 4
 #endif
@@ -73,7 +73,7 @@ static inline Guchar splashBGR8R(SplashColorPtr bgr8) { return bgr8[2]; }
 static inline Guchar splashBGR8G(SplashColorPtr bgr8) { return bgr8[1]; }
 static inline Guchar splashBGR8B(SplashColorPtr bgr8) { return bgr8[0]; }
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 // CMYK8
 static inline Guchar splashCMYK8C(SplashColorPtr cmyk8) { return cmyk8[0]; }
 static inline Guchar splashCMYK8M(SplashColorPtr cmyk8) { return cmyk8[1]; }
@@ -85,7 +85,7 @@ static inline void splashColorCopy(SplashColorPtr dest, SplashColorPtr src) {
   dest[0] = src[0];
   dest[1] = src[1];
   dest[2] = src[2];
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   dest[3] = src[3];
 #endif
 }
@@ -94,7 +94,7 @@ static inline void splashColorXor(SplashColorPtr dest, SplashColorPtr src) {
   dest[0] ^= src[0];
   dest[1] ^= src[1];
   dest[2] ^= src[2];
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   dest[3] ^= src[3];
 #endif
 }

@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef SPLASHFONT_H
-#define SPLASHFONT_H
+#ifndef XPDF_SPLASHFONT_H
+#define XPDF_SPLASHFONT_H
 
 #include <xpdf/aconf.h>
 

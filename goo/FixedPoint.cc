@@ -8,9 +8,9 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
 
 #include "../goo/gmempp.h"
 #include "xpdf/goo/FixedPoint.h"
@@ -127,4 +127,4 @@ GBool FixedPoint::checkDet(FixedPoint m11, FixedPoint m12,
   return det >= e || det <= -e;
 }
 
-#endif /* USE_FIXEDPOINT */
+#endif /* XPDF_USE_FIXEDPOINT */

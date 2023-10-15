@@ -6,8 +6,8 @@
  * Copyright 1996-2003 Glyph & Cog, LLC
  */
 
-#ifndef GTYPES_H
-#define GTYPES_H
+#ifndef XPDF_GTYPES_H
+#define XPDF_GTYPES_H
 
 /*
  * These have stupid names to avoid conflicts with some (but not all)

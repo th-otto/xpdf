@@ -9,7 +9,11 @@
 #ifndef XPDFVIEWER_H
 #define XPDFVIEWER_H
 
-#include <xpdf/aconf.h>
+/*
+ * must use xpdfbuild.h here, because this include file
+ * is included as first thing from moc generated files
+ */
+#include "xpdf/xpdfbuild.h"
 
 #include <QDialog>
 #include <QIcon>

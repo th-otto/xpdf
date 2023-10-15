@@ -8,8 +8,8 @@
 //
 //========================================================================
 
-#ifndef UNICODEMAP_H
-#define UNICODEMAP_H
+#ifndef XPDF_UNICODEMAP_H
+#define XPDF_UNICODEMAP_H
 
 #include <xpdf/aconf.h>
 

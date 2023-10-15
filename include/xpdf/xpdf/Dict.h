@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef DICT_H
-#define DICT_H
+#ifndef XPDF_DICT_H
+#define XPDF_DICT_H
 
 #include <xpdf/aconf.h>
 

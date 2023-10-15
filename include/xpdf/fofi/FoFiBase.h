@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef FOFIBASE_H
-#define FOFIBASE_H
+#ifndef XPDF_FOFIBASE_H
+#define XPDF_FOFIBASE_H
 
 #include <xpdf/aconf.h>
 

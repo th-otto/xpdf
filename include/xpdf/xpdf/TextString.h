@@ -10,8 +10,8 @@
 //
 //========================================================================
 
-#ifndef TEXTSTRING_H
-#define TEXTSTRING_H
+#ifndef XPDF_TEXTSTRING_H
+#define XPDF_TEXTSTRING_H
 
 #include <xpdf/aconf.h>
 

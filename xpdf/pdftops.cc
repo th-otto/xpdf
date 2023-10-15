@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -44,7 +44,7 @@ static GBool level3Gray;
 static GBool level3Sep;
 static GBool doEPS;
 static GBool doForm;
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
 static GBool doOPI = gFalse;
 #endif
 static GBool noEmbedT1Fonts;
@@ -95,7 +95,7 @@ static ArgDesc const argDesc[] = {
    "generate Encapsulated PostScript (EPS)"},
   {"-form",       argFlag,     &doForm,         0,
    "generate a PostScript form"},
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
   {"-opi",        argFlag,     &doOPI,          0,
    "generate OPI comments"},
 #endif
@@ -195,7 +195,7 @@ int main(int argc, char *argv[]) {
   level3Sep = gFalse;
   doEPS = gFalse;
   doForm = gFalse;
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
   doOPI = gFalse;
 #endif
   noEmbedT1Fonts = gFalse;
@@ -279,7 +279,7 @@ int main(int argc, char *argv[]) {
 	  cfgFileName);
   }
   globalParams = new GlobalParams(cfgFileName);
-#ifdef HAVE_SPLASH
+#ifdef XPDF_HAVE_SPLASH
   globalParams->setupBaseFonts(NULL);
 #endif
   if (paperSize[0]) {
@@ -333,7 +333,7 @@ int main(int argc, char *argv[]) {
   if (preload) {
     globalParams->setPSPreload(preload);
   }
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
   if (doOPI) {
     globalParams->setPSOPI(doOPI);
   }

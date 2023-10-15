@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <string.h>
 #include <math.h>
@@ -330,7 +330,7 @@ static void splashOutBlendHue(SplashColorPtr src, SplashColorPtr dest,
     setLum(r0, g0, b0, getLum(dest[0], dest[1], dest[2]),
 	   &blend[0], &blend[1], &blend[2]);
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     // NB: inputs have already been converted to additive mode
     setSat(src[0], src[1], src[2], getSat(dest[0], dest[1], dest[2]),
@@ -360,7 +360,7 @@ static void splashOutBlendSaturation(SplashColorPtr src, SplashColorPtr dest,
     setLum(r0, g0, b0, getLum(dest[0], dest[1], dest[2]),
 	   &blend[0], &blend[1], &blend[2]);
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     // NB: inputs have already been converted to additive mode
     setSat(dest[0], dest[1], dest[2], getSat(src[0], src[1], src[2]),
@@ -386,7 +386,7 @@ static void splashOutBlendColor(SplashColorPtr src, SplashColorPtr dest,
     setLum(src[0], src[1], src[2], getLum(dest[0], dest[1], dest[2]),
 	   &blend[0], &blend[1], &blend[2]);
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     // NB: inputs have already been converted to additive mode
     setLum(src[0], src[1], src[2], getLum(dest[0], dest[1], dest[2]),
@@ -411,7 +411,7 @@ static void splashOutBlendLuminosity(SplashColorPtr src, SplashColorPtr dest,
     setLum(dest[0], dest[1], dest[2], getLum(src[0], src[1], src[2]),
 	   &blend[0], &blend[1], &blend[2]);
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     // NB: inputs have already been converted to additive mode
     setLum(dest[0], dest[1], dest[2], getLum(src[0], src[1], src[2]),
@@ -733,7 +733,7 @@ void SplashOutputDev::startDoc(XRef *xrefA) {
     delete fontEngine;
   }
   fontEngine = new SplashFontEngine(
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
 				    globalParams->getEnableFreeType(),
 				    globalParams->getDisableFreeTypeHinting()
 				      ? splashFTNoHinting : 0,
@@ -804,7 +804,7 @@ void SplashOutputDev::startPage(int pageNum, GfxState *state) {
   case splashModeBGR8:
     color[0] = color[1] = color[2] = 0;
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     color[0] = color[1] = color[2] = color[3] = 0;
     break;
@@ -954,7 +954,7 @@ void SplashOutputDev::updateStrokeAdjust(GfxState *state) {
 void SplashOutputDev::updateFillColor(GfxState *state) {
   GfxGray gray;
   GfxRGB rgb;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
 
@@ -969,7 +969,7 @@ void SplashOutputDev::updateFillColor(GfxState *state) {
     state->getFillRGB(&rgb);
     splash->setFillPattern(getColor(&rgb));
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     state->getFillCMYK(&cmyk);
     splash->setFillPattern(getColor(&cmyk));
@@ -981,7 +981,7 @@ void SplashOutputDev::updateFillColor(GfxState *state) {
 void SplashOutputDev::updateStrokeColor(GfxState *state) {
   GfxGray gray;
   GfxRGB rgb;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
 
@@ -996,7 +996,7 @@ void SplashOutputDev::updateStrokeColor(GfxState *state) {
     state->getStrokeRGB(&rgb);
     splash->setStrokePattern(getColor(&rgb));
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     state->getStrokeCMYK(&cmyk);
     splash->setStrokePattern(getColor(&cmyk));
@@ -1020,7 +1020,7 @@ SplashPattern *SplashOutputDev::getColor(GfxRGB *rgb) {
   return new SplashSolidColor(color);
 }
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 SplashPattern *SplashOutputDev::getColor(GfxCMYK *cmyk) {
   SplashColor color;
 
@@ -1054,7 +1054,7 @@ void SplashOutputDev::getColor(GfxRGB *rgb, SplashColorPtr color) {
   color[2] = colToByte(b);
 }
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 void SplashOutputDev::getColor(GfxCMYK *cmyk, SplashColorPtr color) {
   color[0] = colToByte(cmyk->c);
   color[1] = colToByte(cmyk->m);
@@ -1070,7 +1070,7 @@ void SplashOutputDev::setOverprintMask(GfxState *state,
 				       GBool overprintFlag,
 				       int overprintMode,
 				       GfxColor *singleColor) {
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   Guint mask;
   GfxCMYK cmyk;
 
@@ -2032,7 +2032,7 @@ void SplashOutputDev::tilingPatternFill(GfxState *state, Gfx *gfx,
     color[i] = 0;
   }
   splash->clear(color);
-#if SPLASH_CMYK
+#if XPDF_SPLASH_CMYK
   // if we're doing overprint preview, we need to track the overprint
   // mask at each pixel in the tile bitmap
   if (globalParams->getOverprintPreview() &&
@@ -2043,9 +2043,9 @@ void SplashOutputDev::tilingPatternFill(GfxState *state, Gfx *gfx,
   } else {
     overprintMaskBitmap = NULL;
   }
-#else // SPLASH_CMYK
+#else // XPDF_SPLASH_CMYK
   overprintMaskBitmap = NULL;
-#endif // SPLASH_CMYK
+#endif // XPDF_SPLASH_CMYK
   splash->setMinLineWidth(globalParams->getMinLineWidth());
   splash->setStrokeAdjust(
 		 mapStrokeAdjustMode[globalParams->getStrokeAdjust()]);
@@ -2880,7 +2880,7 @@ GBool SplashOutputDev::imageSrc(void *data, SplashColorPtr colorLine,
 	*q++ = col[2];
       }
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       for (x = 0, q = colorLine; x < imgData->width; ++x, ++p) {
 	col = &imgData->lookup[4 * *p];
@@ -2904,7 +2904,7 @@ GBool SplashOutputDev::imageSrc(void *data, SplashColorPtr colorLine,
       imgData->colorMap->getRGBByteLine(p, colorLine, imgData->width,
 					imgData->ri);
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       imgData->colorMap->getCMYKByteLine(p, colorLine, imgData->width,
 					 imgData->ri);
@@ -2959,7 +2959,7 @@ GBool SplashOutputDev::alphaImageSrc(void *data, SplashColorPtr colorLine,
 	*q++ = col[2];
       }
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       for (x = 0, p = p0, q = colorLine; x < imgData->width; ++x, ++p) {
 	col = &imgData->lookup[4 * *p];
@@ -2983,7 +2983,7 @@ GBool SplashOutputDev::alphaImageSrc(void *data, SplashColorPtr colorLine,
       imgData->colorMap->getRGBByteLine(p0, colorLine, imgData->width,
 					imgData->ri);
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       imgData->colorMap->getCMYKByteLine(p0, colorLine, imgData->width,
 					 imgData->ri);
@@ -3029,7 +3029,7 @@ void SplashOutputDev::drawImage(GfxState *state, Object *ref, Stream *str,
   GString *imgTag;
   GfxGray gray;
   GfxRGB rgb;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
   Guchar pix;
@@ -3094,7 +3094,7 @@ void SplashOutputDev::drawImage(GfxState *state, Object *ref, Stream *str,
 	imgData.lookup[3*i+2] = colToByte(rgb.b);
       }
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       imgData.lookup = (SplashColorPtr)gmallocn(n, 4);
       for (i = 0; i < n; ++i) {
@@ -3203,7 +3203,7 @@ GBool SplashOutputDev::maskedImageSrc(void *data, SplashColorPtr colorLine,
 	*q++ = col[2];
       }
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       for (x = 0, q = colorLine; x < imgData->width; ++x, ++p) {
 	col = &imgData->lookup[4 * *p];
@@ -3227,7 +3227,7 @@ GBool SplashOutputDev::maskedImageSrc(void *data, SplashColorPtr colorLine,
       imgData->colorMap->getRGBByteLine(p, colorLine, imgData->width,
 					imgData->ri);
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       imgData->colorMap->getCMYKByteLine(p, colorLine, imgData->width,
 					 imgData->ri);
@@ -3267,7 +3267,7 @@ void SplashOutputDev::drawMaskedImage(GfxState *state, Object *ref,
   SplashColor maskColor;
   GfxGray gray;
   GfxRGB rgb;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
   Guchar pix;
@@ -3386,7 +3386,7 @@ void SplashOutputDev::drawMaskedImage(GfxState *state, Object *ref,
 	  imgData.lookup[3*i+2] = colToByte(rgb.b);
 	}
 	break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
       case splashModeCMYK8:
 	imgData.lookup = (SplashColorPtr)gmallocn(n, 4);
 	for (i = 0; i < n; ++i) {
@@ -3443,7 +3443,7 @@ GBool SplashOutputDev::softMaskMatteImageSrc(void *data,
   SplashColorPtr q;
   GfxRGB rgb;
   GfxGray gray;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
   Guchar alpha;
@@ -3491,7 +3491,7 @@ GBool SplashOutputDev::softMaskMatteImageSrc(void *data,
 	*q++ = 0;
       }
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       if (alpha) {
 	imgData->colorMap->getCMYK(p, &cmyk, imgData->ri);
@@ -3550,7 +3550,7 @@ void SplashOutputDev::drawSoftMaskedImage(GfxState *state, Object *ref,
   GfxColor matteColor;
   GfxGray gray;
   GfxRGB rgb;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
   Guchar pix;
@@ -3615,7 +3615,7 @@ void SplashOutputDev::drawSoftMaskedImage(GfxState *state, Object *ref,
       matteImgData.matte[1] = colToByte(rgb.g);
       matteImgData.matte[2] = colToByte(rgb.b);
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       colorMap->getColorSpace()->getCMYK(&matteColor, &cmyk,
 					 state->getRenderingIntent());
@@ -3738,7 +3738,7 @@ void SplashOutputDev::drawSoftMaskedImage(GfxState *state, Object *ref,
 	  imgData.lookup[3*i+2] = colToByte(rgb.b);
 	}
 	break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
       case splashModeCMYK8:
 	imgData.lookup = (SplashColorPtr)gmallocn(n, 4);
 	for (i = 0; i < n; ++i) {
@@ -4023,7 +4023,7 @@ GBool SplashOutputDev::beginTransparencyGroup(GfxState *state, double *bbox,
 		blendingColorSpace->getNComps() == 3)) {
       //~ does this need to use BGR8?
       colorMode = splashModeRGB8;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     } else if (blendingColorSpace->getMode() == csDeviceCMYK ||
 	       (blendingColorSpace->getMode() == csICCBased &&
 		blendingColorSpace->getNComps() == 4)) {
@@ -4188,7 +4188,7 @@ void SplashOutputDev::setSoftMask(GfxState *state, double *bbox,
   Guchar *alphaPtr;
   GfxGray gray;
   GfxRGB rgb;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
   double backdrop, backdrop2, lum, lum2;
@@ -4238,7 +4238,7 @@ void SplashOutputDev::setSoftMask(GfxState *state, double *bbox,
 	color[2] = colToByte(rgb.b);
 	tSplash->compositeBackground(color);
 	break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
       case splashModeCMYK8:
 	transpGroupStack->blendingColorSpace->getCMYK(
 		    backdropColor, &cmyk, state->getRenderingIntent());
@@ -4312,7 +4312,7 @@ void SplashOutputDev::setSoftMask(GfxState *state, double *bbox,
 			  150 * colorPtr2[1] +
 			  28 * colorPtr2[1]);
 	    break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 	  case splashModeCMYK8:
 	    lum8 = clip255(255 - colorPtr2[3]
 			   - div255(77 * colorPtr2[0] +
@@ -4387,7 +4387,7 @@ void SplashOutputDev::clearModRegion() {
 void SplashOutputDev::setFillColor(int r, int g, int b) {
   GfxRGB rgb;
   GfxGray gray;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
 
@@ -4407,7 +4407,7 @@ void SplashOutputDev::setFillColor(int r, int g, int b) {
   case splashModeBGR8:
     splash->setFillPattern(getColor(&rgb));
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     cmyk.c = gfxColorComp1 - rgb.r;
     cmyk.m = gfxColorComp1 - rgb.g;

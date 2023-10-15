@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <math.h>
 #include "../goo/Trace.h"
@@ -1236,7 +1236,7 @@ void ShadingImage::computeShadingColor(GfxState *state,
 				       SplashColorPtr sColor) {
   GfxGray gray;
   GfxRGB rgb;
-#if SPLASH_CMYK
+#if XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
 
@@ -1260,7 +1260,7 @@ void ShadingImage::computeShadingColor(GfxState *state,
     sColor[1] = colToByte(rgb.g);
     sColor[2] = colToByte(rgb.b);
     break;
-#if SPLASH_CMYK
+#if XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     state->getFillCMYK(&cmyk);
     sColor[0] = colToByte(cmyk.c);

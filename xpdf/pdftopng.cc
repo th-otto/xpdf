@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <png.h>
@@ -61,7 +61,7 @@ static ArgDesc const argDesc[] = {
    "include an alpha channel in the PNG file"},
   {"-rot",    argInt,      &rotate,        0,
    "set page rotation: 0, 90, 180, or 270"},
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   {"-freetype",   argString,      enableFreeTypeStr, sizeof(enableFreeTypeStr),
    "enable FreeType font rasterizer: yes, no"},
 #endif

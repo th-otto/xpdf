@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef ANNOT_H
-#define ANNOT_H
+#ifndef XPDF_ANNOT_H
+#define XPDF_ANNOT_H
 
 #include <xpdf/aconf.h>
 

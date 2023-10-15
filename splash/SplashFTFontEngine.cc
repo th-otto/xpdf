@@ -6,9 +6,9 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
 
 #include <stdio.h>
 #ifndef _WIN32
@@ -404,4 +404,4 @@ SplashFontFile *SplashFTFontEngine::loadTrueTypeFont(SplashFontFileID *idA,
   return ret;
 }
 
-#endif /* HAVE_FREETYPE */
+#endif /* XPDF_HAVE_FREETYPE */

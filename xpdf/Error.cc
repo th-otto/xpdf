@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdio.h>
 #include <stddef.h>
@@ -42,7 +42,7 @@ void *getErrorCallbackData() {
   return errorCbkData;
 }
 
-void CDECL error(ErrorCategory category, GFileOffset pos,
+void error(ErrorCategory category, GFileOffset pos,
 		 const char *msg, ...) {
   va_list args;
   GString *s, *sanitized;

@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include "xpdf/goo/gmem.h"
 #include "xpdf/xpdf/Object.h"

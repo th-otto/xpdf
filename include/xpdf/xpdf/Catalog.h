@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef CATALOG_H
-#define CATALOG_H
+#ifndef XPDF_CATALOG_H
+#define XPDF_CATALOG_H
 
 #include <xpdf/aconf.h>
 

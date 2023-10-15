@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef SPLASHCLIP_H
-#define SPLASHCLIP_H
+#ifndef XPDF_SPLASHCLIP_H
+#define XPDF_SPLASHCLIP_H
 
 #include <xpdf/aconf.h>
 

@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stddef.h>
 #include "../goo/gmempp.h"
@@ -152,7 +152,7 @@ void OutputDev::drawSoftMaskedImage(GfxState *state, Object *ref, Stream *str,
 	    interpolate);
 }
 
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
 void OutputDev::opiBegin(GfxState *state, Dict *opiDict) {
 }
 

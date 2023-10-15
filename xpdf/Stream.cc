@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -2352,7 +2352,7 @@ GBool CCITTFaxStream::isBinary(GBool last) {
 // DCTStream
 //------------------------------------------------------------------------
 
-#ifdef HAVE_JPEGLIB
+#ifdef XPDF_HAVE_JPEGLIB
 
 DCTStream::DCTStream(Stream *strA, GBool colorXformA):
     FilterStream(strA) {
@@ -2578,7 +2578,7 @@ void DCTStream::skipInputDataCbk(j_decompress_ptr d, long numBytes) {
 void DCTStream::termSourceCbk(j_decompress_ptr d) {
 }
 
-#else /* HAVE_JPEGLIB */
+#else /* XPDF_HAVE_JPEGLIB */
 
 #define idctScaleA 1024
 #define idctScaleB 1138
@@ -4356,7 +4356,7 @@ int DCTStream::read16() {
   return (c1 << 8) + c2;
 }
 
-#endif /* HAVE_JPEGLIB */
+#endif /* XPDF_HAVE_JPEGLIB */
 
 GString *DCTStream::getPSFilter(int psLevel, const char *indent,
 				GBool okToReadStream) {

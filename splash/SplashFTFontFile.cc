@@ -6,9 +6,9 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
 
 #include "xpdf/goo/gmem.h"
 #include "../goo/gmempp.h"
@@ -164,4 +164,4 @@ SplashFont *SplashFTFontFile::makeFont(SplashCoord *mat,
   return font;
 }
 
-#endif /* HAVE_FREETYPE */
+#endif /* XPDF_HAVE_FREETYPE */

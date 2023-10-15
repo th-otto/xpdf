@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef SPLASHOUTPUTDEV_H
-#define SPLASHOUTPUTDEV_H
+#ifndef XPDF_SPLASHOUTPUTDEV_H
+#define XPDF_SPLASHOUTPUTDEV_H
 
 #include <xpdf/aconf.h>
 
@@ -236,12 +236,12 @@ private:
   void setupScreenParams(double hDPI, double vDPI);
   SplashPattern *getColor(GfxGray gray);
   SplashPattern *getColor(GfxRGB *rgb);
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   SplashPattern *getColor(GfxCMYK *cmyk);
 #endif
   void getColor(GfxGray gray, SplashColorPtr color);
   void getColor(GfxRGB *rgb, SplashColorPtr color);
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   void getColor(GfxCMYK *cmyk, SplashColorPtr color);
 #endif
   void setOverprintMask(GfxState *state, GfxColorSpace *colorSpace,

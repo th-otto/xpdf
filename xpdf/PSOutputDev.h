@@ -232,7 +232,7 @@ public:
 			       int maskWidth, int maskHeight,
 			       GBool maskInvert, GBool interpolate);
 
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
   //----- OPI functions
   virtual void opiBegin(GfxState *state, Dict *opiDict);
   virtual void opiEnd(GfxState *state, Dict *opiDict);
@@ -405,7 +405,7 @@ private:
 			       GBool genXform, GBool updateColors,
 			       GBool map01);
   GString *createDeviceNTintFunc(GfxDeviceNColorSpace *cs);
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
   void opiBegin20(GfxState *state, Dict *dict);
   void opiBegin13(GfxState *state, Dict *dict);
   void opiTransform(GfxState *state, double x0, double y0,
@@ -496,7 +496,7 @@ private:
   GBool t3Cacheable;		// cleared if char is not cacheable
   GBool t3NeedsRestore;		// set if a 'q' operator was issued
 
-#ifdef OPI_SUPPORT
+#ifdef XPDF_OPI_SUPPORT
   int opi13Nest;		// nesting level of OPI 1.3 objects
   int opi20Nest;		// nesting level of OPI 2.0 objects
 #endif

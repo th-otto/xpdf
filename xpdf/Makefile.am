@@ -9,12 +9,12 @@ endif
 endif
 
 bin_PROGRAMS = pdftops pdftotext pdfinfo pdffonts pdfdetach pdfimages
-if HAVE_LIBPNG
-if HAVE_FREETYPE
+if XPDF_HAVE_LIBPNG
+if XPDF_HAVE_FREETYPE
 bin_PROGRAMS += pdftohtml pdftopng
 endif
 endif
-if HAVE_FREETYPE
+if XPDF_HAVE_FREETYPE
 bin_PROGRAMS += pdftoppm
 endif
 
@@ -70,7 +70,7 @@ libxpdf_a_SOURCES = \
 	XRef.cc \
 	Zoox.cc Zoox.h \
 	$(empty)
-if HAVE_FREETYPE
+if XPDF_HAVE_FREETYPE
 libxpdf_a_SOURCES += \
 	ShadingImage.cc ShadingImage.h \
 	SplashOutputDev.cc
@@ -100,7 +100,7 @@ libxpdf_a_LIBADD = \
 	$(empty)
 libxpdf_a_DEPENDENCIES = ../fofi/libfofi.a ../goo/libgoo.a
 
-if HAVE_FREETYPE
+if XPDF_HAVE_FREETYPE
 libxpdf_a_LIBADD += \
 	../splash/Splash.o \
 	../splash/SplashBitmap.o \
@@ -134,7 +134,7 @@ libxpdf_widget_a_SOURCES += \
 	TileCompositor.cc TileCompositor.h \
 	TileMap.cc TileMap.h \
 	$(empty)
-if HAVE_FREETYPE
+if XPDF_HAVE_FREETYPE
 libxpdf_widget_a_SOURCES += PSOutputDev.cc PSOutputDev.h
 endif
 if HIGHLIGHTED_REGIONS
@@ -159,7 +159,7 @@ pdftops_SOURCES = pdftops.cc \
 	$(empty)
 pdftops_LDADD = -L. -lxpdf
 pdftops_DEPENDENCIES = libxpdf.a ../goo/libgoo.a ../fofi/libfofi.a
-if HAVE_FREETYPE
+if XPDF_HAVE_FREETYPE
 pdftops_LDADD += -L../splash -lsplash
 pdftops_DEPENDENCIES += ../splash/libsplash.a
 endif

@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include "../goo/gmempp.h"
 #include "xpdf/splash/SplashMath.h"

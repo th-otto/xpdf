@@ -6,13 +6,13 @@
 //
 //========================================================================
 
-#ifndef STREAM_H
-#define STREAM_H
+#ifndef XPDF_STREAM_H
+#define XPDF_STREAM_H
 
 #include <xpdf/aconf.h>
 
 #include <stdio.h>
-#ifdef HAVE_JPEGLIB
+#ifdef XPDF_HAVE_JPEGLIB
 #include <jpeglib.h>
 #include <setjmp.h>
 #endif
@@ -606,7 +606,7 @@ private:
 // DCTStream
 //------------------------------------------------------------------------
 
-#ifdef HAVE_JPEGLIB
+#ifdef XPDF_HAVE_JPEGLIB
 
 class DCTStream;
 
@@ -623,7 +623,7 @@ struct DCTErrorMgr {
   jmp_buf setjmpBuf;
 };
 
-#else /* HAVE_JPEGLIB */
+#else /* XPDF_HAVE_JPEGLIB */
 
 // DCT component info
 struct DCTCompInfo {
@@ -651,7 +651,7 @@ struct DCTHuffTable {
   Guchar sym[256];		// symbols
 };
 
-#endif /* HAVE_JPEGLIB */
+#endif /* XPDF_HAVE_JPEGLIB */
 
 class DCTStream: public FilterStream {
 public:
@@ -673,7 +673,7 @@ private:
 
   GBool checkSequentialInterleaved();
 
-#ifdef HAVE_JPEGLIB
+#ifdef XPDF_HAVE_JPEGLIB
 
   int colorXform;		// color transform: -1 = unspecified
 				//                   0 = none
@@ -697,7 +697,7 @@ private:
   static void skipInputDataCbk(j_decompress_ptr d, long numBytes);
   static void termSourceCbk(j_decompress_ptr d);
 
-#else /* HAVE_JPEGLIB */
+#else /* XPDF_HAVE_JPEGLIB */
 
   GBool prepared;		// set after prepare() is called
   GBool progressive;		// set if in progressive mode
@@ -760,7 +760,7 @@ private:
   int readMarker();
   int read16();
 
-#endif /* HAVE_JPEGLIB */
+#endif /* XPDF_HAVE_JPEGLIB */
 };
 
 //------------------------------------------------------------------------

@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef PAGE_H
-#define PAGE_H
+#ifndef XPDF_PAGE_H
+#define XPDF_PAGE_H
 
 #include <xpdf/aconf.h>
 

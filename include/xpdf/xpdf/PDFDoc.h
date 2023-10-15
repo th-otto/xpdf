@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef PDFDOC_H
-#define PDFDOC_H
+#ifndef XPDF_PDFDOC_H
+#define XPDF_PDFDOC_H
 
 #include <xpdf/aconf.h>
 

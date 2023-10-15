@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef ERROR_H
-#define ERROR_H
+#ifndef XPDF_ERROR_H
+#define XPDF_ERROR_H
 
 #include <xpdf/aconf.h>
 
@@ -38,7 +38,7 @@ extern void setErrorCallback(void (*cbk)(void *data, ErrorCategory category,
 
 extern void *getErrorCallbackData();
 
-extern void CDECL error(ErrorCategory category, GFileOffset pos,
+extern void error(ErrorCategory category, GFileOffset pos,
 			const char *msg, ...);
 
 #endif

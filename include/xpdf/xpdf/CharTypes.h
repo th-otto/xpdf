@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef CHARTYPES_H
-#define CHARTYPES_H
+#ifndef XPDF_CHARTYPES_H
+#define XPDF_CHARTYPES_H
 
 // Unicode character.
 typedef unsigned int Unicode;

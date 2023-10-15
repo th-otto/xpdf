@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdio.h>
 #include <limits.h>
@@ -50,7 +50,7 @@ SplashBitmap::SplashBitmap(int widthA, int heightA, int rowPad,
     }
     rowSize = (SplashBitmapRowSize)width * 3;
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     if (width <= 0 || width > INT_MAX / 4) {
       gMemError("invalid bitmap width");
@@ -193,7 +193,7 @@ SplashError SplashBitmap::writePNMFile(FILE *f) {
     }
     break;
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     fprintf(f, "P7\n");
     fprintf(f, "WIDTH %d\n", width);
@@ -258,7 +258,7 @@ void SplashBitmap::getPixel(int x, int y, SplashColorPtr pixel) {
     pixel[1] = p[1];
     pixel[2] = p[0];
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     p = &data[y * rowSize + 4 * x];
     pixel[0] = p[0];

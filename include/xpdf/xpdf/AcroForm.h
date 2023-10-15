@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef ACROFORM_H
-#define ACROFORM_H
+#ifndef XPDF_ACROFORM_H
+#define XPDF_ACROFORM_H
 
 #include <xpdf/aconf.h>
 

@@ -9,15 +9,15 @@
 //
 //========================================================================
 
-#ifndef GMUTEX_H
-#define GMUTEX_H
+#ifndef XPDF_GMUTEX_H
+#define XPDF_GMUTEX_H
 
 #include <xpdf/aconf.h>
 #ifdef _WIN32
 #  include <windows.h>
 #  include <intrin.h>
 #else
-# ifdef HAVE_PTHREAD
+# ifdef XPDF_HAVE_PTHREAD
 #  include <pthread.h>
 # endif
 #endif
@@ -48,7 +48,7 @@ typedef CRITICAL_SECTION GMutex;
 
 #else // assume pthreads
 
-# ifdef HAVE_PTHREAD
+# ifdef XPDF_HAVE_PTHREAD
 typedef pthread_mutex_t GMutex;
 
 #define gInitMutex(m) pthread_mutex_init(m, NULL)
@@ -112,4 +112,4 @@ static inline GAtomicCounter gAtomicDecrement(GAtomicCounter *counter) {
   return newVal;
 }
 
-#endif /* GMUTEX_H */
+#endif /* XPDF_GMUTEX_H */

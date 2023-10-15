@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 #include "UTF8.h"
 
 int mapUTF8(Unicode u, char *buf, int bufSize) {

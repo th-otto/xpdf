@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef SPLASHBITMAP_H
-#define SPLASHBITMAP_H
+#ifndef XPDF_SPLASHBITMAP_H
+#define XPDF_SPLASHBITMAP_H
 
 #include <xpdf/aconf.h>
 

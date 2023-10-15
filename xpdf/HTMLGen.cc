@@ -19,7 +19,7 @@
 //~ - metadata
 //~ - PDF outline
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdlib.h>
 #include <png.h>

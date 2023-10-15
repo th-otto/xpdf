@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <string.h>
 #include "xpdf/goo/gmem.h"
@@ -24,7 +24,7 @@
 // number of components in each color mode
 int const splashColorModeNComps[] = {
   1, 1, 3, 3
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   , 4
 #endif
 };
@@ -60,7 +60,7 @@ SplashState::SplashState(int width, int height, GBool vectorAntialias,
   deleteSoftMask = gFalse;
   inNonIsolatedGroup = gFalse;
   inKnockoutGroup = gFalse;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   rgbTransferR = (Guchar *)gmalloc(8 * 256);
   rgbTransferG = rgbTransferR + 256;
   rgbTransferB = rgbTransferG + 256;
@@ -80,7 +80,7 @@ SplashState::SplashState(int width, int height, GBool vectorAntialias,
     rgbTransferG[i] = (Guchar)i;
     rgbTransferB[i] = (Guchar)i;
     grayTransfer[i] = (Guchar)i;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     cmykTransferC[i] = (Guchar)i;
     cmykTransferM[i] = (Guchar)i;
     cmykTransferY[i] = (Guchar)i;
@@ -124,7 +124,7 @@ SplashState::SplashState(int width, int height, GBool vectorAntialias,
   deleteSoftMask = gFalse;
   inNonIsolatedGroup = gFalse;
   inKnockoutGroup = gFalse;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   rgbTransferR = (Guchar *)gmalloc(8 * 256);
   rgbTransferG = rgbTransferR + 256;
   rgbTransferB = rgbTransferG + 256;
@@ -144,7 +144,7 @@ SplashState::SplashState(int width, int height, GBool vectorAntialias,
     rgbTransferG[i] = (Guchar)i;
     rgbTransferB[i] = (Guchar)i;
     grayTransfer[i] = (Guchar)i;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     cmykTransferC[i] = (Guchar)i;
     cmykTransferM[i] = (Guchar)i;
     cmykTransferY[i] = (Guchar)i;
@@ -194,7 +194,7 @@ SplashState::SplashState(SplashState *state) {
   rgbTransferG = state->rgbTransferG;
   rgbTransferB = state->rgbTransferB;
   grayTransfer = state->grayTransfer;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   cmykTransferC = state->cmykTransferC;
   cmykTransferM = state->cmykTransferM;
   cmykTransferY = state->cmykTransferY;
@@ -317,7 +317,7 @@ void SplashState::setSoftMask(SplashBitmap *softMaskA, GBool deleteBitmap) {
 void SplashState::setTransfer(Guchar *red, Guchar *green, Guchar *blue,
 			      Guchar *gray) {
   if (transferIsShared) {
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     rgbTransferR = (Guchar *)gmalloc(8 * 256);
     rgbTransferG = rgbTransferR + 256;
     rgbTransferB = rgbTransferG + 256;
@@ -338,7 +338,7 @@ void SplashState::setTransfer(Guchar *red, Guchar *green, Guchar *blue,
   memcpy(rgbTransferG, green, 256);
   memcpy(rgbTransferB, blue, 256);
   memcpy(grayTransfer, gray, 256);
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   for (int i = 0; i < 256; ++i) {
     cmykTransferC[i] = (Guchar)(255 - rgbTransferR[255 - i]);
     cmykTransferM[i] = (Guchar)(255 - rgbTransferG[255 - i]);

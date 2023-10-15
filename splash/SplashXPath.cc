@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -62,7 +62,7 @@ inline void SplashXPath::transform(SplashCoord *matrix,
 #define maxCoord 100000000.0
 
 void SplashXPath::clampCoords(SplashCoord *x, SplashCoord *y) {
-#ifndef USE_FIXEDPOINT
+#ifndef XPDF_USE_FIXEDPOINT
   if (*x > maxCoord) {
     *x = maxCoord;
   } else if (*x < -maxCoord) {
@@ -367,7 +367,7 @@ void SplashXPath::addCurve(SplashCoord x0, SplashCoord y0,
   SplashCoord dx, dy, mx, my, d1, d2, flatness2;
   int p1, p2, p3;
 
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   flatness2 = flatness;
 #else
   flatness2 = flatness * flatness;
@@ -401,7 +401,7 @@ void SplashXPath::addCurve(SplashCoord x0, SplashCoord y0,
     // line)
     mx = (xl0 + xr3) * 0.5;
     my = (yl0 + yr3) * 0.5;
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
     d1 = splashDist(xx1, yy1, mx, my);
     d2 = splashDist(xx2, yy2, mx, my);
 #else
@@ -589,7 +589,7 @@ void SplashXPath::finishSegments() {
       t = seg->y0;  seg->y0 = seg->y1;  seg->y1 = t;
       seg->count = -1;
     }
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
     if (seg->y0 == seg->y1 || seg->x0 == seg->x1 ||
 	!FixedPoint::divCheck(seg->x1 - seg->x0, seg->y1 - seg->y0,
 			      &seg->dxdy) ||

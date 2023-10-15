@@ -6,9 +6,9 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
 
 #include <ft2build.h>
 #include <freetype/ftoutln.h>
@@ -44,7 +44,7 @@ SplashFTFont::SplashFTFont(SplashFTFontFile *fontFileA, SplashCoord *matA,
   FT_Face face;
   int size, div;
   int x, y;
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   SplashCoord scale;
 #endif
 
@@ -70,7 +70,7 @@ SplashFTFont::SplashFTFont(SplashFTFontFile *fontFileA, SplashCoord *matA,
 
   div = face->bbox.xMax > 20000 ? 65536 : 1;
 
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   scale = (SplashCoord)1 / (SplashCoord)face->units_per_EM;
 
   // transform the four corners of the font bounding box -- the min
@@ -123,7 +123,7 @@ SplashFTFont::SplashFTFont(SplashFTFontFile *fontFileA, SplashCoord *matA,
   } else if (y > yMax) {
     yMax = y;
   }
-#else /* USE_FIXEDPOINT */
+#else /* XPDF_USE_FIXEDPOINT */
   // transform the four corners of the font bounding box -- the min
   // and max values form the bounding box of the transformed font
   x = (int)((mat[0] * (SplashCoord)face->bbox.xMin
@@ -182,7 +182,7 @@ SplashFTFont::SplashFTFont(SplashFTFontFile *fontFileA, SplashCoord *matA,
   } else if (y > yMax) {
     yMax = y;
   }
-#endif /* USE_FIXEDPOINT */
+#endif /* XPDF_USE_FIXEDPOINT */
   // This is a kludge: some buggy PDF generators embed fonts with
   // zero bounding boxes.
   if (xMax == xMin) {
@@ -195,7 +195,7 @@ SplashFTFont::SplashFTFont(SplashFTFontFile *fontFileA, SplashCoord *matA,
   }
 
   // compute the transform matrix
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   matrix.xx = (FT_Fixed)((mat[0] / size).get16Dot16());
   matrix.yx = (FT_Fixed)((mat[1] / size).get16Dot16());
   matrix.xy = (FT_Fixed)((mat[2] / size).get16Dot16());
@@ -455,4 +455,4 @@ static int glyphPathCubicTo(const FT_Vector *ctrl1, const FT_Vector *ctrl2,
   return 0;
 }
 
-#endif /* HAVE_FREETYPE */
+#endif /* XPDF_HAVE_FREETYPE */

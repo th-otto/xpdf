@@ -8,7 +8,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #ifdef _WIN32
 #  undef WIN32_LEAN_AND_MEAN

@@ -6,7 +6,7 @@
 //
 //========================================================================
 
-#include <xpdf/aconf.h>
+#include "xpdf/xpdfbuild.h"
 
 #include <stdlib.h>
 #include <string.h>
@@ -102,7 +102,7 @@ SplashPipeResultColorCtrl const Splash::pipeResultColorNoAlphaBlend[] = {
   splashPipeResultColorNoAlphaBlendMono,
   splashPipeResultColorNoAlphaBlendRGB,
   splashPipeResultColorNoAlphaBlendRGB
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   ,
   splashPipeResultColorNoAlphaBlendCMYK
 #endif
@@ -113,7 +113,7 @@ SplashPipeResultColorCtrl const Splash::pipeResultColorAlphaNoBlend[] = {
   splashPipeResultColorAlphaNoBlendMono,
   splashPipeResultColorAlphaNoBlendRGB,
   splashPipeResultColorAlphaNoBlendRGB
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   ,
   splashPipeResultColorAlphaNoBlendCMYK
 #endif
@@ -124,7 +124,7 @@ SplashPipeResultColorCtrl const Splash::pipeResultColorAlphaBlend[] = {
   splashPipeResultColorAlphaBlendMono,
   splashPipeResultColorAlphaBlendRGB,
   splashPipeResultColorAlphaBlendRGB
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   ,
   splashPipeResultColorAlphaBlendCMYK
 #endif
@@ -228,7 +228,7 @@ inline void Splash::pipeInit(SplashPipe *pipe, SplashPattern *pattern,
       pipe->run = &Splash::pipeRunSimpleRGB8;
     } else if (mode == splashModeBGR8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunSimpleBGR8;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     } else if (mode == splashModeCMYK8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunSimpleCMYK8;
 #endif
@@ -242,7 +242,7 @@ inline void Splash::pipeInit(SplashPipe *pipe, SplashPattern *pattern,
       pipe->run = &Splash::pipeRunShapeRGB8;
     } else if (mode == splashModeBGR8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunShapeBGR8;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     } else if (mode == splashModeCMYK8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunShapeCMYK8;
 #endif
@@ -263,7 +263,7 @@ inline void Splash::pipeInit(SplashPipe *pipe, SplashPattern *pattern,
       pipe->run = &Splash::pipeRunAARGB8;
     } else if (mode == splashModeBGR8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunAABGR8;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     } else if (mode == splashModeCMYK8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunAACMYK8;
 #endif
@@ -283,7 +283,7 @@ inline void Splash::pipeInit(SplashPipe *pipe, SplashPattern *pattern,
       pipe->run = &Splash::pipeRunSoftMaskRGB8;
     } else if (mode == splashModeBGR8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunSoftMaskBGR8;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     } else if (mode == splashModeCMYK8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunSoftMaskCMYK8;
 #endif
@@ -299,7 +299,7 @@ inline void Splash::pipeInit(SplashPipe *pipe, SplashPattern *pattern,
       pipe->run = &Splash::pipeRunNonIsoRGB8;
     } else if (mode == splashModeBGR8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunNonIsoBGR8;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     } else if (mode == splashModeCMYK8 && bitmap->alpha) {
       pipe->run = &Splash::pipeRunNonIsoCMYK8;
 #endif
@@ -324,7 +324,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
   SplashColorPtr softMaskPtr;
   Guint overprintMask;
   Guint *overprintMaskPtr;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   Guchar aPrev;
   SplashColor cSrc2, cDest2;
 #endif
@@ -484,7 +484,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
 	cResult1 = state->rgbTransferG[cSrcPtr[1]];
 	cResult2 = state->rgbTransferB[cSrcPtr[2]];
 	break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
       case splashModeCMYK8:
 	cResult0 = state->cmykTransferC[cSrcPtr[0]];
 	cResult1 = state->cmykTransferM[cSrcPtr[1]];
@@ -523,7 +523,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
 	  cDest[0] = color0Ptr[2];
 	  color0Ptr += 3;
 	  break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 	case splashModeCMYK8:
 	  cDest[0] = color0Ptr[0];
 	  cDest[1] = color0Ptr[1];
@@ -553,7 +553,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
 	  cDest[1] = destColorPtr[1];
 	  cDest[2] = destColorPtr[0];
 	  break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 	case splashModeCMYK8:
 	  cDest[0] = destColorPtr[0];
 	  cDest[1] = destColorPtr[1];
@@ -593,7 +593,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
 	cSrc[1] = state->rgbTransferG[cSrcPtr[1]];
 	cSrc[2] = state->rgbTransferB[cSrcPtr[2]];
 	break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
       case splashModeCMYK8:
 	if (alpha0Ptr) {   // non-isolated group
 	  if (color0Ptr) { //   non-isolated, knockout group
@@ -666,7 +666,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
 	}
 	t = (t * 255) / shape - t;
 	switch (bitmap->mode) {
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 	case splashModeCMYK8:
 	  cSrc[3] = clip255(cSrc[3] + ((cSrc[3] - cDest[3]) * t) / 255);
 #endif
@@ -686,7 +686,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
       //----- blend function
 
       if (state->blendFunc) {
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 	if (bitmap->mode == splashModeCMYK8) {
 	  // convert colors to additive
 	  cSrc2[0] = (Guchar)(0xff - cSrc[0]);
@@ -755,7 +755,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
 	cResult1 = div255((255 - aDest) * cSrc[1] + aDest * cBlend[1]);
 	cResult2 = div255((255 - aDest) * cSrc[2] + aDest * cBlend[2]);
 	break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
       case splashPipeResultColorNoAlphaBlendCMYK:
 	cResult0 = div255((255 - aDest) * cSrc[0] + aDest * cBlend[0]);
 	cResult1 = div255((255 - aDest) * cSrc[1] + aDest * cBlend[1]);
@@ -786,7 +786,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
 			      / alphaI);
 	}
 	break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
       case splashPipeResultColorAlphaNoBlendCMYK:
 	if (alphaI == 0) {
 	  cResult0 = 0;
@@ -836,7 +836,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
 			      / alphaI);
 	}
 	break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
       case splashPipeResultColorAlphaBlendCMYK:
 	if (alphaI == 0) {
 	  cResult0 = 0;
@@ -894,7 +894,7 @@ void Splash::pipeRun(SplashPipe *pipe, int x0, int x1, int y,
       destColorPtr[2] = cResult0;
       destColorPtr += 3;
       break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
     case splashModeCMYK8:
       destColorPtr[0] = cResult0;
       destColorPtr[1] = cResult1;
@@ -1083,7 +1083,7 @@ void Splash::pipeRunSimpleBGR8(SplashPipe *pipe, int x0, int x1, int y,
   }
 }
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 // special case:
 // !pipe->pattern && pipe->noTransparency && !state->blendFunc &&
 // bitmap->mode == splashModeCMYK8 && bitmap->alpha) {
@@ -1522,7 +1522,7 @@ void Splash::pipeRunShapeBGR8(SplashPipe *pipe, int x0, int x1, int y,
   updateModX(lastX);
 }
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 // special case:
 // !pipe->pattern && pipe->shapeOnly && !state->blendFunc &&
 // bitmap->mode == splashModeCMYK8 && bitmap->alpha
@@ -2067,7 +2067,7 @@ void Splash::pipeRunAABGR8(SplashPipe *pipe, int x0, int x1, int y,
   updateModX(lastX);
 }
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 // special case:
 // !pipe->pattern && !pipe->noTransparency && !state->softMask &&
 // pipe->usesShape && !pipe->alpha0Ptr && !state->blendFunc &&
@@ -2515,7 +2515,7 @@ void Splash::pipeRunSoftMaskBGR8(SplashPipe *pipe, int x0, int x1, int y,
   updateModX(lastX);
 }
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 // special case:
 // !pipe->pattern && aInput == 255 && state->softMask && usesShape &&
 // !state->inNonIsolatedGroup && !state->inKnockoutGroup &&
@@ -2916,7 +2916,7 @@ void Splash::pipeRunNonIsoBGR8(SplashPipe *pipe, int x0, int x1, int y,
   updateModX(lastX);
 }
 
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
 void Splash::pipeRunNonIsoCMYK8(SplashPipe *pipe, int x0, int x1, int y,
 				Guchar *shapePtr, SplashColorPtr cSrcPtr) {
   Guchar shape, aSrc, aDest, alphaI, alpha0, aResult, aPrev;
@@ -4897,7 +4897,7 @@ void Splash::clear(SplashColorPtr color, Guchar alpha) {
       }
     }
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     if (color[0] == color[1] && color[1] == color[2] && color[2] == color[3]) {
       if (bitmap->rowSize < 0) {
@@ -5197,7 +5197,7 @@ SplashPath *Splash::flattenPath(SplashPath *path, SplashCoord *matrix,
   int i;
 
   fPath = new SplashPath();
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
   flatness2 = flatness;
 #else
   flatness2 = flatness * flatness;
@@ -5266,7 +5266,7 @@ void Splash::flattenCurve(SplashCoord x0, SplashCoord y0,
     // line)
     transform(matrix, (xl0 + xr3) * 0.5, (yl0 + yr3) * 0.5, &mx, &my);
     transform(matrix, xx1, yy1, &tx, &ty);
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
     d1 = splashDist(tx, ty, mx, my);
 #else
     dx = tx - mx;
@@ -5274,7 +5274,7 @@ void Splash::flattenCurve(SplashCoord x0, SplashCoord y0,
     d1 = dx*dx + dy*dy;
 #endif
     transform(matrix, xx2, yy2, &tx, &ty);
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
     d2 = splashDist(tx, ty, mx, my);
 #else
     dx = tx - mx;
@@ -5898,7 +5898,7 @@ void Splash::getImageBounds(SplashCoord xyMin, SplashCoord xyMax,
 			    int *xyMinI, int *xyMaxI) {
   if (state->strokeAdjust == splashStrokeAdjustOff) {
     // make sure the coords fit in 32-bit ints
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
     if (xyMin < -32767) {
       xyMin = -32767;
     } else if (xyMin > 32767) {
@@ -6485,7 +6485,7 @@ SplashError Splash::drawImage(GString *imageTag,
     ok = srcMode == splashModeRGB8;
     nComps = 3;
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     ok = srcMode == splashModeCMYK8;
     nComps = 4;
@@ -7694,7 +7694,7 @@ void Splash::compositeBackground(SplashColorPtr color) {
   SplashColorPtr p;
   Guchar *q;
   Guchar alpha, alpha1, c, color0, color1, color2, mask;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   Guchar color3;
 #endif
   int x, y;
@@ -7772,7 +7772,7 @@ void Splash::compositeBackground(SplashColorPtr color) {
       }
     }
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     color0 = color[0];
     color1 = color[1];
@@ -7853,7 +7853,7 @@ SplashError Splash::blitTransparent(SplashBitmap *src, int xSrc, int ySrc,
       memcpy(p, q, 3 * w);
     }
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     for (y = 0; y < h; ++y) {
       p = &bitmap->data[(yDest + y) * bitmap->rowSize + 4 * xDest];
@@ -7927,7 +7927,7 @@ SplashError Splash::blitCorrectedAlpha(SplashBitmap *dest, int xSrc, int ySrc,
       memcpy(p, q, 3 * w);
     }
     break;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     for (y = 0; y < h; ++y) {
       p = &dest->data[(yDest + y) * dest->rowSize + 4 * xDest];
@@ -8071,7 +8071,7 @@ SplashPath *Splash::makeStrokePath(SplashPath *path, SplashCoord w,
 	 ++k1) ;
 
     // compute the deltas for segment (i1, j0)
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
     // the 1/d value can be small, which introduces significant
     // inaccuracies in fixed point mode
     d = splashDist(pathIn->pts[i1].x, pathIn->pts[i1].y,
@@ -8170,7 +8170,7 @@ SplashPath *Splash::makeStrokePath(SplashPath *path, SplashCoord w,
     if (!last || closed) {
 
       // compute the deltas for segment (j1, k0)
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
       // the 1/d value can be small, which introduces significant
       // inaccuracies in fixed point mode
       d = splashDist(pathIn->pts[j1].x, pathIn->pts[j1].y,

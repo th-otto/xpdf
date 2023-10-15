@@ -26,7 +26,7 @@ class SplashFont;
 
 #define splashFontCacheSize 16
 
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
 #define splashFTNoHinting (1 << 0)
 #endif
 
@@ -39,7 +39,7 @@ public:
 
   // Create a font engine.
   SplashFontEngine(
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
 		   GBool enableFreeType,
 		   Guint freeTypeFlags,
 #endif
@@ -117,7 +117,7 @@ private:
   SplashFont *fontCache[splashFontCacheSize];
   GList *badFontFiles;		// [SplashFontFileID]
 
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
   SplashFTFontEngine *ftEngine;
 #endif
 };

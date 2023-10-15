@@ -113,7 +113,7 @@ private:
   Guchar *rgbTransferG;
   Guchar *rgbTransferB;
   Guchar *grayTransfer;
-#ifdef SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   Guchar *cmykTransferC;
   Guchar *cmykTransferM;
   Guchar *cmykTransferY;

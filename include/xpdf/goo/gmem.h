@@ -6,8 +6,8 @@
  * Copyright 1996-2003 Glyph & Cog, LLC
  */
 
-#ifndef GMEM_H
-#define GMEM_H
+#ifndef XPDF_GMEM_H
+#define XPDF_GMEM_H
 
 #include <xpdf/aconf.h>
 #include <stdio.h>

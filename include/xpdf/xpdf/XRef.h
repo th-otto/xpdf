@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef XREF_H
-#define XREF_H
+#ifndef XPDF_XREF_H
+#define XPDF_XREF_H
 
 #include <xpdf/aconf.h>
 

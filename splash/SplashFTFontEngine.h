@@ -11,7 +11,7 @@
 
 #include <xpdf/aconf.h>
 
-#ifdef HAVE_FREETYPE
+#ifdef XPDF_HAVE_FREETYPE
 
 #include <ft2build.h>
 #include <freetype/freetype.h>
@@ -90,6 +90,6 @@ private:
   friend class SplashFTFont;
 };
 
-#endif /* HAVE_FREETYPE */
+#endif /* XPDF_HAVE_FREETYPE */
 
 #endif

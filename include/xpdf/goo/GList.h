@@ -6,8 +6,8 @@
 //
 //========================================================================
 
-#ifndef GLIST_H
-#define GLIST_H
+#ifndef XPDF_GLIST_H
+#define XPDF_GLIST_H
 
 #include <xpdf/aconf.h>
 

@@ -8,12 +8,12 @@
 //
 //========================================================================
 
-#ifndef FIXEDPOINT_H
-#define FIXEDPOINT_H
+#ifndef XPDF_FIXEDPOINT_H
+#define XPDF_FIXEDPOINT_H
 
 #include <xpdf/aconf.h>
 
-#ifdef USE_FIXEDPOINT
+#ifdef XPDF_USE_FIXEDPOINT
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -171,6 +171,6 @@ private:
   int val;		   // fixed point: (n-fixptShift).(fixptShift)
 };
 
-#endif /* USE_FIXEDPOINT */
+#endif /* XPDF_USE_FIXEDPOINT */
 
 #endif
