@@ -32,11 +32,11 @@ extern void traceMessage(const char *fmt, ...);
 
 #else /* ENABLE_TRACING */
 
-static inline void traceBegin(void *nestHandle, const char *fmt, ...) {}
-static inline void traceEnd(void *nestHandle, const char *fmt, ...) {}
-static inline void traceAlloc(void *resourceHandle, const char *fmt, ...) {}
-static inline void traceFree(void *nestHandle, const char *fmt, ...) {}
-static inline void traceMessage(const char *fmt, ...) {}
+static inline void traceBegin(void *nestHandle, const char *fmt, ...) {(void) nestHandle; (void) fmt;}
+static inline void traceEnd(void *nestHandle, const char *fmt, ...) {(void) nestHandle; (void) fmt;}
+static inline void traceAlloc(void *resourceHandle, const char *fmt, ...) {(void) resourceHandle; (void) fmt;}
+static inline void traceFree(void *nestHandle, const char *fmt, ...) {(void) nestHandle; (void) fmt;}
+static inline void traceMessage(const char *fmt, ...) {(void) fmt;}
 
 #endif /* ENABLE_TRACING */
 

@@ -80,6 +80,7 @@ SplashBitmap *ShadingImage::generateFunctionBitmap(GfxState *state,
 
   // get the clip bbox
   double fxMin, fyMin, fxMax, fyMax;
+  (void)parentSplash;
   state->getClipBBox(&fxMin, &fyMin, &fxMax, &fyMax);
   if (fxMin > fxMax || fyMin > fyMax) {
     return NULL;
@@ -175,6 +176,7 @@ SplashBitmap *ShadingImage::generateAxialBitmap(GfxState *state,
   double dy = y1 - y0;
   double d = dx * dx + dy * dy;
   GBool dZero = fabs(d) < 0.0001;
+  (void)parentSplash;
   if (!dZero) {
     d = 1 / d;
   }
@@ -417,6 +419,7 @@ SplashBitmap *ShadingImage::generateRadialBitmap(GfxState *state,
   double h = sqrt((x1 - x0) * (x1 - x0) + (y1 - y0) * (y1 - y0));
   GBool enclosed = fabs(r1 - r0) >= h;
 
+  (void)parentSplash;
   // get the clip bbox
   double fxMin, fyMin, fxMax, fyMax;
   state->getClipBBox(&fxMin, &fyMin, &fxMax, &fyMax);
@@ -686,6 +689,7 @@ SplashBitmap *ShadingImage::generateGouraudTriangleBitmap(
 					int *xOut, int *yOut) {
   // get the clip bbox
   double fxMin, fyMin, fxMax, fyMax;
+  (void)parentSplash;
   state->getClipBBox(&fxMin, &fyMin, &fxMax, &fyMax);
   if (fxMin > fxMax || fyMin > fyMax) {
     return NULL;
@@ -1236,7 +1240,7 @@ void ShadingImage::computeShadingColor(GfxState *state,
 				       SplashColorPtr sColor) {
   GfxGray gray;
   GfxRGB rgb;
-#if XPDF_SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   GfxCMYK cmyk;
 #endif
 
@@ -1260,7 +1264,7 @@ void ShadingImage::computeShadingColor(GfxState *state,
     sColor[1] = colToByte(rgb.g);
     sColor[2] = colToByte(rgb.b);
     break;
-#if XPDF_SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   case splashModeCMYK8:
     state->getFillCMYK(&cmyk);
     sColor[0] = colToByte(cmyk.c);

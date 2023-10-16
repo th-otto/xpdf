@@ -236,6 +236,7 @@ void PreScanOutputDev::drawMaskedImage(GfxState *state, Object *ref,
   GfxColorSpace *colorSpace;
 
   (void) ref;
+  (void) maskRef;
   (void) str;
   (void) width;
   (void) height;
@@ -277,6 +278,7 @@ void PreScanOutputDev::drawSoftMaskedImage(GfxState *state, Object *ref,
 
   (void) state;
   (void) ref;
+  (void) maskRef;
   (void) str;
   (void) width;
   (void) height;

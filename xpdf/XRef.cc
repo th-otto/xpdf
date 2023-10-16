@@ -691,6 +691,7 @@ GBool XRef::readXRefStream(Stream *xrefStr, GFileOffset *pos, GBool hybrid) {
   Object obj, obj2, idx;
   int newSize, first, n, i;
 
+  (void)hybrid;
   dict = xrefStr->getDict();
 
   if (!dict->lookupNF("Size", &obj)->isInt()) {
@@ -1300,7 +1301,7 @@ GBool XRef::getObjectStreamObject(int objStrNum, int objIdx,
   gLockMutex(&objStrsMutex);
 #endif
   if (!(objStr = getObjectStream(objStrNum))) {
-#if XPDF_MULTITHREADED
+#ifdef XPDF_MULTITHREADED
     gUnlockMutex(&objStrsMutex);
 #endif
     return gFalse;

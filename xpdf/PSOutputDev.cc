@@ -4144,12 +4144,11 @@ GBool PSOutputDev::checkPageSlice(Page *page, double hDPI, double vDPI,
   Stream *str0, *str;
   Object obj;
   Guchar *p;
-  Guchar col[4];
   char buf[4096];
   double userUnit, hDPI2, vDPI2;
   double m0, m1, m2, m3, m4, m5;
   int nStripes, stripeH, stripeY;
-  int w, h, x, y, comp, i, n;
+  int w, h, x, y, i, n;
 #endif
 
   (void) hDPI;
@@ -4278,7 +4277,10 @@ GBool PSOutputDev::checkPageSlice(Page *page, double hDPI, double vDPI,
       }
       break;
     case psLevel1Sep:
-#if XPDF_SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
+      {
+      Guchar col[4];
+      int cmp;
       writePSFmt("{0:d} {1:d} 8 [{2:d} 0 0 {3:d} 0 {4:d}] pdfIm1Sep\n",
 		 w, h, w, -h, h);
       p = bitmap->getDataPtr() + (h - 1) * bitmap->getRowSize();
@@ -4311,6 +4313,7 @@ GBool PSOutputDev::checkPageSlice(Page *page, double hDPI, double vDPI,
       }
       if (col[3]) {
 	processColors |= psProcessBlack;
+      }
       }
       break;
       // if !XPDF_SPLASH_CMYK: fall through
@@ -6035,6 +6038,7 @@ void PSOutputDev::drawMaskedImage(GfxState *state, Object *ref, Stream *str,
   int len;
 
   (void) interpolate;
+  (void) maskRef;
   len = height * ((width * colorMap->getNumPixelComps() *
 		   colorMap->getBits() + 7) / 8);
   switch (level) {

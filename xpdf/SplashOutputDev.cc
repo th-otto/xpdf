@@ -1100,6 +1100,12 @@ void SplashOutputDev::setOverprintMask(GfxState *state,
     mask = 0xffffffff;
   }
   splash->setOverprintMask(mask);
+#else
+  (void)state;
+  (void)colorSpace;
+  (void)overprintFlag;
+  (void)overprintMode;
+  (void)singleColor;
 #endif
 
 }
@@ -1340,7 +1346,7 @@ void SplashOutputDev::doUpdateFont(GfxState *state) {
       }
       break;
     case fontType1C:
-#if LOAD_FONTS_FROM_MEM
+#ifdef LOAD_FONTS_FROM_MEM
       if ((ffT1C = FoFiType1C::make(fontBuf->getCString(),
 				    fontBuf->getLength()))) {
 #else
@@ -2032,7 +2038,7 @@ void SplashOutputDev::tilingPatternFill(GfxState *state, Gfx *gfx,
     color[i] = 0;
   }
   splash->clear(color);
-#if XPDF_SPLASH_CMYK
+#ifdef XPDF_SPLASH_CMYK
   // if we're doing overprint preview, we need to track the overprint
   // mask at each pixel in the tile bitmap
   if (globalParams->getOverprintPreview() &&
@@ -3557,6 +3563,7 @@ void SplashOutputDev::drawSoftMaskedImage(GfxState *state, Object *ref,
   int n, i;
 
   (void) ref;
+  (void) maskRef;
   setOverprintMask(state, colorMap->getColorSpace(),
 		   state->getFillOverprint(), state->getOverprintMode(),
 		   NULL);

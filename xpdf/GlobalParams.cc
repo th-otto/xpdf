@@ -363,7 +363,7 @@ public:
   void scanWindowsFonts(char *winFontDir);
 #endif
 
-#if HAVE_FONTCONFIG
+#ifdef HAVE_FONTCONFIG
   void scanFontconfigFonts();
 #endif
 
@@ -490,7 +490,7 @@ SysFontInfo *SysFontList::makeWindowsFont(char *name, int fontNum,
 }
 #endif // _WIN32
 
-#if HAVE_FONTCONFIG
+#ifdef HAVE_FONTCONFIG
 void SysFontList::scanFontconfigFonts() {
   FcConfig *cfg;
   FcPattern *pattern;
@@ -1335,6 +1335,8 @@ void GlobalParams::parseLine(char *buf, GString *fileName, int line) {
 //       @"foo%"bar", @"foo%$bar", @"foo%%bar"
 GList *GlobalParams::parseLineTokens(char *buf, GString *fileName, int line) {
   GList *tokens = new GList();
+  (void)fileName;
+  (void)line;
   char *p1 = buf;
   while (*p1) {
     for (; *p1 && isspace(*p1); ++p1) ;
@@ -2419,7 +2421,7 @@ void GlobalParams::setupBaseFonts(const char *dir) {
     sysFonts->scanWindowsFonts(winFontDir);
   }
 #endif
-#if HAVE_FONTCONFIG
+#ifdef HAVE_FONTCONFIG
   sysFonts->scanFontconfigFonts();
 #endif
 }

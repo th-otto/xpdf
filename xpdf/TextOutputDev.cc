@@ -318,8 +318,8 @@ int TextChar::cmpY(const void *p1, const void *p2) {
 }
 
 int TextChar::cmpCharPos(const void *p1, const void *p2) {
-  const TextChar *ch1 = *(const TextChar **)p1;
-  const TextChar *ch2 = *(const TextChar **)p2;
+  const TextChar *ch1 = *(const TextChar *const*)p1;
+  const TextChar *ch2 = *(const TextChar *const*)p2;
   return ch1->charPos - ch2->charPos;
 }
 
@@ -2032,6 +2032,8 @@ void TextPage::writeSimple2Layout(void *outputStream,
   GBool primaryLR;
   int colIdx, parIdx, lineIdx;
 
+  (void)space;
+  (void)spaceLen;
   primaryLR = checkPrimaryLR(chars);
   rotateCharsToZero(chars);
 #if 0 //~debug

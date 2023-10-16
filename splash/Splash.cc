@@ -5942,6 +5942,8 @@ SplashError Splash::fillImageMask(GString *imageTag,
 				  int w, int h, SplashCoord *mat,
 				  GBool glyphMode, GBool interpolate,
 				  GBool antialias) {
+  (void) imageTag;
+  (void) glyphMode;
 #ifndef XPDF_SLB
   if (debugMode) {
     printf("fillImageMask: w=%d h=%d mat=[%.2f %.2f %.2f %.2f %.2f %.2f]\n",
@@ -7194,12 +7196,14 @@ void Splash::mirrorImageRow(Guchar *colorIn, Guchar *alphaIn,
 void Splash::drawImageRowNoClipNoAlpha(SplashDrawImageRowData *data,
 				       Guchar *colorData, Guchar *alphaData,
 				       int x, int y, int width) {
+  (void) alphaData;
   (this->*data->pipe.run)(&data->pipe, x, x + width - 1, y, NULL, colorData);
 }
 
 void Splash::drawImageRowNoClipAlpha(SplashDrawImageRowData *data,
 				     Guchar *colorData, Guchar *alphaData,
 				     int x, int y, int width) {
+  (void) alphaData;
   (this->*data->pipe.run)(&data->pipe, x, x + width - 1, y,
 			  alphaData, colorData);
 }
@@ -7208,6 +7212,7 @@ void Splash::drawImageRowClipNoAlphaNoAA(SplashDrawImageRowData *data,
 					 Guchar *colorData,
 					 Guchar *alphaData,
 					 int x, int y, int width) {
+  (void) alphaData;
   if (y < 0 || y >= bitmap->height) {
     return;
   }
@@ -7233,6 +7238,7 @@ void Splash::drawImageRowClipNoAlphaAA(SplashDrawImageRowData *data,
 				       Guchar *colorData,
 				       Guchar *alphaData,
 				       int x, int y, int width) {
+  (void) alphaData;
   if (y < 0 || y >= bitmap->height) {
     return;
   }
